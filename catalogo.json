@@ -1,0 +1,4127 @@
+{
+ "meta": {
+  "fonte": "Relatório de Custos de Composições da SSP/BA — Tabela Consolidada Retificada (CEIRF)",
+  "bdi": 0.1985,
+  "data_base": "SINAPI 08/2026, SBC 09/2026, SICRO3 04/2026, ORSE 07/2026, SEINFRA 028, EMBASA 06/2026",
+  "versao_catalogo": "2026-11-12",
+  "total_itens": 409,
+  "regra_grupo": "Grupo II = unidade de tempo (DIÁRIA, TURNO 12H). CHP/CHI pendentes de classificação."
+ },
+ "grupos": {
+  "SSP-ACES": "ACESSÓRIOS",
+  "SSP-ADM": "ADMINISTRAÇÃO E SERVIÇOS DE APOIO",
+  "SSP-BAIA": "BAIAS",
+  "SSP-CEL": "CELAS",
+  "SSP-DIV": "DIVISÓRIAS",
+  "SSP-ELET": "INSTALAÇÕES ELÉTRICAS",
+  "SSP-EQUIP": "EQUIPAMENTOS",
+  "SSP-EST": "ESTRUTURAS",
+  "SSP-FECH": "FECHAMENTOS",
+  "SSP-FOR": "FORRO",
+  "SSP-FT": "FITAS ADESIVAS",
+  "SSP-HID": "INSTALAÇÕES HIDROSSANITÁRIAS",
+  "SSP-JAN": "JANELAS",
+  "SSP-MAT": "MATERIAL DE LIMPEZA",
+  "SSP-MOB": "MOBILIÁRIO",
+  "SSP-PEO": "POSTO ELEVADO DE OBSERVAÇÃO (PEO)",
+  "SSP-PIS": "PISOS",
+  "SSP-PRGV": "PROGRAMAÇÃO VISUAL",
+  "SSP-RAMP": "RAMPAS",
+  "SSP-RED": "REDE LÓGICA",
+  "SSP-SIL": "VEDAÇÃO COM SILICONE",
+  "SSP-TLD": "TOLDOS E CORTINAS EM LONA",
+  "SSP-VIG": "VIGILÂNCIA"
+ },
+ "itens": [
+  {
+   "item": "1.1",
+   "codigo": "SSP-ACES-001",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CADEADO DE METAL E AÇO, DE 45 MM, COM ABERTURA CODIFICADA (SEGREDO).",
+   "unidade": "UN",
+   "valor_sem_bdi": 28.49,
+   "valor_com_bdi": 34.15,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.2",
+   "codigo": "SSP-ACES-002",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CADEADO SIMPLES, CORPO EM LATAO MACICO, COM LARGURA DE 50 MM E ALTURA DE APROX 40 MM, INCLUINDO 2 CHAVES.",
+   "unidade": "UN",
+   "valor_sem_bdi": 23.39,
+   "valor_com_bdi": 28.03,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.3",
+   "codigo": "SSP-ACES-003",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CORDA REVESTIDA PARA VARAL, INSTALADO EM FECHAMENTO EXTERNO (LAVANDERIA).",
+   "unidade": "M",
+   "valor_sem_bdi": 1.16,
+   "valor_com_bdi": 1.39,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.4",
+   "codigo": "SSP-ACES-004",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CORRENTE EM AÇO DE 1/2\"",
+   "unidade": "M",
+   "valor_sem_bdi": 40.47,
+   "valor_com_bdi": 48.5,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.5",
+   "codigo": "SSP-ACES-005",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CORRENTE EM AÇO GALVANIZADO, ELO DIAM.: 4,8MM.",
+   "unidade": "M",
+   "valor_sem_bdi": 19.74,
+   "valor_com_bdi": 23.66,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.6",
+   "codigo": "SSP-ACES-006",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESPELHO COM PARAFUSO DECORATIVO, DIMENS. 0,60X0,40M, ESP. 4MM",
+   "unidade": "UN",
+   "valor_sem_bdi": 91.46,
+   "valor_com_bdi": 109.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.7",
+   "codigo": "SSP-ACES-007",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESPELHO CRISTAL, E=4MM, COM MOLDURA. QTDXDIMENSÃO, CONFORME MEMORIAL DESCRITIVO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 91.46,
+   "valor_com_bdi": 109.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.8",
+   "codigo": "SSP-ACES-008",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESPELHO CRISTAL, E=4MM, COM MOLDURA. 2X (0,80X2,00)M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 91.46,
+   "valor_com_bdi": 109.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.9",
+   "codigo": "SSP-ACES-009",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESPELHO CRISTAL, E=4MM, COM MOLDURA. 2X(0,40X0,60)M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 91.46,
+   "valor_com_bdi": 109.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.10",
+   "codigo": "SSP-ACES-010",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESPELHO CRISTAL, E=4MM, COM MOLDURA. 3X(0,40X0,60)M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 91.46,
+   "valor_com_bdi": 109.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.11",
+   "codigo": "SSP-ACES-011",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESPELHO CRISTAL, E=4MM, COM MOLDURA. 5X(0,40X0,60)M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 91.46,
+   "valor_com_bdi": 109.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.12",
+   "codigo": "SSP-ACES-012",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESPELHO CRISTAL, E=4MM, COM MOLDURA. 6X(0,40X0,60)M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 91.46,
+   "valor_com_bdi": 109.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.13",
+   "codigo": "SSP-ACES-013",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESPUMA ACÚSTICA, ONDULADA, COM PLACAS DE 1000 X 1000 MM, ESPESSURA 5CM SEM PINTURA, NA COR BRANCA, CHANFRADO NAS BORDAS, COM TRATAMENTO RETARDANTE DE CHAMAS. TEMPERATURA DE UTILIZAÇÃO: -30º C + 90º C",
+   "unidade": "M2",
+   "valor_sem_bdi": 26.74,
+   "valor_com_bdi": 32.05,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.14",
+   "codigo": "SSP-ACES-014",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MALHA DECORATIVA HELANCA.",
+   "unidade": "M²",
+   "valor_sem_bdi": 23.27,
+   "valor_com_bdi": 27.89,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.15",
+   "codigo": "SSP-ACES-015",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MOLA HIDRÁULICA AÉREA, FECHAMENTO AUTOMÁTICO PARA PORTA LEVE, INSTALADA NAS PORTAS DE ACESSO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 67.9,
+   "valor_com_bdi": 81.38,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "1.16",
+   "codigo": "SSP-ACES-016",
+   "grupo": "SSP-ACES",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PERSIANA HORIZONTAL DE PVC INSTALADA",
+   "unidade": "M²",
+   "valor_sem_bdi": 18.05,
+   "valor_com_bdi": 21.63,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "2.1",
+   "codigo": "SSP-ADM-001",
+   "grupo": "SSP-ADM",
+   "descricao": "EQUIPE FORMADA POR 02 BOMBEIROS CIVIL COM ENCARGOS COMPLEMENTARES (DISPONIBILIDADE 24 HRS)",
+   "unidade": "DIÁRIA",
+   "valor_sem_bdi": 1792.62,
+   "valor_com_bdi": 2148.46,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "2.2",
+   "codigo": "SSP-ADM-002",
+   "grupo": "SSP-ADM",
+   "descricao": "EQUIPE FORMADA POR 04 BOMBEIROS CIVIL COM ENCARGOS COMPLEMENTARES (DISPONIBILIDADE 24 HRS)",
+   "unidade": "DIÁRIA",
+   "valor_sem_bdi": 3585.24,
+   "valor_com_bdi": 4296.91,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "2.3",
+   "codigo": "SSP-ADM-003",
+   "grupo": "SSP-ADM",
+   "descricao": "LIMPEZA MANUAL DE TERRENO COM ENXADA",
+   "unidade": "m²",
+   "valor_sem_bdi": 5.57,
+   "valor_com_bdi": 6.68,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "2.4",
+   "codigo": "SSP-ADM-004",
+   "grupo": "SSP-ADM",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LIMPEZA/SUCÇÃO DE FOSSA DE 1M³",
+   "unidade": "UN",
+   "valor_sem_bdi": 70.0,
+   "valor_com_bdi": 83.9,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "2.5",
+   "codigo": "SSP-ADM-005",
+   "grupo": "SSP-ADM",
+   "descricao": "MONTAGEM E DESMONTAGEM DE DISCIPLINADORES DURANTE O EVENTO, 02 (DOIS) AJUDANTES, COM UNIFORMES E EPI'S, CONFORME ESPECIFICAÇÃO.",
+   "unidade": "DIARIA",
+   "valor_sem_bdi": 206.56,
+   "valor_com_bdi": 247.56,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "2.6",
+   "codigo": "SSP-ADM-006",
+   "grupo": "SSP-ADM",
+   "descricao": "SERVIÇOS GERAIS - DUPLA - (LIMPEZA/MÃO DE OBRA) - 24 H - DEVENDO ESTAR DEVIDAMENTE UNIFORMIZADOS, IDENTIFICADOS COM CAMISA E CRACHÁ. QUATRO (04) PESSOAS POR DIÁRIA, SENDO DUAS PESSOAS POR TURNO.",
+   "unidade": "DIARIA",
+   "valor_sem_bdi": 1260.0,
+   "valor_com_bdi": 1510.11,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "2.7",
+   "codigo": "SSP-ADM-007",
+   "grupo": "SSP-ADM",
+   "descricao": "SERVIÇOS GERAIS - (LIMPEZA/MÃO DE OBRA) - 24 H - DEVENDO ESTAR DEVIDAMENTE UNIFORMIZADOS, IDENTIFICADOS COM CAMISA E CRACHÁ. DUAS (02) PESSOAS POR DIÁRIA, SENDO UMA PESSOA POR TURNO.",
+   "unidade": "DIARIA",
+   "valor_sem_bdi": 630.0,
+   "valor_com_bdi": 755.06,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "2.8",
+   "codigo": "SSP-ADM-008",
+   "grupo": "SSP-ADM",
+   "descricao": "SERVIÇOS GERAIS - QUARTETO - (LIMPEZA/MÃO DE OBRA) - 24 H - DEVENDO ESTAR DEVIDAMENTE UNIFORMIZADOS, IDENTIFICADOS COM CAMISA E CRACHÁ.",
+   "unidade": "DIARIA",
+   "valor_sem_bdi": 2520.0,
+   "valor_com_bdi": 3020.22,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "2.9",
+   "codigo": "SSP-ADM-009",
+   "grupo": "SSP-ADM",
+   "descricao": "EQUIPE DE MANUTENÇÃO - FORMADA POR - ENCARREGADO - ELETRICISTA - ENCANADOR (DISPONIBILIDADE 24 H).",
+   "unidade": "DIARIA",
+   "valor_sem_bdi": 2179.2,
+   "valor_com_bdi": 2611.77,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "2.10",
+   "codigo": "SSP-ADM-010",
+   "grupo": "SSP-ADM",
+   "descricao": "EQUIPE DE MANUTENÇÃO - FORMADA POR - ENCARREGADO - ELETRICISTA - ENCANADOR (DISPONIBILIDADE 12 H).",
+   "unidade": "TURNO 12H",
+   "valor_sem_bdi": 1089.6,
+   "valor_com_bdi": 1305.89,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "2.11",
+   "codigo": "SSP-ADM-011",
+   "grupo": "SSP-ADM",
+   "descricao": "MONTAGEM E DESMONTAGEM DE DISCIPLINADORES DURANTE O EVENTO, 04 (QUATRO) AJUDANTES, COM UNIFORMES E EPI'S, CONFORME ESPECIFICAÇÃO.",
+   "unidade": "DIARIA",
+   "valor_sem_bdi": 413.12,
+   "valor_com_bdi": 495.12,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "3.1",
+   "codigo": "SSP-BAIA-001",
+   "grupo": "SSP-BAIA",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ATRELADOURO PORTA SELA, COM GANCHOS PARA COLOCAR CABEÇADAS. CONFORME ESPECIFICAÇÃO",
+   "unidade": "UN",
+   "valor_sem_bdi": 84.78,
+   "valor_com_bdi": 101.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "3.2",
+   "codigo": "SSP-BAIA-002",
+   "grupo": "SSP-BAIA",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - COCHO PLÁSTICO PARA BAIAS, FIXOS NA ESTRUTURA. CONFORME ESPECIFICAÇÃO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 57.92,
+   "valor_com_bdi": 69.42,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "3.3",
+   "codigo": "SSP-BAIA-003",
+   "grupo": "SSP-BAIA",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BRETE PARA CONTENÇÃO DE EQUINOS EM ESTRUTURA METÁLICA TUBULAR DE 2\", E=3,91MM COM CHAPA DE 3,00MM NAS 2 PORTAS. DIMENSÃO: (2,50 X 2,20 X 0,90)M (AXCXL). PINTADO COM TINTA ESMALTE SINTÉTICO NA COR CONFORME PROJETO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 2184.27,
+   "valor_com_bdi": 2617.85,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "3.4",
+   "codigo": "SSP-BAIA-004",
+   "grupo": "SSP-BAIA",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TUBO DE AÇO GALVANIZADO DE 2\" (POLEGADAS), COM 2 (DOIS) SUPORTES E TRAVAMENTOS, PARA ISOLAMENTO NA ENTRADA DAS BAIAS.",
+   "unidade": "M",
+   "valor_sem_bdi": 64.62,
+   "valor_com_bdi": 77.45,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "4.1",
+   "codigo": "SSP-CEL-001",
+   "grupo": "SSP-CEL",
+   "descricao": "FORNECIMENTO, DESMONTAGEM, MONTAGEM E INSTALAÇÃO - CELAS, TIPO GAIOLA (VER DETALHES CONTIDOS EM PLANTAS) COMPOSTO POR PAREDES, PORTA, TETO E BASE EM BARRAS DE FERRO, COM DIÂMETRO DE 3/4”, ESPAÇAMENTO DE10 EM 10CM, SOLDADAS EM MONTANTES DE BARRAS CHATAS DE 1 X 3/8”, TAMBÉM EM FERRO, ACRESCIDA NA BASE DE APOIO COM COMPENSADO NAVAL DE 20MM E CADEADO REFORÇADO. PORTAS COM DIMENSÕES DE 0.60M.",
+   "unidade": "UN",
+   "valor_sem_bdi": 2191.79,
+   "valor_com_bdi": 2626.86,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "4.2",
+   "codigo": "SSP-CEL-002",
+   "grupo": "SSP-CEL",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TELA DE ARAME GALVANIZADA, HEXAGONAL, FIO 0,56 MM (24 BWG), MALHA 1/2\"",
+   "unidade": "m²",
+   "valor_sem_bdi": 57.22,
+   "valor_com_bdi": 68.58,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.1",
+   "codigo": "SSP-DIV-001",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BALCÃO DE PVC COM PERFIS EM ALUMÍNIO ANODIZADO, NA COR BRANCA. DIMENSÃO CONFORME MEMORIAL DESCRITIVO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 88.82,
+   "valor_com_bdi": 106.45,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.2",
+   "codigo": "SSP-DIV-002",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DIVISÓRIA DUPLA COMPOSTA POR ESTRUTURA DE PVC, COM ISOLAMENTO EM LÃ DE PET, PERFIS EM ALUMINIO",
+   "unidade": "M²",
+   "valor_sem_bdi": 278.36,
+   "valor_com_bdi": 333.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.3",
+   "codigo": "SSP-DIV-003",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DIVISÓRIAS EM PERFIS DE ALUMÍNIO ANODIZADOS E PAINÉIS DE PVC, NA COR BRANCA. (SEM: MANCHAS, FUROS, RESTO DE ADESIVOS, DANOS FÍSICOS).",
+   "unidade": "M²",
+   "valor_sem_bdi": 136.02,
+   "valor_com_bdi": 163.02,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.4",
+   "codigo": "SSP-DIV-004",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PAINEL E ACRÍLICO TRANSPARENTE (NOVO), (1,00 X 1,00)M, E=4MM, FIXADO COM TARUGO DE POLIETILENO NA COR BRANCA NAS DUAS FACES. SEM TRINCAS, MANCHAS, ADESIVOS, ARRANHÕES.",
+   "unidade": "M²",
+   "valor_sem_bdi": 155.46,
+   "valor_com_bdi": 186.32,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.5",
+   "codigo": "SSP-DIV-005",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, DUAS FOLHAS, E=3,5CM, 2.40X2.10M C/FECHADURA, DOBRADIÇAS, MOLDURA BATEDOR E VISOR DE ACRÍLICO COM DIMENSÃO DE 0,50 X 0,80M EM CADA FOLHA, FIXADO COM TARUGO DE POLIETILENO NA COR BRANCA, NAS DUAS FACES.",
+   "unidade": "UN",
+   "valor_sem_bdi": 978.3,
+   "valor_com_bdi": 1172.49,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.6",
+   "codigo": "SSP-DIV-006",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 0,60 X 2,10M C/ FECHADURA TIPO TUBULAR LOCKWELL , DOBRADIÇA, E MOLDURA BATEDOR.",
+   "unidade": "UND",
+   "valor_sem_bdi": 255.41,
+   "valor_com_bdi": 306.11,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.7",
+   "codigo": "SSP-DIV-007",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 0.60X2.10M C/FECHADURA TIPO ALAVANCA, DOBRADIÇAS, MOLDURA BATEDOR.",
+   "unidade": "UN",
+   "valor_sem_bdi": 234.42,
+   "valor_com_bdi": 280.95,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.8",
+   "codigo": "SSP-DIV-008",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 0.80X2.10M C/FECHADURA, DOBRADIÇAS, MOLDURA BATEDOR E VISOR DE ACRÍLICO COM DIMENSÃO DE 0,50 X 0,80M, FIXADO COM TARUGO DE POLIETILENO NA COR BRANCA, NAS DUAS FACES.",
+   "unidade": "UND",
+   "valor_sem_bdi": 346.61,
+   "valor_com_bdi": 415.41,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.9",
+   "codigo": "SSP-DIV-009",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 0.80X2.10M C/FECHADURA, DOBRADIÇAS, MOLDURA BATEDOR.",
+   "unidade": "UND",
+   "valor_sem_bdi": 286.49,
+   "valor_com_bdi": 343.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.10",
+   "codigo": "SSP-DIV-010",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 0.90X2.10M C/FECHADURA, DOBRADIÇAS, MOLDURA BATEDOR E VISOR DE ACRÍLICO COM DIMENSÃO DE 0,50 X 0,80M, FIXADO COM TARUGO DE POLIETILENO NA COR BRANCA, NAS DUAS FACES.",
+   "unidade": "UND",
+   "valor_sem_bdi": 371.65,
+   "valor_com_bdi": 445.42,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.11",
+   "codigo": "SSP-DIV-011",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 0.90X2.10M C/FECHADURA, DOBRADIÇAS, MOLDURA BATEDOR.",
+   "unidade": "UND",
+   "valor_sem_bdi": 331.02,
+   "valor_com_bdi": 396.73,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.12",
+   "codigo": "SSP-DIV-012",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 1.10X2.10M C/FECHADURA, DOBRADIÇAS, MOLDURA BATEDOR.",
+   "unidade": "UND",
+   "valor_sem_bdi": 427.62,
+   "valor_com_bdi": 512.5,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.13",
+   "codigo": "SSP-DIV-013",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 1.20X2.10M C/FECHADURA, DOBRADIÇAS, MOLDURA BATEDOR.",
+   "unidade": "UN",
+   "valor_sem_bdi": 448.51,
+   "valor_com_bdi": 537.54,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "5.14",
+   "codigo": "SSP-DIV-014",
+   "grupo": "SSP-DIV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA DE ABRIR EM PAINEL PVC, E=3,5CM, 2.20X2.10M C/FECHADURA, DOBRADIÇAS, MOLDURA BATEDOR.",
+   "unidade": "UN",
+   "valor_sem_bdi": 623.82,
+   "valor_com_bdi": 747.65,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.1",
+   "codigo": "SSP-ELET-001",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ALIMENTAÇÃO DO QUADRO GERAL DE ENERGIA, COM FORNECIMENTO DE CABO 35MM - 1KV.",
+   "unidade": "M",
+   "valor_sem_bdi": 19.47,
+   "valor_com_bdi": 23.33,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.2",
+   "codigo": "SSP-ELET-002",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CABO COBRE - 450/750V - PP 3 X 2,5 MM (TOMADAS E ILUMINAÇÃO INTERNA/EXTERNA).",
+   "unidade": "M",
+   "valor_sem_bdi": 12.11,
+   "valor_com_bdi": 14.51,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.3",
+   "codigo": "SSP-ELET-003",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CABO COBRE - 450/750V - PP 3 X 4 MM (AR CONDICIONADO).",
+   "unidade": "M",
+   "valor_sem_bdi": 14.71,
+   "valor_com_bdi": 17.63,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.4",
+   "codigo": "SSP-ELET-005",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO - PARA APOIO REF APM.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 908.59,
+   "valor_com_bdi": 1088.95,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.5",
+   "codigo": "SSP-ELET-006",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA COZ RIB.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 896.9,
+   "valor_com_bdi": 1074.93,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.6",
+   "codigo": "SSP-ELET-007",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA POD.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 526.79,
+   "valor_com_bdi": 631.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.7",
+   "codigo": "SSP-ELET-008",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA PPM II.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 765.28,
+   "valor_com_bdi": 917.19,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.8",
+   "codigo": "SSP-ELET-009",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA PPM IV.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 954.65,
+   "valor_com_bdi": 1144.15,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.9",
+   "codigo": "SSP-ELET-010",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA PPM V.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1063.85,
+   "valor_com_bdi": 1275.02,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.10",
+   "codigo": "SSP-ELET-011",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA BE 08.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1141.85,
+   "valor_com_bdi": 1368.51,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.11",
+   "codigo": "SSP-ELET-012",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA PPM VII.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1052.15,
+   "valor_com_bdi": 1261.0,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.12",
+   "codigo": "SSP-ELET-013",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA PRT OND.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 599.57,
+   "valor_com_bdi": 718.58,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.13",
+   "codigo": "SSP-ELET-014",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA BIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA BE 04.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1574.37,
+   "valor_com_bdi": 1886.88,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.14",
+   "codigo": "SSP-ELET-015",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA BIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA BE 08.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2276.13,
+   "valor_com_bdi": 2727.94,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.15",
+   "codigo": "SSP-ELET-016",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABO (16 MM, 50 MM), ELETRODUTOS (3/4\"-2\"), RACKS, QUADROS, DISJUNTORES (MONO, BI, TRI), BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 6248.87,
+   "valor_com_bdi": 7489.27,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.16",
+   "codigo": "SSP-ELET-017",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABO (16MM, 35MM), ELETRODUTOS (3/4\"-1.1/4\"), RACKS, QUADROS, DISJUNTORES (MONO, BI), BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 3064.67,
+   "valor_com_bdi": 3673.01,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.17",
+   "codigo": "SSP-ELET-018",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG S.ADM.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2179.35,
+   "valor_com_bdi": 2611.95,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.18",
+   "codigo": "SSP-ELET-019",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS PARA APOIO REF LOB-RIB .",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1492.54,
+   "valor_com_bdi": 1788.81,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.19",
+   "codigo": "SSP-ELET-020",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA P.VEST.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1943.95,
+   "valor_com_bdi": 2329.82,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.20",
+   "codigo": "SSP-ELET-021",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS PARA BE 01.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 5297.08,
+   "valor_com_bdi": 6348.55,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.21",
+   "codigo": "SSP-ELET-022",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA BE 03.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2466.32,
+   "valor_com_bdi": 2955.88,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.22",
+   "codigo": "SSP-ELET-023",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA PRT ONDINA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 3924.16,
+   "valor_com_bdi": 4703.11,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.23",
+   "codigo": "SSP-ELET-024",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA APOIO REF APM .",
+   "unidade": "KIT",
+   "valor_sem_bdi": 3069.14,
+   "valor_com_bdi": 3678.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.24",
+   "codigo": "SSP-ELET-025",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LUMINÁRIA COMPLETA LED C/ 1 LÂMPADA DE 30W E CABO PP 1,5 MM²",
+   "unidade": "un",
+   "valor_sem_bdi": 52.47,
+   "valor_com_bdi": 62.89,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.25",
+   "codigo": "SSP-ELET-026",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LUMINÁRIA DE EMERGÊNCIA, COM 30 LÂMPADAS LED DE 2 W, SEM REATOR - FORNECIMENTO E INSTALAÇÃO. AF_02/2020",
+   "unidade": "UN",
+   "valor_sem_bdi": 23.17,
+   "valor_com_bdi": 27.77,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.26",
+   "codigo": "SSP-ELET-027",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE ILUMINAÇÃO EXTERNA - INCLUSO, 1 LÂMPADA LED 100W BRANCA E BOCAL, INSTALADA EM CABO PP 2,5MM",
+   "unidade": "UN",
+   "valor_sem_bdi": 120.5,
+   "valor_com_bdi": 144.42,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.27",
+   "codigo": "SSP-ELET-028",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE ILUMINAÇÃO EXTERNA INCLUSO LUMINÁRIA 250W, INTERRUPTOR E CABO PP 1,5MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 108.99,
+   "valor_com_bdi": 130.62,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.28",
+   "codigo": "SSP-ELET-029",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE ILUMINAÇÃO INCLUSO LUMINÁRIA PLAFON C/01 LÂMPADA LED 15W BRANCA E CABO PP 1,5MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 48.12,
+   "valor_com_bdi": 57.67,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.29",
+   "codigo": "SSP-ELET-030",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE ILUMINAÇÃO INCLUSO LUMINÁRIA TUBULAR C/ 02 LAMPADAS LED 40 W BRANCA E CABO PP 1,5 MM².",
+   "unidade": "UN",
+   "valor_sem_bdi": 114.27,
+   "valor_com_bdi": 136.95,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.30",
+   "codigo": "SSP-ELET-031",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE ILUMINAÇÃO INTERNA - INCLUSO, LUMINÁRIA PLAFON C/ 1 LÂMPADA LED 15W BRANCA, INSTALADA EM CABO PP 2,5MM",
+   "unidade": "UN",
+   "valor_sem_bdi": 33.37,
+   "valor_com_bdi": 39.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.31",
+   "codigo": "SSP-ELET-032",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE INTERRUPTOR, INCLUSO ELETRODUTO PVC RÍGIDO E CABO 1,5MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 32.99,
+   "valor_com_bdi": 39.54,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.32",
+   "codigo": "SSP-ELET-033",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE INTERRUPTOR, INCLUSO, CAIXA 4X2 + MODULO + TAMPA",
+   "unidade": "UN",
+   "valor_sem_bdi": 21.8,
+   "valor_com_bdi": 26.13,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.33",
+   "codigo": "SSP-ELET-034",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE TOMADA 2P*T UNIVERSAL INCLUSO TOMADA 10A E CABO PP 2,5MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 38.09,
+   "valor_com_bdi": 45.65,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.34",
+   "codigo": "SSP-ELET-035",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE TOMADA 2P*T UNIVERSAL INCLUSO, CAIXA 4X2 + TOMADA \"10A\" + TAMPA, INSTALADA EM CABO PP 2,5MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 23.54,
+   "valor_com_bdi": 28.21,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.35",
+   "codigo": "SSP-ELET-037",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE TOMADA AR CONDICIONADO INCLUSO TOMADA 20A E CABO PP 4,0MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 61.52,
+   "valor_com_bdi": 73.73,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.36",
+   "codigo": "SSP-ELET-038",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - REFLETOR LED 50W INSTALADO EM CABO PP 2,5MM",
+   "unidade": "UN",
+   "valor_sem_bdi": 17.49,
+   "valor_com_bdi": 20.96,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.37",
+   "codigo": "SSP-ELET-039",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - REFLETOR SOLAR LED, 800W-1000W + PAINEL SOLAR + SUPORTE DE FIXAÇÃO/ANTI-FURTO (FORNECIMENTO E INSTALAÇÃO), C/ CONTROLE REMOTO, COM SENSOR DE MOVIMENTO/PRESENÇA, AUTO RECARREGÁVEL, BRANCO FRIO (6500K), A PROVA D'ÁGUA E POEIRA, IP67, MÍNIMO DE 70.000 LÚMENS, AUTONOMIA MÍNIMA: 12 HORAS.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 274.46,
+   "valor_com_bdi": 328.94,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.38",
+   "codigo": "SSP-ELET-040",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RÉGUA (FILTRO DE LINHA) COM 08 TOMADAS.",
+   "unidade": "UN",
+   "valor_sem_bdi": 11.95,
+   "valor_com_bdi": 14.32,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.39",
+   "codigo": "SSP-ELET-041",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA PRT PORTO BARRA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2455.01,
+   "valor_com_bdi": 2942.33,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.40",
+   "codigo": "SSP-ELET-042",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA TIPO I.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1702.49,
+   "valor_com_bdi": 2040.43,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.41",
+   "codigo": "SSP-ELET-043",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA VEST 1.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1947.07,
+   "valor_com_bdi": 2333.56,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.42",
+   "codigo": "SSP-ELET-044",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA VEST 3.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1827.6,
+   "valor_com_bdi": 2190.38,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.43",
+   "codigo": "SSP-ELET-045",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA VEST. 4.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1729.25,
+   "valor_com_bdi": 2072.51,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.44",
+   "codigo": "SSP-ELET-046",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA PPM II.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1861.04,
+   "valor_com_bdi": 2230.46,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.45",
+   "codigo": "SSP-ELET-047",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA PPM IV.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2065.73,
+   "valor_com_bdi": 2475.78,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.46",
+   "codigo": "SSP-ELET-048",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA POD.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1492.92,
+   "valor_com_bdi": 1789.26,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.47",
+   "codigo": "SSP-ELET-049",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA TIPO V.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1973.33,
+   "valor_com_bdi": 2365.04,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.48",
+   "codigo": "SSP-ELET-050",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA VEST 2.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1824.47,
+   "valor_com_bdi": 2186.63,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.49",
+   "codigo": "SSP-ELET-051",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA PPM VI.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1953.82,
+   "valor_com_bdi": 2341.65,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.50",
+   "codigo": "SSP-ELET-052",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO,PARA TIPO VII.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2031.82,
+   "valor_com_bdi": 2435.14,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.51",
+   "codigo": "SSP-ELET-053",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA BE 03.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1149.65,
+   "valor_com_bdi": 1377.86,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.52",
+   "codigo": "SSP-ELET-054",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA BE 01.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1489.15,
+   "valor_com_bdi": 1784.75,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.53",
+   "codigo": "SSP-ELET-055",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA BE 04.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 954.65,
+   "valor_com_bdi": 1144.15,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.54",
+   "codigo": "SSP-ELET-056",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA BE 07.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1329.05,
+   "valor_com_bdi": 1592.87,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.55",
+   "codigo": "SSP-ELET-057",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA CENTRAL DIST DAL.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1504.73,
+   "valor_com_bdi": 1803.42,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.56",
+   "codigo": "SSP-ELET-058",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA POSTO VEST.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 495.29,
+   "valor_com_bdi": 593.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.57",
+   "codigo": "SSP-ELET-059",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PTR S.F. CONDE",
+   "unidade": "KIT",
+   "valor_sem_bdi": 829.67,
+   "valor_com_bdi": 994.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.58",
+   "codigo": "SSP-ELET-060",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PPM I.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 954.65,
+   "valor_com_bdi": 1144.15,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.59",
+   "codigo": "SSP-ELET-061",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PRT BARRA VEST.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 517.67,
+   "valor_com_bdi": 620.43,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.60",
+   "codigo": "SSP-ELET-062",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA VEST I.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 720.65,
+   "valor_com_bdi": 863.7,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.61",
+   "codigo": "SSP-ELET-063",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA VEST II.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 366.72,
+   "valor_com_bdi": 439.51,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.62",
+   "codigo": "SSP-ELET-064",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA VEST III.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 720.65,
+   "valor_com_bdi": 863.7,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.63",
+   "codigo": "SSP-ELET-065",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA PPM VI.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1052.15,
+   "valor_com_bdi": 1261.0,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.64",
+   "codigo": "SSP-ELET-066",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PPM CMD.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1032.65,
+   "valor_com_bdi": 1237.63,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.65",
+   "codigo": "SSP-ELET-067",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PRT BARRA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1296.34,
+   "valor_com_bdi": 1553.66,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.66",
+   "codigo": "SSP-ELET-068",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PRT C.HIST.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1407.9,
+   "valor_com_bdi": 1687.37,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.67",
+   "codigo": "SSP-ELET-069",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PRT CENTRO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1489.15,
+   "valor_com_bdi": 1784.75,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.68",
+   "codigo": "SSP-ELET-070",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PRT PORTO BARRA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 639.16,
+   "valor_com_bdi": 766.03,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.69",
+   "codigo": "SSP-ELET-071",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA VEST PRT CENTRO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 633.12,
+   "valor_com_bdi": 758.79,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.70",
+   "codigo": "SSP-ELET-072",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA PRT MADRE DEUS.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2330.39,
+   "valor_com_bdi": 2792.97,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.71",
+   "codigo": "SSP-ELET-073",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA BE 05 .",
+   "unidade": "KIT",
+   "valor_sem_bdi": 3388.51,
+   "valor_com_bdi": 4061.13,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.72",
+   "codigo": "SSP-ELET-074",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA BE 07 .",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2623.82,
+   "valor_com_bdi": 3144.65,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.73",
+   "codigo": "SSP-ELET-075",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA CENT DIST DAL .",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2394.82,
+   "valor_com_bdi": 2870.19,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.74",
+   "codigo": "SSP-ELET-076",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA PRT S.F. CONDE.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2330.39,
+   "valor_com_bdi": 2792.97,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.75",
+   "codigo": "SSP-ELET-077",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA PPM CMD.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2242.6,
+   "valor_com_bdi": 2687.76,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.76",
+   "codigo": "SSP-ELET-078",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS, PARA PRT BARRA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 5004.34,
+   "valor_com_bdi": 5997.7,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.77",
+   "codigo": "SSP-ELET-079",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA PRT C.HIST.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2335.37,
+   "valor_com_bdi": 2798.94,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.78",
+   "codigo": "SSP-ELET-080",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS, PARA PRT CENTRO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2411.42,
+   "valor_com_bdi": 2890.09,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.79",
+   "codigo": "SSP-ELET-081",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA PRTBARRAVEST.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1525.63,
+   "valor_com_bdi": 1828.47,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.80",
+   "codigo": "SSP-ELET-082",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA VESTPRTCENTRO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1878.28,
+   "valor_com_bdi": 2251.12,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.81",
+   "codigo": "SSP-ELET-083",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO, PARA QCG COZ.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 514.05,
+   "valor_com_bdi": 616.09,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.82",
+   "codigo": "SSP-ELET-084",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA BIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO PARA COZ RIB.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1623.98,
+   "valor_com_bdi": 1946.34,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.83",
+   "codigo": "SSP-ELET-085",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO 01.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1926.24,
+   "valor_com_bdi": 2308.6,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.84",
+   "codigo": "SSP-ELET-086",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO 01.02.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 4056.45,
+   "valor_com_bdi": 4861.66,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.85",
+   "codigo": "SSP-ELET-087",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA ATÉ 20KW PARA ENTRADA DE ENERGIA FORNECENDO RACKS, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO 01.1.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 4933.47,
+   "valor_com_bdi": 5912.76,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.86",
+   "codigo": "SSP-ELET-088",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, RACKS, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRAO COELBA. (TENDA/TOTEM/PORTAL/CÃES/CAMERA), CONFORME PROJETO ELÉTRICO PARA TIPO 01.3.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1498.15,
+   "valor_com_bdi": 1795.53,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.87",
+   "codigo": "SSP-ELET-089",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA DISTRIBUIÇÃO DE ENERGIA FORNECENDO CABOS, QUADROS E DISJUNTORES DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO 01.4.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 10932.4,
+   "valor_com_bdi": 13102.48,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.88",
+   "codigo": "SSP-ELET-090",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS 16MM PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO 01.5.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 4196.18,
+   "valor_com_bdi": 5029.12,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.89",
+   "codigo": "SSP-ELET-091",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ENTRADA PROVISORIA DE ENERGIA ELETRICA AEREA TRIFASICA SEM POSTE E SEM MEDIDOR DA COELBA, COM CABO 16MM E ATERRAMENTOS DAS ESTRUTURAS.PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO 01.5.1",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2662.98,
+   "valor_com_bdi": 3191.58,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.90",
+   "codigo": "SSP-ELET-092",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA, ENTRADA DE ENERGIA FORNECENDO, SOMENTE CAIXA, QUADROS, DISJUNTORES E BARRAMENTOS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO 01.5.2",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1170.2,
+   "valor_com_bdi": 1402.48,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.91",
+   "codigo": "SSP-ELET-093",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS 16MM PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS.. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO 01.6",
+   "unidade": "KIT",
+   "valor_sem_bdi": 4196.18,
+   "valor_com_bdi": 5029.12,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.92",
+   "codigo": "SSP-ELET-094",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO, PARA QCG S. ADM.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 886.01,
+   "valor_com_bdi": 1061.88,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.93",
+   "codigo": "SSP-ELET-095",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS.PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO TRI.1",
+   "unidade": "KIT",
+   "valor_sem_bdi": 7265.52,
+   "valor_com_bdi": 8707.73,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.94",
+   "codigo": "SSP-ELET-096",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO PARA TIPO TRI.2",
+   "unidade": "KIT",
+   "valor_sem_bdi": 4153.74,
+   "valor_com_bdi": 4978.26,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.95",
+   "codigo": "SSP-ELET-097",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO, PARA QCG SANT.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 778.21,
+   "valor_com_bdi": 932.68,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.96",
+   "codigo": "SSP-ELET-098",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO, PARA ELET 01.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 954.65,
+   "valor_com_bdi": 1144.15,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.97",
+   "codigo": "SSP-ELET-099",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO, PARA ELET 02.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2431.3,
+   "valor_com_bdi": 2913.91,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.98",
+   "codigo": "SSP-ELET-100",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO, PARA APOIO REF LOB-RIB.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 639.16,
+   "valor_com_bdi": 766.03,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.99",
+   "codigo": "SSP-ELET-101",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO, PARA PRT M. DEUS.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 829.67,
+   "valor_com_bdi": 994.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.100",
+   "codigo": "SSP-ELET-102",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG A.COZ.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1430.59,
+   "valor_com_bdi": 1714.56,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.101",
+   "codigo": "SSP-ELET-103",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG SANT.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1556.29,
+   "valor_com_bdi": 1865.21,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.102",
+   "codigo": "SSP-ELET-104",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO - PARA APOIO REF (EXCETO APM).",
+   "unidade": "KIT",
+   "valor_sem_bdi": 908.59,
+   "valor_com_bdi": 1088.95,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.103",
+   "codigo": "SSP-ELET-105",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA BE 05.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1110.65,
+   "valor_com_bdi": 1331.11,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.104",
+   "codigo": "SSP-ELET-106",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE TOMADA PARA FREEZER, 2P*T, \"220V\", TOMADA 2P + T, ABNT, DE SOBREPOR, \"20A\", SISTEMA X, INSTALADO EM CABO PP 2,5MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 24.27,
+   "valor_com_bdi": 29.09,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.105",
+   "codigo": "SSP-ELET-107",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA VEST IV.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 540.78,
+   "valor_com_bdi": 648.12,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.106",
+   "codigo": "SSP-ELET-108",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE TOMADA PARA FREEZER+RAMPA, 2P*T, \"220V\", TOMADA 2P + T, ABNT, DE SOBREPOR, \"20A\", SISTEMA X, INSTALADO EM CABO PP 2,5MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 24.27,
+   "valor_com_bdi": 29.09,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.107",
+   "codigo": "SSP-ELET-109",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA BE 06.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1110.65,
+   "valor_com_bdi": 1331.11,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.108",
+   "codigo": "SSP-ELET-110",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA BE 06.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 3388.51,
+   "valor_com_bdi": 4061.13,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.109",
+   "codigo": "SSP-ELET-111",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA TIPO III.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1953.82,
+   "valor_com_bdi": 2341.65,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.110",
+   "codigo": "SSP-ELET-112",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA PPM III.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1052.15,
+   "valor_com_bdi": 1261.0,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.111",
+   "codigo": "SSP-ELET-113",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFASICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA PRT ARENA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2537.68,
+   "valor_com_bdi": 3041.41,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.112",
+   "codigo": "SSP-ELET-114",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA BIFASICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA BPCHOQUE.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 4315.01,
+   "valor_com_bdi": 5171.54,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.113",
+   "codigo": "SSP-ELET-115",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA BIFASICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA CPE/CPME.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2275.58,
+   "valor_com_bdi": 2727.28,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.114",
+   "codigo": "SSP-ELET-116",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA BIFASICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA PPM III.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2101.3,
+   "valor_com_bdi": 2518.41,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.115",
+   "codigo": "SSP-ELET-117",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA PA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1449.05,
+   "valor_com_bdi": 1736.69,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.116",
+   "codigo": "SSP-ELET-118",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 658.43,
+   "valor_com_bdi": 789.13,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.117",
+   "codigo": "SSP-ELET-119",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. - PARA PRT MADRE DE DEUS",
+   "unidade": "KIT",
+   "valor_sem_bdi": 829.67,
+   "valor_com_bdi": 994.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.118",
+   "codigo": "SSP-ELET-120",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA TRIFÁSICA FORNECENDO CABOS PARA ALIMENTAÇÃO, QUADROS, DISJUNTORES E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. CONFORME PROJETO ELÉTRICO, PARA PRT C.CONV.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2809.36,
+   "valor_com_bdi": 3367.02,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.119",
+   "codigo": "SSP-ELET-121",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PRT C.CONV.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 939.05,
+   "valor_com_bdi": 1125.45,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.120",
+   "codigo": "SSP-ELET-122",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO, PARA PRT ARENA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1154.04,
+   "valor_com_bdi": 1383.12,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.121",
+   "codigo": "SSP-ELET-123",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA PPM BPCHOQUE.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 954.65,
+   "valor_com_bdi": 1144.15,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.122",
+   "codigo": "SSP-ELET-124",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO PARA CPE/CPME.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1141.85,
+   "valor_com_bdi": 1368.51,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.123",
+   "codigo": "SSP-ELET-125",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG EDICAO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 569.11,
+   "valor_com_bdi": 682.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.124",
+   "codigo": "SSP-ELET-126",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG EDICAO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1381.91,
+   "valor_com_bdi": 1656.22,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.125",
+   "codigo": "SSP-ELET-127",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG ALOJAMENTO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 588.4,
+   "valor_com_bdi": 705.2,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.126",
+   "codigo": "SSP-ELET-128",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG ALOJAMENTO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1335.65,
+   "valor_com_bdi": 1600.78,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.127",
+   "codigo": "SSP-ELET-129",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG POSTO MEDICO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 643.96,
+   "valor_com_bdi": 771.79,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.128",
+   "codigo": "SSP-ELET-130",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG POSTO MEDICO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1371.62,
+   "valor_com_bdi": 1643.89,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.129",
+   "codigo": "SSP-ELET-131",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG SALA APOIO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 579.14,
+   "valor_com_bdi": 694.1,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.130",
+   "codigo": "SSP-ELET-132",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG SALA APOIO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1366.8,
+   "valor_com_bdi": 1638.11,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.131",
+   "codigo": "SSP-ELET-133",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG SALA IMPRENSA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 764.34,
+   "valor_com_bdi": 916.06,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.132",
+   "codigo": "SSP-ELET-134",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG SALA IMPRENSA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1474.28,
+   "valor_com_bdi": 1766.92,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.133",
+   "codigo": "SSP-ELET-135",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG SALA VIP.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 588.4,
+   "valor_com_bdi": 705.2,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.134",
+   "codigo": "SSP-ELET-136",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG SALA VIP.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1325.15,
+   "valor_com_bdi": 1588.19,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.135",
+   "codigo": "SSP-ELET-137",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG SALA CAMARINS.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 625.44,
+   "valor_com_bdi": 749.59,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.136",
+   "codigo": "SSP-ELET-138",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG SALA CAMARINS.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1365.95,
+   "valor_com_bdi": 1637.09,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.137",
+   "codigo": "SSP-ELET-139",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG COZINHA VIP.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 579.14,
+   "valor_com_bdi": 694.1,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.138",
+   "codigo": "SSP-ELET-140",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG COZINHA VIP.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1330.4,
+   "valor_com_bdi": 1594.48,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.139",
+   "codigo": "SSP-ELET-141",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG COZINHA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 614.64,
+   "valor_com_bdi": 736.65,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.140",
+   "codigo": "SSP-ELET-142",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG COZINHA.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1365.59,
+   "valor_com_bdi": 1636.66,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.141",
+   "codigo": "SSP-ELET-143",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA QCG DEPOSITO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 730.38,
+   "valor_com_bdi": 875.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.142",
+   "codigo": "SSP-ELET-144",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA QCG DEPOSITO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1399.91,
+   "valor_com_bdi": 1677.79,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.143",
+   "codigo": "SSP-ELET-145",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ELETRODUTO DE PVC RÍGIDO DE 1\" - COM CONEXÕES E ACESSÓRIOS - PARA ÁREA INTERNA, CONFORME PROJETO ELÉTRICO. PARA APM ALOJAMENTO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 588.4,
+   "valor_com_bdi": 705.2,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.144",
+   "codigo": "SSP-ELET-146",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÃO ELÉTRICA PARA ENTRADA DE ENERGIA FORNECENDO CABOS, ELETRODUTOS, RACKS, QUADROS, DISJUNTORES, BARRAMENTO E ATERRAMENTOS DO QUADRO E DAS ESTRUTURAS. PADRÃO COELBA. CONFORME PROJETO ELÉTRICO, PARA APM ALOJAMENTO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1335.65,
+   "valor_com_bdi": 1600.78,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.145",
+   "codigo": "SSP-ELET-147",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CABO DE COBRE FLEXÍVEL ISOLADO, 95 MM², 0,6/1,0 KV, PARA REDE AÉREA DE DISTRIBUIÇÃO DE ENERGIA ELÉTRICA DE BAIXA TENSÃO",
+   "unidade": "M",
+   "valor_sem_bdi": 41.15,
+   "valor_com_bdi": 49.32,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "6.146",
+   "codigo": "SSP-ELET-148",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SINAPI (73417) - GRUPO GERADOR DIESEL, COM CARENAGEM E QUADRO DE TRASNFERÊNCIA AUTOMÁTICA (QTA), POTENCIA STANDART ENTRE 100 E 110 KVA, VELOCIDADE DE 1800 RPM, FREQUENCIA DE 60 HZ - CHP / LOCAÇÃO",
+   "unidade": "CHP",
+   "valor_sem_bdi": 220.66,
+   "valor_com_bdi": 264.46,
+   "grupo_calculo": "PENDENTE"
+  },
+  {
+   "item": "6.147",
+   "codigo": "SSP-ELET-149",
+   "grupo": "SSP-ELET",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SINAPI (73395) - GRUPO GERADOR DIESEL, COM CARENAGEM, QUADRO DE TRASNFERÊNCIA AUTOMÁTICA (QTA), POTENCIA STANDART ENTRE 100 E 110 KVA, VELOCIDADE DE 1800 RPM, FREQUENCIA DE 60 HZ - CHI / LOCAÇÃO",
+   "unidade": "CHI",
+   "valor_sem_bdi": 10.21,
+   "valor_com_bdi": 12.24,
+   "grupo_calculo": "PENDENTE"
+  },
+  {
+   "item": "7.1",
+   "codigo": "SSP-EQUIP-001",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DE AR CONDICIONADO SPLIT DE PAREDE 18.000 BTUS, COM DRENO, CONFORME TENSÃO LOCAL",
+   "unidade": "UN",
+   "valor_sem_bdi": 1926.7,
+   "valor_com_bdi": 2309.15,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.2",
+   "codigo": "SSP-EQUIP-002",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM DE AR CONDICIONADO SPLIT DE PAREDE 30.000 BTUS, COM DRENO, CONFORME TENSÃO LOCAL",
+   "unidade": "UN",
+   "valor_sem_bdi": 2873.54,
+   "valor_com_bdi": 3443.94,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.3",
+   "codigo": "SSP-EQUIP-003",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DE AR CONDICIONADO SPLIT DE PAREDE 36.000 BTUS, COM DRENO, CONFORME TENSÃO LOCAL.",
+   "unidade": "UN",
+   "valor_sem_bdi": 2368.49,
+   "valor_com_bdi": 2838.64,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.4",
+   "codigo": "SSP-EQUIP-004",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM DE AR CONDICIONADO SPLIT DE PAREDE 9.000 BTUS, COM DRENO, CONFORME TENSÃO LOCAL",
+   "unidade": "UN",
+   "valor_sem_bdi": 946.91,
+   "valor_com_bdi": 1134.87,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.5",
+   "codigo": "SSP-EQUIP-005",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BEBEDOUROS ELÉTRICOS PARA GARRAFÕES DE 20 LITROS INCLUSIVE PORTA COPOS",
+   "unidade": "UN",
+   "valor_sem_bdi": 193.29,
+   "valor_com_bdi": 231.66,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.6",
+   "codigo": "SSP-EQUIP-006",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CORTINA DE AR COM 1,20M. MANUTENÇÃO 24H.",
+   "unidade": "UN",
+   "valor_sem_bdi": 314.83,
+   "valor_com_bdi": 377.32,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.7",
+   "codigo": "SSP-EQUIP-007",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DISCIPLINADOR DE AÇO 2,00 X 1,00M.",
+   "unidade": "UN",
+   "valor_sem_bdi": 57.19,
+   "valor_com_bdi": 68.54,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.8",
+   "codigo": "SSP-EQUIP-008",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - EXAUSTOR ELÉTRICO TIPO DOMICILIAR",
+   "unidade": "UN",
+   "valor_sem_bdi": 118.9,
+   "valor_com_bdi": 142.5,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.9",
+   "codigo": "SSP-EQUIP-009",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - EXTINTOR DE INCÊNDIO ABC (08 KG), COM SUPORTE TRIPÉ DE SOLO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 166.27,
+   "valor_com_bdi": 199.27,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.10",
+   "codigo": "SSP-EQUIP-012",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BOMBA SUBMERSIVEL (SAPO) DS-9 1/2CV COM AUTOMATICO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 1177.22,
+   "valor_com_bdi": 1410.9,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.11",
+   "codigo": "SSP-EQUIP-013",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNO MICRO-ONDAS 30 LITROS E INSTALAÇÃO",
+   "unidade": "UN",
+   "valor_sem_bdi": 121.56,
+   "valor_com_bdi": 145.69,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.12",
+   "codigo": "SSP-EQUIP-014",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FREEZER HORIZONTAL 400 L, CONFORME TENSÃO LOCAL",
+   "unidade": "UN",
+   "valor_sem_bdi": 1250.58,
+   "valor_com_bdi": 1498.82,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.13",
+   "codigo": "SSP-EQUIP-015",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LIXEIRA TIPO CAÇAMBA PARA CAMINHÃO - INCLUSO RETIRADA DE RESÍDUOS MÍNIMO 3X NO PERÍODO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 1225.0,
+   "valor_com_bdi": 1468.16,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.14",
+   "codigo": "SSP-EQUIP-016",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LIXEIRA TIPO CAÇAMBA PARA CAMINHÃO - INCLUSO RETIRADA DE RESÍDUOS MÍNIMO 4X NO PERÍODO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 1575.0,
+   "valor_com_bdi": 1887.64,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.15",
+   "codigo": "SSP-EQUIP-017",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LIXEIRA TIPO CAÇAMBA PARA CAMINHÃO - INCLUSO RETIRADA DE RESÍDUOS MÍNIMO 5X NO PERÍODO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 1925.0,
+   "valor_com_bdi": 2307.11,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.16",
+   "codigo": "SSP-EQUIP-018",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LIXEIRA TIPO CAÇAMBA PARA CAMINHÃO - INCLUSO RETIRADA MÍNIMA DE RESÍDUOS 7X NO PERÍODO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 2625.0,
+   "valor_com_bdi": 3146.06,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.17",
+   "codigo": "SSP-EQUIP-019",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LOCAÇÃO E INSTALAÇÃO DE BIOMBOS",
+   "unidade": "UN",
+   "valor_sem_bdi": 194.18,
+   "valor_com_bdi": 232.72,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.18",
+   "codigo": "SSP-EQUIP-020",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LOCAÇÃO E INSTALAÇÃO DE ESCADINHAS 2 DEGRAUS",
+   "unidade": "UN",
+   "valor_sem_bdi": 42.24,
+   "valor_com_bdi": 50.62,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.19",
+   "codigo": "SSP-EQUIP-021",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LOCAÇÃO E INSTALAÇÃO DE FOCO DE LUZ",
+   "unidade": "UN",
+   "valor_sem_bdi": 316.82,
+   "valor_com_bdi": 379.71,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.20",
+   "codigo": "SSP-EQUIP-022",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LOCAÇÃO E INSTALAÇÃO DE MACA GINECOLÓGICA",
+   "unidade": "UN",
+   "valor_sem_bdi": 521.22,
+   "valor_com_bdi": 624.68,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.21",
+   "codigo": "SSP-EQUIP-023",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LOCAÇÃO MENSAL SANITÁRIO QUÍMICO COM TRÊS HIGIENIZAÇÕES NA SEMANA, INCLUSO COLETA DE EFLUENTES",
+   "unidade": "UN",
+   "valor_sem_bdi": 535.21,
+   "valor_com_bdi": 641.45,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.22",
+   "codigo": "SSP-EQUIP-024",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PIA DE COZINHA COM BANCADA EM AÇO INOX, CONFORME PROJETO, C/ 01 CUBA, VÁLVULA CROMADA, TORNEIRA CROMADA.",
+   "unidade": "UN",
+   "valor_sem_bdi": 485.84,
+   "valor_com_bdi": 582.28,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.23",
+   "codigo": "SSP-EQUIP-025",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PIA INOX DE 1,20M COMPLETA COM TORNEIRA",
+   "unidade": "UN",
+   "valor_sem_bdi": 248.39,
+   "valor_com_bdi": 297.7,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.24",
+   "codigo": "SSP-EQUIP-026",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PROJETOR TIPO CANHÃO 36 LED, 18 W.",
+   "unidade": "UN",
+   "valor_sem_bdi": 177.54,
+   "valor_com_bdi": 212.78,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.25",
+   "codigo": "SSP-EQUIP-027",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - REFRIGERADORES, TIPO FRIGOBAR OU GELADEIRA, CAPACIDADE CONFORME PROJETO",
+   "unidade": "UND",
+   "valor_sem_bdi": 795.92,
+   "valor_com_bdi": 953.91,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.26",
+   "codigo": "SSP-EQUIP-028",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TELEVISOR 32\" LED COM ANTENA. INSTALADO EM PEDESTAL.",
+   "unidade": "UN",
+   "valor_sem_bdi": 607.15,
+   "valor_com_bdi": 727.67,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.27",
+   "codigo": "SSP-EQUIP-029",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TELEVISOR TIPO LED - 55\", COM SUPORTE ELEVADO - COM ANTENA.",
+   "unidade": "UN",
+   "valor_sem_bdi": 687.25,
+   "valor_com_bdi": 823.67,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "7.28",
+   "codigo": "SSP-EQUIP-030",
+   "grupo": "SSP-EQUIP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - VENTILADOR TURBO DE 60CM FIXADO NA ESTRUTURA CONFORME MEMORIAL DESCRITIVO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 67.35,
+   "valor_com_bdi": 80.72,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.1",
+   "codigo": "SSP-EST-001",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESCADA COM ESTRUTURA E CORRIMÃO METÁLICO, PISO EM CHAPA DE COMPESADO NAVAL 20MM - (COLAGEM FENÓLICA), COM REVESTIMENTO EMBORRACHADO TIPO BUS.",
+   "unidade": "m²",
+   "valor_sem_bdi": 223.41,
+   "valor_com_bdi": 267.76,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.2",
+   "codigo": "SSP-EST-002",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTAIAMENTO INDIVIDUAL COM CABO DE AÇO EM PIQUETE PONTA CURVA PARA TRAVAMENTOS DE ESTRUTURAS (1 UNIDADE COM 100 CM).",
+   "unidade": "UN",
+   "valor_sem_bdi": 104.26,
+   "valor_com_bdi": 124.96,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.3",
+   "codigo": "SSP-EST-003",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTAIAMENTOS/TRAVAMENTOS COM RESERVATÓRIO TIPO IBC 9300 COM CAPACIDADE 1.000L, CHEIO COM ÁGUA E CORANTE.",
+   "unidade": "UN",
+   "valor_sem_bdi": 642.19,
+   "valor_com_bdi": 769.66,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.4",
+   "codigo": "SSP-EST-004",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA DO RESERVATÓRIO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL, DIAGONAIS, FORCADOS, APOIO DO RESERVATÓRIO EM COMPENSADO NAVAL E PRANCHÃO DE MADEIRA (5X30X300)CM PARA SUSTENTAÇÃO DO RESERVATÓRIO E REGULARIZAÇÃO DO TERRENO. (ALTURA DA TORRE DE 6,00M). CAPACIDADE 8TF.",
+   "unidade": "UN",
+   "valor_sem_bdi": 2194.69,
+   "valor_com_bdi": 2630.34,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.5",
+   "codigo": "SSP-EST-005",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA DO RESERVATÓRIO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA ATÉ 3,00M). CAPACIDADE ATE 4TF.",
+   "unidade": "UN",
+   "valor_sem_bdi": 162.06,
+   "valor_com_bdi": 194.23,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.6",
+   "codigo": "SSP-EST-006",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA DO RESERVATÓRIO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA DE 4,00M). CAPACIDADE 4TF.",
+   "unidade": "UN",
+   "valor_sem_bdi": 192.69,
+   "valor_com_bdi": 230.94,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.7",
+   "codigo": "SSP-EST-007",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA DO RESERVATÓRIOEM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA DE 6,00M). CAPACIDADE 8TF.",
+   "unidade": "UN",
+   "valor_sem_bdi": 621.44,
+   "valor_com_bdi": 744.8,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.8",
+   "codigo": "SSP-EST-008",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA EM TORRE DE TRELIÇAS EM BOXTRUSS-Q30, COM SEUS RESPECTIVOS CUBOS E ACESSÓRIOS - CONFORME PROJETO ARQUITETÔNICO EM ANEXO.",
+   "unidade": "M",
+   "valor_sem_bdi": 115.67,
+   "valor_com_bdi": 138.63,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.9",
+   "codigo": "SSP-EST-009",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA ATÉ 3,00M). UTILIZAÇÃO EM CONJUNTO COM BOXTRUSS (TRAVAMENTOS E BASE DE APOIO). H>= 3,0M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 57.94,
+   "valor_com_bdi": 69.44,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.10",
+   "codigo": "SSP-EST-010",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO EXTERNO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA 1,10M).",
+   "unidade": "m²",
+   "valor_sem_bdi": 16.94,
+   "valor_com_bdi": 20.3,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.11",
+   "codigo": "SSP-EST-011",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO EXTERNO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA 2,20M).",
+   "unidade": "M²",
+   "valor_sem_bdi": 16.94,
+   "valor_com_bdi": 20.3,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.12",
+   "codigo": "SSP-EST-015",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - GUARDA CORPO COM GRADES PARALELAS FEITAS COM TUBO GALVANIZADOS FIXADO NA ESTRUTURA, COM ESPAÇAMENTO MÁXIMO A CADA 20CM, CONFORME MEMORIAL DESCRITIVO. H=1,10M.",
+   "unidade": "m",
+   "valor_sem_bdi": 82.72,
+   "valor_com_bdi": 99.14,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.13",
+   "codigo": "SSP-EST-016",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - OUTDOOR EM ESTRUTURA DE BOXTRUSS, COM DIMENSÃO:(7,00X2,00)M, H=5M. CONFORME PROJETO ARQUITETÔNICO.",
+   "unidade": "M",
+   "valor_sem_bdi": 115.67,
+   "valor_com_bdi": 138.63,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.14",
+   "codigo": "SSP-EST-017",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PIQUETE PONTA CURVA PARA TRAVAMENTOS DE ESTRUTURAS (UNIDADE COM 100 CM).",
+   "unidade": "UN",
+   "valor_sem_bdi": 23.45,
+   "valor_com_bdi": 28.1,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.15",
+   "codigo": "SSP-EST-018",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO MÓDULO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA ATÉ 2M).",
+   "unidade": "M²",
+   "valor_sem_bdi": 33.44,
+   "valor_com_bdi": 40.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.16",
+   "codigo": "SSP-EST-019",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO MÓDULO+PRAÇA DE ALIMENTAÇÃO, COM PISO DO MÓDULO MAIS ELEVADO 10CM, ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA ATÉ 2M).",
+   "unidade": "m²",
+   "valor_sem_bdi": 33.44,
+   "valor_com_bdi": 40.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.17",
+   "codigo": "SSP-EST-020",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TORRE (6,00M/8TF): ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 × 3,00 MM) COM ABRAÇADEIRAS ARTICULADAS, SAPATAS REGULÁVEIS, DIAGONAIS EM \"X\" E ESCADA METÁLICA MARINHEIRO. TOPO: FORCADOS,GRADE METÁLICA,COMPENSADO NAVAL COM GUARDA-CORPO. BASE: PRANCHÕES DE MADEIRA DE 3X(5 × 30 × 300) CM PARA REGULARIZAÇÃO DO TERRENO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 4982.74,
+   "valor_com_bdi": 5971.81,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.18",
+   "codigo": "SSP-EST-021",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA DO RESERVATÓRIO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA ATÉ 3,00M). CAPACIDADE ATE 4TF.",
+   "unidade": "UN",
+   "valor_sem_bdi": 162.06,
+   "valor_com_bdi": 194.23,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.19",
+   "codigo": "SSP-EST-022",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA DO RESERVATÓRIO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA DE 4,00M). CAPACIDADE 4TF.",
+   "unidade": "UN",
+   "valor_sem_bdi": 192.69,
+   "valor_com_bdi": 230.94,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.20",
+   "codigo": "SSP-EST-023",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DA ÁREA EXTERNA EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA ATÉ 2M), EXCETUANDO-SE O MÓDULO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 33.44,
+   "valor_com_bdi": 40.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.21",
+   "codigo": "SSP-EST-024",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DA ÁREA EXTERNA+PRAÇA DE ALIMENTAÇÃO+MODULO EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. (ALTURA ATÉ 2M), COM O MÓDULO ELEVADO E PÇ DE ALIMENTAÇÃO ELEVADOS EM RELAÇÃO A ÁREA EXTERNA. CONFORME PROJETO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 33.44,
+   "valor_com_bdi": 40.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.22",
+   "codigo": "SSP-EST-025",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO 1º ANDAR EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA. COM MÓDULO, ELEVADO 20 CM EM RELAÇÃO À ÁREA DE CIRCULAÇÃO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 33.44,
+   "valor_com_bdi": 40.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "8.23",
+   "codigo": "SSP-EST-026",
+   "grupo": "SSP-EST",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DAS BAIAS E FENOS EM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL. COM ALTURA MÍNIMA DE 10 CM EM RELAÇÃO AO NÍVEL DA RUA.",
+   "unidade": "m²",
+   "valor_sem_bdi": 33.44,
+   "valor_com_bdi": 40.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.1",
+   "codigo": "SSP-FECH-001",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DOIS (02) PORTÕES EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, DIMENSÃO (3,50 X 2,20)M, COM DUAS FOLHAS, PINTADO EM LÁTEX NA COR CÁQUI. (DUAS FACES). INCLUSO: FERRAGENS, CADEADO E ROLDANA.",
+   "unidade": "m²",
+   "valor_sem_bdi": 94.09,
+   "valor_com_bdi": 112.77,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.2",
+   "codigo": "SSP-FECH-002",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO DE TAPUME EM AÇO GALVANIZADO OU ZINCO, E = 0,43MM, COM ESTRUTURA DE SUSTENTAÇÃO. PINTADO EM AMBOS OS LADOS COM TINTA METÁLICA COR CONFORME MEMORIAL DESCRITIVO - H= 2.20M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 79.85,
+   "valor_com_bdi": 95.7,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.3",
+   "codigo": "SSP-FECH-004",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO ESTRUTURA EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, H=1,10 M, PINTADA EM LÁTEX NA COR CONFORME MEMORIAL DESCRITIVO (DUAS FACES).",
+   "unidade": "m²",
+   "valor_sem_bdi": 74.5,
+   "valor_com_bdi": 89.29,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.4",
+   "codigo": "SSP-FECH-005",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO ESTRUTURA EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, H=2,20 M, PINTADA EM LÁTEX NA COR CONFORME MEMORIAL DESCRITIVO (DUAS FACES).",
+   "unidade": "m²",
+   "valor_sem_bdi": 74.5,
+   "valor_com_bdi": 89.29,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.5",
+   "codigo": "SSP-FECH-006",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO ESTRUTURA EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, H=2,20 M, PINTADA EM LÁTEX NA COR CONFORME MEMORIAL DESCRITIVO (DUAS FACES). PARA TORRE DO RESERVATÓRIO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 74.5,
+   "valor_com_bdi": 89.29,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.6",
+   "codigo": "SSP-FECH-007",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO ESTRUTURA EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 18 MM, H=2,20 M, PINTADA EM LÁTEX NA COR CONFORME MEMORIAL DESCRITIVO (DUAS FACES).",
+   "unidade": "m²",
+   "valor_sem_bdi": 85.67,
+   "valor_com_bdi": 102.68,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.7",
+   "codigo": "SSP-FECH-008",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO LATERAL DO TABLADO EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, PINTADA EM LÁTEX NA COR INDICADA PELA FORÇA (SAIA).",
+   "unidade": "M²",
+   "valor_sem_bdi": 74.5,
+   "valor_com_bdi": 89.29,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.8",
+   "codigo": "SSP-FECH-009",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO LATERAL DO TABLADO EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, COM TAMPA E DOBRADIÇAS PARA VESTIÁRIOS, PINTADA EM LÁTEX NA COR INDICADA PELA FORÇA (SAIA).",
+   "unidade": "m²",
+   "valor_sem_bdi": 77.95,
+   "valor_com_bdi": 93.42,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.9",
+   "codigo": "SSP-FECH-010",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO TORRE RESERVATÓRIO COM SUPORTE DO RESERVATÓRIO DE BARROTE E COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, TODA ESTRUTURA PINTADA EM LÁTEX NA COR INDICADA PELA FORÇA. (DUAS FACES).",
+   "unidade": "m²",
+   "valor_sem_bdi": 115.98,
+   "valor_com_bdi": 139.0,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.10",
+   "codigo": "SSP-FECH-011",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTÃO EM CHAPA DE AÇO GALVANIZADO OU ZINCO, E = 0,43MM, DE 4,40 X 2,20M, COM FERRAGENS, DUAS FOLHAS E ESTRUTURA DE FIXAÇÃO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 69.11,
+   "valor_com_bdi": 82.83,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.11",
+   "codigo": "SSP-FECH-012",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTÃO EM CHAPAS PRENSADAS DE COMPENSADO NAVAL DE 10 MM, COM DOBRADIÇA, PORTA CADEADO E CADEADO, COM DUAS FOLHAS. PINTADO COM ESMALTE SINTÉTICO NAS DUAS FACES NA COR CÁQUI. DIMENSÃO: (1,50 X 2,20)M. (PASSAGEM DOS SANITÁRIOS QUÍMICOS).",
+   "unidade": "m²",
+   "valor_sem_bdi": 85.77,
+   "valor_com_bdi": 102.8,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.12",
+   "codigo": "SSP-FECH-013",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTÃO EM CHAPAS PRENSADAS DE COMPENSADO NAVAL DE 10 MM, COM DOBRADIÇA, PORTA CADEADO E CADEADO, COM UMA FOLHA. PINTADO COM ESMALTE SINTÉTICO NAS DUAS FACES NA COR CÁQUI. DIMENSÃO: (1,20 X 1,10)M. (ENTRADA DO FECHAMENTO).",
+   "unidade": "m²",
+   "valor_sem_bdi": 84.41,
+   "valor_com_bdi": 101.17,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.13",
+   "codigo": "SSP-FECH-014",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTÃO EM CHAPAS PRENSADAS DE COMPENSADO NAVAL DE 10 MM, COM DOBRADIÇA, PORTA CADEADO E CADEADO, COM UMA FOLHA. PINTADO COM ESMALTE SINTÉTICO NAS DUAS FACES NA COR CÁQUI. DIMENSÃO: (1,10 X 2,20)M. (TORRE DO RESERVATÓRIO)",
+   "unidade": "m²",
+   "valor_sem_bdi": 84.41,
+   "valor_com_bdi": 101.17,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.14",
+   "codigo": "SSP-FECH-015",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTÃO EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, DIMENSÃO (1,10 X 2,20)M, COM UMA FOLHA, PINTADO EM LÁTEX NA COR INDICADA PELA FORÇA (CONSULTAR FISCALIZAÇÃO). (DUAS FACES). COM FERRAGENS E CADEADO.",
+   "unidade": "M²",
+   "valor_sem_bdi": 84.41,
+   "valor_com_bdi": 101.17,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.15",
+   "codigo": "SSP-FECH-016",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTÃO EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, DIMENSÃO (3,50 X 1,10)M, COM DUAS FOLHAS, PINTADO EM LÁTEX NA COR INDICADA PELA INSTITUIÇÃO. (DUAS FACES). COM FERRAGENS E CADEADO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 94.09,
+   "valor_com_bdi": 112.77,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.16",
+   "codigo": "SSP-FECH-017",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTÃO EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10 MM, DIMENSÃO (3,50 X 2,20)M, COM DUAS FOLHAS, PINTADO EM LÁTEX NA COR INDICADA PELA INSTITUIÇÃO (DUAS FACES). INCLUSO: FERRAGENS, CADEADO E ROLDANA.",
+   "unidade": "m²",
+   "valor_sem_bdi": 94.09,
+   "valor_com_bdi": 112.77,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.17",
+   "codigo": "SSP-FECH-018",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PRATELEIRAS (DUAS) EM COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 10MM, PINTADO DE TINTA LÁTEX NA COR CÁQUI - (0,35 X 1,00).(TORRE DO RESERVATÓRIO).",
+   "unidade": "m²",
+   "valor_sem_bdi": 74.5,
+   "valor_com_bdi": 89.29,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.18",
+   "codigo": "SSP-FECH-019",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA EM CHAPA DE AÇO GALVANIZADO OU ZINCO, E = 0,43MM, DE 0,80 X 2,20M, COM FERRAGENS, UMA FOLHA E ESTRUTURA DE FIXAÇÃO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 69.11,
+   "valor_com_bdi": 82.83,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "9.19",
+   "codigo": "SSP-FECH-020",
+   "grupo": "SSP-FECH",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO DE TAPUME EM AÇO GALVANIZADO OU ZINCO, E = 0,43MM PINTADO EM AMBOS OS LADOS COM TINTA METÁLICA - H= 2.20M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 52.68,
+   "valor_com_bdi": 63.14,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "10.1",
+   "codigo": "SSP-FOR-001",
+   "grupo": "SSP-FOR",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORRO ESTRUTURADO COM RIPÕES DE MADEIRA, COMPENSADO RESINADO/MADEIRIT 6MM, REVESTIDO COM BAGUM NA COR BRANCA, FIXADO COM GRAMPOS NÃO APARENTES. ESTRUTURADO PARA VÃO LIVRE SEM PILARES DE SUSTENTAÇÃO. (SEM: MANCHAS, FUROS, RESTO DE ADESIVOS, DANOS FÍSICOS).",
+   "unidade": "M²",
+   "valor_sem_bdi": 47.12,
+   "valor_com_bdi": 56.47,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "11.1",
+   "codigo": "SSP-FT-001",
+   "grupo": "SSP-FT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - APLICAÇÃO DE FITA ADESIVA BRANCA COM 10CM DE LARGURA, PARA VEDAÇÃO ENTRE PISO E DIVISÓRIA EXTERNA.",
+   "unidade": "M",
+   "valor_sem_bdi": 9.03,
+   "valor_com_bdi": 10.82,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "11.2",
+   "codigo": "SSP-FT-002",
+   "grupo": "SSP-FT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - APLICAÇÃO DE FITA ADESIVA BRANCA COM 50CM DE LARGURA, PARA VEDAÇÃO ENTRE PISO E DIVISÓRIA EXTERNA.",
+   "unidade": "M",
+   "valor_sem_bdi": 41.83,
+   "valor_com_bdi": 50.13,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "11.3",
+   "codigo": "SSP-FT-003",
+   "grupo": "SSP-FT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - APLICAÇÃO DE FITA ADESIVA ZEBRADA ANTI-DERRAPANTE COM 50MM DE LARGURA, PARA SINALIZAÇÃO DE SEGURANÇA.",
+   "unidade": "M",
+   "valor_sem_bdi": 0.95,
+   "valor_com_bdi": 1.14,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.1",
+   "codigo": "SSP-HID-001",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ASSENTO COM TAMPA PARA VASO SANITÁRIO",
+   "unidade": "UN",
+   "valor_sem_bdi": 13.84,
+   "valor_com_bdi": 16.59,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.2",
+   "codigo": "SSP-HID-002",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BACIA DE LOUÇA COM CAIXA ACOPLADA, COM PARAFUSO E ANEL DE VEDAÇÃO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 236.5,
+   "valor_com_bdi": 283.45,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.3",
+   "codigo": "SSP-HID-003",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BACIA SANITÁRIA DE LOUÇA COM CAIXA ACOPLADA, COM TAMPA E ACESSÓRIOS",
+   "unidade": "UN",
+   "valor_sem_bdi": 236.48,
+   "valor_com_bdi": 283.42,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.4",
+   "codigo": "SSP-HID-004",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BACIA SANITARIA EM LOUÇA, COM CAIXA ACOPLADA, ACIONAMENTO SUPERIOR, INCLUSIVE ASSENTO E ACESSORIOSDE FIXAÇÃO, PARA PCD",
+   "unidade": "UN",
+   "valor_sem_bdi": 496.0,
+   "valor_com_bdi": 594.46,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.5",
+   "codigo": "SSP-HID-005",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BARRA DE APOIO RETA, EM ACO INOX POLIDO, COMPRIMENTO 80 CM, FIXADA NA PAREDE - FORNECIMENTO E INSTALAÇÃO. AF_01/2020",
+   "unidade": "UN",
+   "valor_sem_bdi": 111.11,
+   "valor_com_bdi": 133.17,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.6",
+   "codigo": "SSP-HID-006",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CAIXA COLETORA EM POLIETILENO COM CAPACIDADE PARA 1.000 LITROS, COM TUBULAÇÃO E CONEXÕES DE ÁGUA.",
+   "unidade": "UN",
+   "valor_sem_bdi": 578.71,
+   "valor_com_bdi": 693.58,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.7",
+   "codigo": "SSP-HID-007",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CALHA DE CHAPA GALVANIZADA Nº24, DESEMPENHO 34CM COM SELANTE.",
+   "unidade": "M",
+   "valor_sem_bdi": 25.33,
+   "valor_com_bdi": 30.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.8",
+   "codigo": "SSP-HID-008",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO E INSTALAÇÃO DE CHUVEIRO PVC.",
+   "unidade": "UN",
+   "valor_sem_bdi": 11.06,
+   "valor_com_bdi": 13.26,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.9",
+   "codigo": "SSP-HID-009",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, DESMONTAGEM, MONTAGEM E INSTALAÇÃO - CHUVEIRO ELÉTRICO DE PLÁSTICO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 61.5,
+   "valor_com_bdi": 73.71,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.10",
+   "codigo": "SSP-HID-010",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CONJUNTO DE PONTOS DE COLETA DE ESGOTO PARA COZINHA (RAMAL DE ESGOTO SANITÁRIO), EM PVC SÉRIE NORMAL, COM TUBOS, CONEXÕES.",
+   "unidade": "UN",
+   "valor_sem_bdi": 180.81,
+   "valor_com_bdi": 216.7,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.11",
+   "codigo": "SSP-HID-011",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CONJUNTO ELEVATÓRIO MOTOR BOMBA, COM TUBULAÇÕES E CONEXÕES DE ÁGUA 32MM PARA ABASTECIMENTO DO RESERVATÓRIO INFERIOR PARA O SUPERIOR + BOMBA RESERVA, TODAS AS BOMBAS INSTALADAS, INCLUSIVE A RESERVA, CONFORME PROJETO ELÉTRICO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 839.77,
+   "valor_com_bdi": 1006.46,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.12",
+   "codigo": "SSP-HID-012",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DISPENSADOR PARA ÁLCOOL GEL PLÁSTICO RÍGIDO PP COM VISOR EM ACRÍLICO, COM BICO DOSADOR COM CAPACIDADE PARA REFIL DE 800 ML.",
+   "unidade": "UN",
+   "valor_sem_bdi": 28.4,
+   "valor_com_bdi": 34.04,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.13",
+   "codigo": "SSP-HID-013",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DISPENSADOR PARA SABONETE LÍQUIDO EM PLÁSTICO RÍGIDO PP COM VISOR EM ACRÍLICO, COM BICO DOSADOR COM CAPACIDADE PARA REFIL DE 800 ML.",
+   "unidade": "UN",
+   "valor_sem_bdi": 28.4,
+   "valor_com_bdi": 34.04,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.14",
+   "codigo": "SSP-HID-014",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - DUCHA HIGIÊNICA COM MANGUEIRA FLEXÍVEL INOX (1,2 M)",
+   "unidade": "UN",
+   "valor_sem_bdi": 26.49,
+   "valor_com_bdi": 31.75,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.15",
+   "codigo": "SSP-HID-015",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DE \"X\" M3 DE ÁGUA COM CAMINHÃO-PIPA PARA A EXECUÇÃO DE TESTES DE ESTANQUEIDADE, ENSAIOS HIDROSTÁTICOS DE PRESSÃO NAS TUBULAÇÕES E VALIDAÇÃO DE CONEXÕES.",
+   "unidade": "m³",
+   "valor_sem_bdi": 52.8,
+   "valor_com_bdi": 63.28,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.16",
+   "codigo": "SSP-HID-016",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - INSTALAÇÕES HIDROSANITÁRIAS COM O FORNECIMENTO DE TUBULAÇÕES E CONEXÕES NECESSÁRIAS À EXECUÇÃO DOS SERVIÇOS DE ENTRADA DE ÁGUA.",
+   "unidade": "UND",
+   "valor_sem_bdi": 123.26,
+   "valor_com_bdi": 147.73,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.17",
+   "codigo": "SSP-HID-017",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LAVATÓRIO DE LOUÇA COM COLUNA, 45X55CM, COM CONEXÕES (TORNEIRA METÁLICA, SIFÃO, RABICHO).",
+   "unidade": "UN",
+   "valor_sem_bdi": 357.13,
+   "valor_com_bdi": 428.02,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.18",
+   "codigo": "SSP-HID-018",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LAVATÓRIO DE LOUÇA COM COLUNA, 45X55CM, COM CONEXÕES (TORNEIRA METÁLICA, SIFÃO, RABICHO) E TUBULAÇÕES DE ÁGUA FRIA E ESGOTO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 416.2,
+   "valor_com_bdi": 498.82,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.19",
+   "codigo": "SSP-HID-019",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LAVATÓRIO DE PVC, SUSPENSO EM PAREDE COMPLETO COM SIFÃO EM PVC.",
+   "unidade": "UN",
+   "valor_sem_bdi": 266.7,
+   "valor_com_bdi": 319.64,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.20",
+   "codigo": "SSP-HID-020",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MICTORIO COLETIVO ACO INOX (AISI 304), E = 0,8 MM, DE *100 X 40 X 30* CM (C X A X P) - COM VEDAÇÃO E SIFÃO",
+   "unidade": "UN",
+   "valor_sem_bdi": 154.17,
+   "valor_com_bdi": 184.77,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.21",
+   "codigo": "SSP-HID-021",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MICTORIO COLETIVO ACO INOX (AISI 304), E = 0,8 MM, DE *100 X 40 X 30* CM (C X A X P) - TUBULAÇÕES E CONEXÕES",
+   "unidade": "UND",
+   "valor_sem_bdi": 186.42,
+   "valor_com_bdi": 223.42,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.22",
+   "codigo": "SSP-HID-022",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MICTORIO DE LOUÇA COM VALVULA, VEDAÇÃO E SIFÃO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 168.23,
+   "valor_com_bdi": 201.62,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.23",
+   "codigo": "SSP-HID-023",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE CONSUMO TERMINAL DE ÁGUA FRIA (SUBRAMAL) COM TUBULAÇÃO DE PVC, DN 25 MM, INSTALADO EM RAMAL DE ÁGUA, AF_12/2014",
+   "unidade": "UN",
+   "valor_sem_bdi": 71.18,
+   "valor_com_bdi": 85.31,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.24",
+   "codigo": "SSP-HID-024",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA PAPEL HIGIÊNICO",
+   "unidade": "UN",
+   "valor_sem_bdi": 20.7,
+   "valor_com_bdi": 24.81,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.25",
+   "codigo": "SSP-HID-025",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PORTA PAPEL TOALHA DE SOBREPOR EM POLIESTIRENO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 29.51,
+   "valor_com_bdi": 35.37,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.26",
+   "codigo": "SSP-HID-026",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RALO SECO DE PVC COM GRELHA, (100 X 40)MM, EXCLUSO TUBO E CONEXÕES.",
+   "unidade": "UN",
+   "valor_sem_bdi": 6.74,
+   "valor_com_bdi": 8.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.27",
+   "codigo": "SSP-HID-027",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RALO SINFONADO DE PVC, ALTURA REGULÁVEL, 100 X 50 X 40 MM",
+   "unidade": "UN",
+   "valor_sem_bdi": 6.74,
+   "valor_com_bdi": 8.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.28",
+   "codigo": "SSP-HID-028",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - REGISTRO DE ESFERA EM PVC ROSCÁVEL, DIÂMETRO 3/4\"",
+   "unidade": "UN",
+   "valor_sem_bdi": 17.16,
+   "valor_com_bdi": 20.57,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.29",
+   "codigo": "SSP-HID-029",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RESERVATÓRIO EM POLIETILENO COM CAPACIDADE PARA 1.000 LITROS, ALIMENTAÇÃO PELA REDE PÚBLICA OU CARRO PIPA, SUSPENSO EM TORRE DE ESTRUTURA METÁLICA, ALTURA ATÉ 3,0M, COM TUBULAÇÃO E CONEXÕES DE ÁGUA.",
+   "unidade": "UN",
+   "valor_sem_bdi": 578.71,
+   "valor_com_bdi": 693.58,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.30",
+   "codigo": "SSP-HID-030",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RESERVATÓRIO EM PVC RÍGIDO COM CAPACIDADE PARA 1000 LITROS, ALIMENTAÇÃO PELA REDE PÚBLICA OU CARRO PIPA, SUSPENSO EM TORRE DE ESTRUTURA METÁLICA H=3,0M, COM CONEXÕES (BOIA, 2 REGISTROS ENTRADA/SAÍDA, 2 FLANGES ENTRADA/SAÍDA).",
+   "unidade": "UN",
+   "valor_sem_bdi": 494.43,
+   "valor_com_bdi": 592.57,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.31",
+   "codigo": "SSP-HID-031",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RESERVATÓRIO EM POLIETILENO COM CAPACIDADE PARA 310 LITROS, ALIMENTAÇÃO PELA REDE PÚBLICA OU CARRO PIPA, SUSPENSO EM TORRE DE ESTRUTURA METÁLICA, ALTURA ATÉ 3,0M, COM TUBULAÇÃO E CONEXÕES DE ÁGUA.",
+   "unidade": "UN",
+   "valor_sem_bdi": 475.74,
+   "valor_com_bdi": 570.17,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.32",
+   "codigo": "SSP-HID-032",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RESERVATÓRIO EM PVC RÍGIDO COM CAPACIDADE PARA 2000 LITROS, ALIMENTAÇÃO PELA REDE PÚBLICA OU CARRO PIPA, SUSPENSO EM TORRE DE ESTRUTURA METÁLICA H=3,0M, COM CONEXÕES (BOIA, 2 REGISTROS ENTRADA/SAÍDA, 2 FLANGES ENTRADA/SAÍDA).",
+   "unidade": "UN",
+   "valor_sem_bdi": 918.67,
+   "valor_com_bdi": 1101.03,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.33",
+   "codigo": "SSP-HID-033",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RESERVATÓRIO INFERIOR EM PVC RÍGIDO COM CAPACIDADE PARA 5.000 LITROS COM TAMPA, ALIMENTAÇÃO PELA REDE PÚBLICA OU CARRO PIPA, COM BÓIA AUTOMÁTICA, FLANGE E ANEL DE VEDAÇÃO (75MM).",
+   "unidade": "UN",
+   "valor_sem_bdi": 2724.17,
+   "valor_com_bdi": 3264.92,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.34",
+   "codigo": "SSP-HID-034",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RESERVATÓRIO SUPERIOR EM PVC RÍGIDO COM CAPACIDADE PARA 5.000 LITROS, ALIMENTAÇÃO POR BOMBA CENTRÍFUGA, INSTALADO EM TORRE DE ESTRUTURA METÁLICA, ALTURA=6,0M, COM BÓIA AUTOMÁTICA, FLANGE E ANEL DE VEDAÇÃO (75MM).",
+   "unidade": "UN",
+   "valor_sem_bdi": 2724.17,
+   "valor_com_bdi": 3264.92,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.35",
+   "codigo": "SSP-HID-035",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SABONETEIRA DE SOBREPOR EM POLIESTIRENO, FIXADA NO BOX CHUVEIRO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 9.45,
+   "valor_com_bdi": 11.33,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.36",
+   "codigo": "SSP-HID-036",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ÁGUA FRIA (DIAM=20-50MM). ATÉ 20M DE COMPRIMENTO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 799.46,
+   "valor_com_bdi": 958.15,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.37",
+   "codigo": "SSP-HID-037",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ÁGUA FRIA (DIAM=20-50MM). CONFORME PROJETO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1086.87,
+   "valor_com_bdi": 1302.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.38",
+   "codigo": "SSP-HID-038",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ÁGUA FRIA (DIAM=20-75MM). CONFORME PROJETO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1465.32,
+   "valor_com_bdi": 1756.19,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.39",
+   "codigo": "SSP-HID-039",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ESGOTO (DIAM DE 40-100MM). ATÉ 20M DE COMPRIMENTO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 891.43,
+   "valor_com_bdi": 1068.38,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.40",
+   "codigo": "SSP-HID-040",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ESGOTO (DIAM DE 40-100MM). CONFORME PROJETO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1055.89,
+   "valor_com_bdi": 1265.48,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.41",
+   "codigo": "SSP-HID-041",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ESGOTO (DIAM DE 40-150MM). CONFORME PROJETO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2074.46,
+   "valor_com_bdi": 2486.24,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.42",
+   "codigo": "SSP-HID-042",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TANQUE DE PLASTICO 13 LITROS",
+   "unidade": "UN",
+   "valor_sem_bdi": 347.05,
+   "valor_com_bdi": 415.94,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.43",
+   "codigo": "SSP-HID-043",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TANQUES (LAVANDERIAS) COMPLETAS COM INSTALAÇÃO E FORNECIMENTO (TUBULAÇÕES, CONEXÕES E ACESSÓRIOS METÁLICOS).",
+   "unidade": "UN",
+   "valor_sem_bdi": 125.26,
+   "valor_com_bdi": 150.12,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.44",
+   "codigo": "SSP-HID-044",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ESGOTO (DIAM DE 40-150MM). CONFORME PROJETO.PARA VESTIÁRIO",
+   "unidade": "KIT",
+   "valor_sem_bdi": 3443.15,
+   "valor_com_bdi": 4126.62,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.45",
+   "codigo": "SSP-HID-045",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ÁGUA FRIA (DIAM=20-75MM). CONFORME PROJETO. PARA VESTIÁRIO",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2271.12,
+   "valor_com_bdi": 2721.94,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.46",
+   "codigo": "SSP-HID-046",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MANGUEIRA 20,00M COM TORNEIRA.",
+   "unidade": "UN",
+   "valor_sem_bdi": 44.32,
+   "valor_com_bdi": 53.12,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.47",
+   "codigo": "SSP-HID-047",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ESGOTO (DIAM DE 40-150MM). CONFORME PROJETO.PARA VESTIÁRIO III E IV.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2074.46,
+   "valor_com_bdi": 2486.24,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "12.48",
+   "codigo": "SSP-HID-048",
+   "grupo": "SSP-HID",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SERVIÇO DE FORNECIMENTO E INSTALAÇÃO DE TUBOS E CONEXÕES PARA ÁGUA FRIA (DIAM=20-75MM). CONFORME PROJETO PARA VESTIÁRIO III E IV.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1488.45,
+   "valor_com_bdi": 1783.91,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "13.1",
+   "codigo": "SSP-JAN-001",
+   "grupo": "SSP-JAN",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - JANELA DE ALUMÍNIO COM VIDRO COMUM, E=5MM, DIMENSÕES (1,0 X 1,0)M.",
+   "unidade": "m²",
+   "valor_sem_bdi": 126.5,
+   "valor_com_bdi": 151.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "14.1",
+   "codigo": "SSP-MAT-002",
+   "grupo": "SSP-MAT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DO MATERIAL (ÁREA INTERNA E EXTERNA), INCLUINDO SANITÁRIOS CONFECCIONADOS. LIMPEZA TIPO I.1 , CONFORME DESCRITO EM ESPECIFICAÇÃO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 968.4,
+   "valor_com_bdi": 1160.63,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "14.2",
+   "codigo": "SSP-MAT-003",
+   "grupo": "SSP-MAT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DO MATERIAL (ÁREA INTERNA E EXTERNA), INCLUINDO SANITÁRIOS CONFECCIONADOS. LIMPEZA TIPO II, CONFORME DESCRITO EM ESPECIFICAÇÃO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1556.03,
+   "valor_com_bdi": 1864.9,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "14.3",
+   "codigo": "SSP-MAT-004",
+   "grupo": "SSP-MAT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DO MATERIAL (ÁREA INTERNA E EXTERNA), INCLUINDO SANITÁRIOS CONFECCIONADOS. LIMPEZA TIPO II.1, CONFORME DESCRITO EM ESPECIFICAÇÃO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1818.41,
+   "valor_com_bdi": 2179.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "14.4",
+   "codigo": "SSP-MAT-006",
+   "grupo": "SSP-MAT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DO MATERIAL (ÁREA INTERNA E EXTERNA), INCLUINDO SANITÁRIOS CONFECCIONADOS. LIMPEZA TIPO III.1, CONFORME DESCRITO EM ESPECIFICAÇÃO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2226.81,
+   "valor_com_bdi": 2668.83,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "14.5",
+   "codigo": "SSP-MAT-008",
+   "grupo": "SSP-MAT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DO MATERIAL (ÁREA INTERNA E EXTERNA), INCLUINDO SANITÁRIOS CONFECCIONADOS. LIMPEZA TIPO IV.1, CONFORME DESCRITO EM ESPECIFICAÇÃO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 2542.59,
+   "valor_com_bdi": 3047.29,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "14.6",
+   "codigo": "SSP-MAT-010",
+   "grupo": "SSP-MAT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DO MATERIAL (ÁREA INTERNA E EXTERNA), INCLUINDO SANITÁRIOS CONFECCIONADOS. LIMPEZA TIPO V.1, CONFORME DESCRITO EM ESPECIFICAÇÃO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 6429.4,
+   "valor_com_bdi": 7705.64,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "14.7",
+   "codigo": "SSP-MAT-011",
+   "grupo": "SSP-MAT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DO MATERIAL (ÁREA INTERNA E EXTERNA), INCLUINDO SANITÁRIOS CONFECCIONADOS. LIMPEZA TIPO V.2, CONFORME DESCRITO EM ESPECIFICAÇÃO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 3722.93,
+   "valor_com_bdi": 4461.93,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "14.8",
+   "codigo": "SSP-MAT-013",
+   "grupo": "SSP-MAT",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FORNECIMENTO DO MATERIAL (ÁREA INTERNA E EXTERNA), INCLUINDO SANITÁRIOS CONFECCIONADOS. LIMPEZA TIPO VI.1, CONFORME DESCRITO EM ESPECIFICAÇÃO.",
+   "unidade": "KIT",
+   "valor_sem_bdi": 1949.04,
+   "valor_com_bdi": 2335.92,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.1",
+   "codigo": "SSP-MOB-001",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - APAGADOR PARA QUADRO BRANCO, CORPO PLÁSTICO, COM FELTRO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 5.28,
+   "valor_com_bdi": 6.33,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.2",
+   "codigo": "SSP-MOB-002",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ARMÁRIO ALTO DE AÇO COM DUAS PORTAS E CHAVE PARA ACONDICIONAMENTO DE ARMAMENTO COM 4 PRATELEIRAS 1.00X2.10X0.50",
+   "unidade": "UN",
+   "valor_sem_bdi": 275.48,
+   "valor_com_bdi": 330.16,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.3",
+   "codigo": "SSP-MOB-003",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ARMÁRIO BAIXO COM DUAS PORTAS CONFORME ESPECIFICAÇÃO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 310.98,
+   "valor_com_bdi": 372.71,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.4",
+   "codigo": "SSP-MOB-004",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ARMÁRIO PARA VESTIÁRIO CONFORME PROJETO.",
+   "unidade": "UND",
+   "valor_sem_bdi": 369.63,
+   "valor_com_bdi": 443.0,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.5",
+   "codigo": "SSP-MOB-005",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BANCADA REVESTIDA COM LAMINADO MELAMÍNICO, INCLUSIVE PASSA-CABOS E ESTRUTURA DE SUSTENTAÇÃO",
+   "unidade": "m²",
+   "valor_sem_bdi": 475.71,
+   "valor_com_bdi": 570.14,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.6",
+   "codigo": "SSP-MOB-006",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BANCADA/BANCA/PIA DE ACO INOXIDAVEL (AISI 430) COM 2 CUBAS, COM VALVULAS, ESCORREDOR DUPLO, TORNEIRA, SIFÃO, DE *0,55 X 2,00* M",
+   "unidade": "UN",
+   "valor_sem_bdi": 377.55,
+   "valor_com_bdi": 452.49,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.7",
+   "codigo": "SSP-MOB-007",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BANCADA/TAMPO ACO INOX (AISI 304), LARGURA 60 CM, COM PES DE APOIO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 959.1,
+   "valor_com_bdi": 1149.48,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.8",
+   "codigo": "SSP-MOB-008",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BANCO DE MADEIRA LIXADO E ENVERNIZADO COM 2,00 X 0,30 M.",
+   "unidade": "UN",
+   "valor_sem_bdi": 280.24,
+   "valor_com_bdi": 335.87,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.9",
+   "codigo": "SSP-MOB-010",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CABIDE INDIVIDUAL C/ 2 GANCHOS EM METAL FIXADO EM PAINÉIS DE PVC NO BOX CHUVEIRO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 10.88,
+   "valor_com_bdi": 13.04,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.10",
+   "codigo": "SSP-MOB-011",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CADEIRA FIXA",
+   "unidade": "UND",
+   "valor_sem_bdi": 46.71,
+   "valor_com_bdi": 55.98,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.11",
+   "codigo": "SSP-MOB-012",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CADEIRA GIRATÓRIA COM ESPALDAR ALTO COM BRAÇO",
+   "unidade": "UND",
+   "valor_sem_bdi": 181.38,
+   "valor_com_bdi": 217.38,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.12",
+   "codigo": "SSP-MOB-013",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CADEIRA GIRATÓRIA COM ESPALDAR MÉDIO, COM BRAÇO",
+   "unidade": "UND",
+   "valor_sem_bdi": 84.38,
+   "valor_com_bdi": 101.13,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.13",
+   "codigo": "SSP-MOB-014",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CADEIRA GIRATÓRIA COM ESPALDAR MÉDIO, SEM BRAÇO",
+   "unidade": "UND",
+   "valor_sem_bdi": 64.38,
+   "valor_com_bdi": 77.16,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.14",
+   "codigo": "SSP-MOB-015",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CADEIRA TIPO LONGARINA COM BASE FIXA SEM BRAÇO EM POLIPROPILENO COM 3 LUGARES, DIMENSÕES MÍNIMA: HXCXL = (0,76X1,37X0,48)M.",
+   "unidade": "UN",
+   "valor_sem_bdi": 280.24,
+   "valor_com_bdi": 335.87,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.15",
+   "codigo": "SSP-MOB-016",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CAIXA DE MADEIRA COM AREIA EM COMPENSADO NAVAL 20MM, DIMENSÃO (0,50X0,50X0,80)M, PINTADA EM LÁTEX NA COR CONFORME MEMORIAL DESCRITIVO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 199.02,
+   "valor_com_bdi": 238.53,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.16",
+   "codigo": "SSP-MOB-017",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - BALCÃO EM \"L\" FORRADO PARA SACADA COM 30CM DE LARGURA",
+   "unidade": "M",
+   "valor_sem_bdi": 120.0,
+   "valor_com_bdi": 143.82,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.17",
+   "codigo": "SSP-MOB-018",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CONJUNTO MESA DE PVC + 4 CADEIRAS SEM BRAÇO.",
+   "unidade": "CJ",
+   "valor_sem_bdi": 93.8,
+   "valor_com_bdi": 112.42,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.18",
+   "codigo": "SSP-MOB-019",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CONJUNTO MESA TAMPO DE VIDRO + 4 CADEIRAS ACOLCHOADAS FORRADA EM TECIDO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 236.64,
+   "valor_com_bdi": 283.61,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.19",
+   "codigo": "SSP-MOB-020",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESCRIVANINHA COM 02 (DUAS) GAVETAS.",
+   "unidade": "UN",
+   "valor_sem_bdi": 173.88,
+   "valor_com_bdi": 208.4,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.20",
+   "codigo": "SSP-MOB-021",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTANTE DE AÇO COM 05 PRATELEIRAS - FIXADA NO MÓDULO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 131.37,
+   "valor_com_bdi": 157.45,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.21",
+   "codigo": "SSP-MOB-022",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LIXEIRA PLÁSTICA 10 LITROS.",
+   "unidade": "UN",
+   "valor_sem_bdi": 10.88,
+   "valor_com_bdi": 13.04,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.22",
+   "codigo": "SSP-MOB-023",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - LIXEIRA PLÁSTICA 100 LITROS, COM TAMPA.",
+   "unidade": "UN",
+   "valor_sem_bdi": 63.71,
+   "valor_com_bdi": 76.36,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.23",
+   "codigo": "SSP-MOB-024",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MESA ALTA TIPO BAR 60CM DIAMETRO COM DOIS BANCOS ALTOS (JOGO AMERICANO)",
+   "unidade": "UND",
+   "valor_sem_bdi": 92.25,
+   "valor_com_bdi": 110.56,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.24",
+   "codigo": "SSP-MOB-025",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MESA DE CENTRO, COM TAMPO DE VIDRO E ESTRUTURA CROMADA 0,45 X 0,45CM A 0,60X0,60CM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 300.0,
+   "valor_com_bdi": 359.55,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.25",
+   "codigo": "SSP-MOB-026",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MESA ESCRITÓRIO. DIMENSÃO CONFORME PROJETO",
+   "unidade": "und",
+   "valor_sem_bdi": 87.63,
+   "valor_com_bdi": 105.02,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.26",
+   "codigo": "SSP-MOB-027",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MESA REUNIÃO OVAL. DIMENSÃO CONFORME PROJETO",
+   "unidade": "und",
+   "valor_sem_bdi": 179.0,
+   "valor_com_bdi": 214.53,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.27",
+   "codigo": "SSP-MOB-028",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MESA REUNIÃO REDONDA. DIMENSÃO CONFORME PROJETO",
+   "unidade": "und",
+   "valor_sem_bdi": 128.9,
+   "valor_com_bdi": 154.49,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.28",
+   "codigo": "SSP-MOB-029",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PINCEL PARA QUADRO BRANCO, NA COR AZUL E VERMELHA, CORPO EM MATERIAL PLÁSTICO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 7.25,
+   "valor_com_bdi": 8.69,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.29",
+   "codigo": "SSP-MOB-030",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - POLTRONA SIMPLES, TIPO CONCHA, EM COURINO BRANCO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 118.49,
+   "valor_com_bdi": 142.01,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.30",
+   "codigo": "SSP-MOB-031",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PUFF 50X50CM, REVESTIDO COM COURINO, COR BRANCA.",
+   "unidade": "UN",
+   "valor_sem_bdi": 20.69,
+   "valor_com_bdi": 24.8,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.31",
+   "codigo": "SSP-MOB-032",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - QUADRO BRANCO COM PINTURA BRANCA VITRIFICADA BRILHANTE. MEDINDO 1,50 X 1,20 . ACABAMENTO COM MOLDURA EM ALUMÍNIO FRISADO NATURAL, SUPORTE PARA APAGADOR EM ALUMÍNIO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 229.27,
+   "valor_com_bdi": 274.78,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "15.32",
+   "codigo": "SSP-MOB-033",
+   "grupo": "SSP-MOB",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - SOFÁ EM COURINO COM 02 LUGARES.",
+   "unidade": "UN",
+   "valor_sem_bdi": 211.42,
+   "valor_com_bdi": 253.39,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.1",
+   "codigo": "SSP-PEO-001",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ASSENTO E ENCOSTO EM COMPENSADO NAVAL DE 18 MM (COLAGEM FENÓLICA), PINTADO EM LÁTEX NA COR CONFORME INSTITUIÇÃO E MEMORIAL DESCRITIVO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 99.99,
+   "valor_com_bdi": 119.84,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.2",
+   "codigo": "SSP-PEO-002",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA DE TUBOS GALVANIZADOS DE 1 1/2\" (48,3 X 3,00)MM PARA POSTO ELEVADO DE OBSERVAÇÃO, CONTENDO ESCADA, CORRIMÃO E PARAPEITO, PINTADO NA COR DA ESTRUTURA, CONFORME ESPECIFICAÇÕES EM PROJETO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 621.69,
+   "valor_com_bdi": 745.1,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.3",
+   "codigo": "SSP-PEO-003",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - REALOCAÇÃO DE PEO ATÉ 100M DE DISTÂNCIA (MOVIMENTAÇÃO MANUAL DA ESTRUTURA, SEM DESMONTAGEM).",
+   "unidade": "UN",
+   "valor_sem_bdi": 349.94,
+   "valor_com_bdi": 419.4,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.4",
+   "codigo": "SSP-PEO-004",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - REALOCAÇÃO DE PEO, MAIOR DO QUE 100M DE DISTÂNCIA (MOVIMENTAÇÃO MANUAL DA ESTRUTURA, SEM DESMONTAGEM).",
+   "unidade": "UN",
+   "valor_sem_bdi": 699.89,
+   "valor_com_bdi": 838.82,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.5",
+   "codigo": "SSP-PEO-005",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO INFERIOR COM GRADES PARALELAS FEITAS COM TUBO GALVANIZADOS FIXADO NA ESTRUTURA, COM ESPAÇAMENTO MÁXIMO A CADA 20CM, CONFORME PREVISTO MEMORIAL DESCRITIVO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 103.75,
+   "valor_com_bdi": 124.34,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.6",
+   "codigo": "SSP-PEO-006",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO FRONTAL EM CHAPA DE AÇO 1,2MM COM CANTONEIRA, PARA PROGRAMAÇÃO VISUAL DOS PEOS, PINTADO NA COR DA ESTRUTURA, CONFORME PREVISTO MEMORIAL DESCRITIVO.",
+   "unidade": "unid",
+   "valor_sem_bdi": 403.82,
+   "valor_com_bdi": 483.98,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.7",
+   "codigo": "SSP-PEO-008",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO EM COMPENSADO NAVAL, MÍNIMO 20MM (COLAGEM FENÓLICA), PINTADO EM LÁTEX CONFORME COR DA INSTITUIÇÃO, APOIADA SOBRE ESTRUTURA METÁLICA.",
+   "unidade": "m²",
+   "valor_sem_bdi": 99.36,
+   "valor_com_bdi": 119.08,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.8",
+   "codigo": "SSP-PEO-009",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ESTRUTURA DE TUBOS GALVANIZADOS DE 1 1/2\" (48,3 X 3,00)MM PARA POSTO ELEVADO DE OBSERVAÇÃO, CONTENDO ESCADA, CORRIMÃO E PARAPEITO, PINTADO NA COR DA ESTRUTURA, CONFORME ESPECIFICAÇÕES EM PROJETO. PARA PEO IV.",
+   "unidade": "UN",
+   "valor_sem_bdi": 233.58,
+   "valor_com_bdi": 279.95,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "16.9",
+   "codigo": "SSP-PEO-010",
+   "grupo": "SSP-PEO",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO FRONTAL EM CHAPA DE AÇO 1,2MM COM CANTONEIRA, PARA PROGRAMAÇÃO VISUAL DO PEO IV, PINTADO NA COR DA ESTRUTURA, CONFORME PREVISTO MEMORIAL DESCRITIVO.",
+   "unidade": "unid",
+   "valor_sem_bdi": 169.27,
+   "valor_com_bdi": 202.87,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.1",
+   "codigo": "SSP-PIS-001",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DA ÁREA DOS SANITÁRIOS QUÍMICOS EM ESTRUTURA DE MADEIRA SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20MM COM H = 10CM, EM RELAÇÃO AO PISO DA ÁREA EXTERNA (CIRCULAÇÃO) E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS), NA COR CINZA. FIXADO COM GRAMPO E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE).",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.2",
+   "codigo": "SSP-PIS-002",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DA ÁREA EXTERNA + MÓDULO + PRAÇA DE ALIMENTAÇÃO (ESTRUTURA DE MADEIRA), BARROTE SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, COM O MÓDULO+PÇ DE ALIMENTAÇÃO C/ DIFERENÇA DE NÍVEIS DE 20CM EM RELAÇÃO AO PISO EXTERNO (CIRCULAÇÃO) CONFORME PROJETO, E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS) NA COR CINZA. TODO PISO VINÍLICO DEVERÁ SER FIXADO COM GRAMPO E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE). TODO O CONJUNTO DEVERÁ SER APOIADO SOBRE ESTRUTURA TUBULAR DE AÇO GALVANIZADO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.3",
+   "codigo": "SSP-PIS-003",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DA ÁREA EXTERNA EM ESTRUTURA DE MADEIRA SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, VARIANDO A PARTIR DE 10CM EM RELAÇÃO AO NÍVEL DO LOCAL DE IMPLANTAÇÃO DO POSTO E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS), NA COR CINZA. FIXADO COM GRAMPOS E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE), PARA TODA A ÁREA EXTERNA, EXCETUANDO\u0002SE O MÓDULO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.4",
+   "codigo": "SSP-PIS-004",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DA ÁREA EXTERNA EM ESTRUTURA DE MADEIRA, BARROTE SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, VARIANDO A PARTIR DE 10CM EM RELAÇÃO AO NÍVEL DO LOCAL DE IMPLANTAÇÃO DO POSTO E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS), NA COR CINZA, FIXADO COM GRAMPOS E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE), PARA NIVELAMENTO DE TODA A ÁREA EXTERNA, EXCETUANDO-SE O MÓDULO+PÇ DE ALIMENTAÇÃO. PROIBIDO A UTILIZAÇÃO DE PALETE DE MADEIRA.",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.5",
+   "codigo": "SSP-PIS-007",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DA PRAÇA DE ALIMENTAÇÃO EM ESTRUTURA DE MADEIRA SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20MM COM H = 10CM, EM RELAÇÃO AO PISO DA ÁREA EXTERNA (CIRCULAÇÃO) E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS), NA COR CINZA. FIXADO COM GRAMPO E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE).",
+   "unidade": "M²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.6",
+   "codigo": "SSP-PIS-008",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DAS BAIAS E FENOS EM ESTRUTURA DE MADEIRA COM BARROTE E CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20MM COM H = 10CM, INSTALADO SOBRE PISO DE ESTRUTURA METÁLICA TUBULAR.",
+   "unidade": "m²",
+   "valor_sem_bdi": 70.85,
+   "valor_com_bdi": 84.91,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.7",
+   "codigo": "SSP-PIS-011",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO MÓDULO (ESTRUTURA DE MADEIRA), BARROTE SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, COM ALTURA MÍNIMA DE 70CM EM RELAÇÃO AO PISO EXTERNO (CIRCULAÇÃO), E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS) NA COR CINZA. TODO PISO VINÍLICO DEVERÁ SER FIXADO COM GRAMPO E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE). TODO O CONJUNTO DEVERÁ SER EXECUTADO SOBRE ESTRUTURA TUBULAR DE AÇO. PROIBIDO À UTILIZAÇÃO DE PALETE DE MADEIRA.",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.8",
+   "codigo": "SSP-PIS-012",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO MÓDULO EM ESTRUTURA DE MADEIRA BARROTE SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, COM ALTURA MÍNIMA CONFORME PROJETO, EM RELAÇÃO AO PISO EXTERNO (CIRCULAÇÃO), E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS) NA COR CINZA. TODO PISO DEVERÁ SER FIXADO COM GRAMPO E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE). TODO O CONJUNTO DEVERÁ SER EXECUTADO SOBRE ESTRUTURA TUBULAR DE AÇO. PROIBIDO À UTILIZAÇÃO DE PALETE DE MADEIRA.",
+   "unidade": "M²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.9",
+   "codigo": "SSP-PIS-013",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO MÓDULO EM ESTRUTURA DE MADEIRA SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, COM ALTURA MÍNIMA DE 20CM EM RELAÇÃO AO PISO EXTERNO (CIRCULAÇÃO), E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS) NA COR CINZA. TODO PISO DEVERÁ SER FIXADO COM GRAMPO E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE).",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.10",
+   "codigo": "SSP-PIS-014",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO MÓDULO+PRAÇA DE ALIMENTAÇÃO (ESTRUTURA DE MADEIRA), BARROTE SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, COM ALTURA MÍNIMA DE 20CM EM RELAÇÃO AO PISO EXTERNO (CIRCULAÇÃO), E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS) NA COR CINZA. TODO PISO VINÍLICO DEVERÁ SER FIXADO COM GRAMPO E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE). TODO O CONJUNTO DEVERÁ SER EXECUTADO SOBRE ESTRUTURA TUBULAR DE AÇO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.11",
+   "codigo": "SSP-PIS-015",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO SUPORTE CX TÉRMICA EM ESTRUTURA DE MADEIRA SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, COM ALTURA MÍNIMA DE 10CM EM RELAÇÃO AO PISO EXTERNO (CIRCULAÇÃO), E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS) NA COR CINZA. TODO PISO DEVERÁ SER FIXADO COM GRAMPOS E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE).",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.12",
+   "codigo": "SSP-PIS-016",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO DO TÉRREO/1º ANDAR (CIRCULAÇÃO, MÓDULO, PRAÇA DE ALIMENTAÇÃO), ESTRUTURA DE MADEIRA, BARROTE SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, COM O MÓDULO+PÇ DE ALIMENTAÇÃO+WC C/ ALTURA ELEVADA DE 20CM EM RELAÇÃO AO PISO EXTERNO (CIRCULAÇÃO), E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS) NA COR CINZA. TODO PISO VINÍLICO DEVERÁ SER FIXADO COM GRAMPO E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE). TODO O CONJUNTO DEVERÁ SER APOIADO SOBRE ESTRUTURA TUBULAR DE AÇO GALVANIZADO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "17.13",
+   "codigo": "SSP-PIS-017",
+   "grupo": "SSP-PIS",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PISO PARA O LOCAL DE ABORDAGEM EM ESTRUTURA DE MADEIRA SOB CHAPA DE COMPENSADO NAVAL (COLAGEM FENÓLICA) DE 20 MM, COM ALTURA MÍNIMA DE 10CM EM RELAÇÃO AO PISO EXTERNO (CIRCULAÇÃO), E REVESTIMENTO VINÍLICO ANTIDERRAPANTE (TIPO BUS) NA COR CINZA. TODO PISO DEVERÁ SER FIXADO COM GRAMPOS E ACABAMENTO COM FITA ADESIVA MULTIUSO NA COR CINZA (TIPO SILVER TAPE).",
+   "unidade": "m²",
+   "valor_sem_bdi": 149.5,
+   "valor_com_bdi": 179.18,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.1",
+   "codigo": "SSP-PRGV-001",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ADESIVO PLOTADO COM CORES E DIMENSÕES, CONFORME PREVISTO NO MEMORIAL DESCRITIVO, COM APLICAÇÃO. (ADESIVO, ARTE CONFORME INSTITUIÇÃO)",
+   "unidade": "m²",
+   "valor_sem_bdi": 157.69,
+   "valor_com_bdi": 188.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.2",
+   "codigo": "SSP-PRGV-002",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ADESIVO PLOTADO COM CORES E DIMENSÕES, CONFORME PREVISTO NO MEMORIAL DESCRITIVO, COM APLICAÇÃO. (BRASÃO DO ÓRGÃO, LOGO DO ESTADO E DESCRIÇÃO CONFORME MEMORIAL)",
+   "unidade": "m²",
+   "valor_sem_bdi": 157.69,
+   "valor_com_bdi": 188.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.3",
+   "codigo": "SSP-PRGV-003",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PLOTAGEM DE ADESIVO VINIL EM PAINÉIS DE PVC (C/APLICAÇÃO), CONFORME PROGRAMAÇÃO VISUAL SOLICITADA E INFORMADA EM MEMORIAL DESCRITIVO",
+   "unidade": "m²",
+   "valor_sem_bdi": 157.69,
+   "valor_com_bdi": 188.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.4",
+   "codigo": "SSP-PRGV-004",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ADESIVO PLOTADO COM O BRASÃO DO ORGÃO, DESCRIÇÃO DO ORGÃO E A LOGO DO GOVERNO DO ESTADO NA FRENTE E FUNDO. E A NUMERAÇÃO DO PEO \"X.XXX\", NAS LATERAIS. CONFORME PREVISTO NO MEMORIAL DESCRITIVO. DIMENSÕES (3,7 X 0,3)M NA FRENTE E FUNDO E (0,30X0,30)M NAS LATERAIS, RESPECTIVAMENTE.",
+   "unidade": "m²",
+   "valor_sem_bdi": 157.69,
+   "valor_com_bdi": 188.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.5",
+   "codigo": "SSP-PRGV-005",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ADESIVO PLOTADO, CONFORME PREVISTO NO MEMORIAL DESCRITIVO - DIMENSÕES DA PLOTAGEM: (1,0 X 3,0)M NAS LATERAIS, COM BRASÃO DO ÓRGÃO E A LOGO DO ESTADO DA BAHIA E DESCRIÇÃO CONFORME VISUAL.",
+   "unidade": "m²",
+   "valor_sem_bdi": 157.69,
+   "valor_com_bdi": 188.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.6",
+   "codigo": "SSP-PRGV-006",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ADESIVO PLOTADO, CONFORME PREVISTO NO MEMORIAL DESCRITIVO - DIMENSÕES DA PLOTAGEM: (1,0 X 4,0)M NAS LATERAIS, COM BRASÃO DO ÓRGÃO E A LOGO DO ESTADO DA BAHIA E DESCRIÇÃO \"VESTIÁRIO MASCULINO OU VESTIÁRIO FEMININO - XX\"",
+   "unidade": "m²",
+   "valor_sem_bdi": 157.69,
+   "valor_com_bdi": 188.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.7",
+   "codigo": "SSP-PRGV-007",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ADESIVO PLOTADO, CONFORME PREVISTO NO MEMORIAL DESCRITIVO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 157.69,
+   "valor_com_bdi": 188.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.8",
+   "codigo": "SSP-PRGV-008",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PLACA DE IDENTIFICAÇÃO VISUAL EM DIVERSAS SALAS (30CM X 12CM). CONFORME MEMORIAL DESCRITIVO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 27.97,
+   "valor_com_bdi": 33.52,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.9",
+   "codigo": "SSP-PRGV-009",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PLACAS DE SINALIZAÇÃO PREVENÇÃO COMBATE A INCÊNDIO, EXTINTOR DE INCÊNDIO ABC, CONFORME ABNT E PROJETO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 10.19,
+   "valor_com_bdi": 12.21,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.10",
+   "codigo": "SSP-PRGV-010",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PLOTAGEM DE ADESIVO VINIL EM PAINÉIS DE PVC (C/APLICAÇÃO), COR BRANCA, PARA FECHAMENTO INTERNO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 118.26,
+   "valor_com_bdi": 141.73,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.11",
+   "codigo": "SSP-PRGV-011",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TESTEIRA EM LONA VINILICA, COM ILHÓES, PLOTADA E FIXADA COM CORDA DE NYLON. DIMENSÃO E DESCRIÇÃO CONFORME ESPECIFICAÇÃO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 182.09,
+   "valor_com_bdi": 218.23,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.12",
+   "codigo": "SSP-PRGV-012",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TEXTO EXPLICATIVO COM A INSCRIÇÃO: POLICIA MILITAR E BRASÃO, PINTADO NA COR PRETA NOS QUATRO LADOS DO FECHAMENTO EXTERNO DO TAPUME, TAMANHO A4. CONFORME ESPECIFICAÇÃO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 205.23,
+   "valor_com_bdi": 245.97,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.13",
+   "codigo": "SSP-PRGV-013",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TEXTO EXPLICATIVO COM A INSCRIÇÃO: POLICIA MILITAR, BRASÃO E SIMBOLO DA FESTA, PINTADO NA COR PRETA NO FECHAMENTO EXTERNO DO TAPUME. CONFORME ESPECIFICAÇÃO.",
+   "unidade": "UN",
+   "valor_sem_bdi": 205.23,
+   "valor_com_bdi": 245.97,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.14",
+   "codigo": "SSP-PRGV-014",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TEXTO EXPLICATIVO EM PVC, AÇO OU PINTURA NA COR BRANCA COM AS LETRAS PRETAS, COM A INSCRIÇÃO: USO EXCLUSIVO DA (INSTITUIÇÃO CONFORME MEMORIAL DESCRITIVO). PESO MÁXIMO 800KG - 06 PESSOAS - FIXADA NAS LATERAIS DA ESTRUTURA, DIMENSÕES: (50 X 30)CM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 48.77,
+   "valor_com_bdi": 58.45,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.15",
+   "codigo": "SSP-PRGV-015",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - ADESIVO PLOTADO COM O BRASÃO DA POLICIA MILITAR, DESCRIÇÃO \"POLÍCIA MILITAR\" E A LOGO DO GOVERNO DO ESTADO NA FRENTE E FUNDO. E A NUMERAÇÃO DO PEO \"X.XXX\", NAS LATERAIS. CONFORME PREVISTO NO MEMORIAL DESCRITIVO. DIMENSÕES (2,1 X 0,3)M NA FRENTE E FUNDO E (0,30X0,30)M NAS LATERAIS, RESPECTIVAMENTE.",
+   "unidade": "m²",
+   "valor_sem_bdi": 157.69,
+   "valor_com_bdi": 188.99,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "18.16",
+   "codigo": "SSP-PRGV-016",
+   "grupo": "SSP-PRGV",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - FECHAMENTO EM LONA VINÍLICA COM ILHÓS, PLOTADA. FIXADA COM CORDA DE NYLON. DIMENSÕES E DESCRIÇÕES CONFORME ESPECIFICAÇÃO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 182.09,
+   "valor_com_bdi": 218.23,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "19.1",
+   "codigo": "SSP-RAMP-001",
+   "grupo": "SSP-RAMP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RAMPA COM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL, PISO EM MADEIRA E REVESTIMENTO EMBORRACHADO.",
+   "unidade": "m³",
+   "valor_sem_bdi": 169.08,
+   "valor_com_bdi": 202.64,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "19.2",
+   "codigo": "SSP-RAMP-002",
+   "grupo": "SSP-RAMP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RAMPA E CORRIMÃO METÁLICO, EM MADEIRA MACIÇA C/ REVEST. EMBORRACHADO",
+   "unidade": "m²",
+   "valor_sem_bdi": 268.43,
+   "valor_com_bdi": 321.71,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "19.3",
+   "codigo": "SSP-RAMP-003",
+   "grupo": "SSP-RAMP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RAMPA PARA AS BAIAS COM ESTRUTURA DE MADEIRA: PISO EM COMPENSADO DE 20MM E TRAVAS COM RIPA DE MADEIRA.",
+   "unidade": "m²",
+   "valor_sem_bdi": 83.0,
+   "valor_com_bdi": 99.48,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "19.4",
+   "codigo": "SSP-RAMP-004",
+   "grupo": "SSP-RAMP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RAMPA PARA AS BAIAS COM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL, PISO E TRAVAS EM MADEIRA.",
+   "unidade": "m²",
+   "valor_sem_bdi": 107.58,
+   "valor_com_bdi": 128.93,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "19.5",
+   "codigo": "SSP-RAMP-005",
+   "grupo": "SSP-RAMP",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - RAMPA PARA CAÇAMBA COM ESTRUTURA TUBULAR DE AÇO GALVANIZADO DE 1 1/2\" (48,3 X 3,00)MM COM ABRAÇADEIRA ARTICULADA E SAPATA REGULÁVEL, PISO EM MADEIRA E REVESTIMENTO EMBORRACHADO.",
+   "unidade": "m²",
+   "valor_sem_bdi": 169.08,
+   "valor_com_bdi": 202.64,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "20.1",
+   "codigo": "SSP-RED-001",
+   "grupo": "SSP-RED",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - MINI RACK DE PAREDE 19\" X 5U X 350MM.",
+   "unidade": "UN",
+   "valor_sem_bdi": 216.85,
+   "valor_com_bdi": 259.89,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "20.2",
+   "codigo": "SSP-RED-002",
+   "grupo": "SSP-RED",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - PONTO DE LÓGICA (CONDULETE EM LIGA DE ALUMÍNIO FUNDIDO TIPO \"C\" Ø3/4\", ELETRODUTO DE PVC RÍGIDO ROSCÁVEL C/CONEXÕES Ø25MM E Ø40MM, CONJ.BRAÇADEIRA TIPO D, Ø3/4\" E Ø40MM, CABO UTP 4 PARES CAT5, CONECTOR RJ-45 MACHO CAT5 E TOMADA RJ45 DE EMBUTIR). VER PROJETO",
+   "unidade": "UN",
+   "valor_sem_bdi": 54.81,
+   "valor_com_bdi": 65.69,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "21.1",
+   "codigo": "SSP-SIL-001",
+   "grupo": "SSP-SIL",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - APLICAÇÃO DE SILICONE ENTRE O REVESTIMENTO VINÍLICO E O PERFIL DE BASE DOS PAINÉIS DE PVC",
+   "unidade": "M",
+   "valor_sem_bdi": 3.19,
+   "valor_com_bdi": 3.82,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "22.1",
+   "codigo": "SSP-TLD-001",
+   "grupo": "SSP-TLD",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TOLDO (LONA VINÍLICA COM ELEMENTOS DE FIXAÇÃO PARA BOXTRUSS), LONA NA COR CONFORME INSTITUIÇÃO, FIXADO NA ESTRUTURA, DIMENSÃO CONFORME ESPECIFICAÇÕES.",
+   "unidade": "M²",
+   "valor_sem_bdi": 32.04,
+   "valor_com_bdi": 38.4,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "22.2",
+   "codigo": "SSP-TLD-002",
+   "grupo": "SSP-TLD",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - CORTINA EM LONA VINÍLICA (SOMENTE LONA E ELEMENTOS PARA FIXAÇÃO), NA COR BRANCA, FIXADO NA ESTRUTURA, DIMENSÃO CONFORME ESPECIFICAÇÃO.",
+   "unidade": "M²",
+   "valor_sem_bdi": 32.04,
+   "valor_com_bdi": 38.4,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "22.3",
+   "codigo": "SSP-TLD-003",
+   "grupo": "SSP-TLD",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TOLDO (ESTRUTURA METÁLICA, LONA VINÍLICA E CALHA TAMBÉM EM LONA), LONA NA COR DA INSTITUIÇÃO CONFORME MEMORIAL DESCRITIVO FIXADO NA ESTRUTURA. DIMENSÃO CONFORME ESPECIFICAÇÕES.",
+   "unidade": "M²",
+   "valor_sem_bdi": 66.69,
+   "valor_com_bdi": 79.93,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "22.4",
+   "codigo": "SSP-TLD-004",
+   "grupo": "SSP-TLD",
+   "descricao": "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM - TOLDO (LONA VINÍLICA COM ELEMENTOS DE FIXAÇÃO PARA BOXTRUSS), LONA NA COR DA INSTITUIÇÃO CONFORME MEMORIAL DESCRITIVO FIXADO NA ESTRUTURA. DIMENSÃO CONFORME ESPECIFICAÇÕES.",
+   "unidade": "m²",
+   "valor_sem_bdi": 32.04,
+   "valor_com_bdi": 38.4,
+   "grupo_calculo": "I"
+  },
+  {
+   "item": "23.1",
+   "codigo": "SSP-VIG-001",
+   "grupo": "SSP-VIG",
+   "descricao": "(DUPLA) VIGILANTE DIURNO/NOTURNO - DEVENDO ESTAR DEVIDAMENTE UNIFORMIZADOS, IDENTIFICADOS COM CAMISA, CRACHÁ E EPI.",
+   "unidade": "DIARIA",
+   "valor_sem_bdi": 1425.76,
+   "valor_com_bdi": 1708.77,
+   "grupo_calculo": "II"
+  },
+  {
+   "item": "23.2",
+   "codigo": "SSP-VIG-002",
+   "grupo": "SSP-VIG",
+   "descricao": "VIGILANTE DIURNO/NOTURNO - DEVENDO ESTAR DEVIDAMENTE UNIFORMIZADOS, IDENTIFICADOS COM CAMISA, CRACHÁ E EPI. DUAS (02) PESSOAS POR DIÁRIA, SENDO UMA PESSOA POR TURNO.",
+   "unidade": "DIARIA",
+   "valor_sem_bdi": 712.88,
+   "valor_com_bdi": 854.39,
+   "grupo_calculo": "II"
+  }
+ ]
+}
