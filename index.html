@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F.O.L.I.A. — Catálogo de Composições</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <h1>F.O.L.I.A.</h1>
+      <p class="sub">Frente Operacional de Logística, Infraestrutura e Apoio</p>
+    </div>
+    <span class="selo">Etapa 1 · Catálogo</span>
+  </header>
+
+  <main>
+    <section class="painel">
+      <p id="fonte" class="fonte">Carregando catálogo…</p>
+      <div class="filtros">
+        <input id="busca" type="search" placeholder="Buscar por código ou descrição (ex.: toldo, SSP-DIV-003)">
+        <select id="filtroGrupo"><option value="">Todos os grupos</option></select>
+        <select id="filtroCalculo">
+          <option value="">Grupo de cálculo: todos</option>
+          <option value="I">Grupo I — unidade física (com desconto)</option>
+          <option value="II">Grupo II — unidade de tempo (sem desconto)</option>
+          <option value="PENDENTE">Pendente de classificação</option>
+        </select>
+      </div>
+      <p id="contador" class="contador"></p>
+    </section>
+
+    <section class="tabela-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Und</th>
+            <th class="num">Sem BDI (R$)</th>
+            <th class="num">Com BDI (R$)</th>
+            <th>Cálculo</th>
+          </tr>
+        </thead>
+        <tbody id="linhas"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>Protótipo em validação. Os valores são preços referenciais, sem desconto de Ata.</footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
