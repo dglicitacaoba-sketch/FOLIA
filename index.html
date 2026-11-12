@@ -1,55 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F.O.L.I.A. — Catálogo de Composições</title>
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F.O.L.I.A. — Pedidos de Estruturas Provisórias</title>
+<style>
+  :root {
+    --azul: #0b3d6e; --azul-2: #145da0; --azul-claro: #e7f1fb; --fundo: #f3f5f8; --borda: #d9dee6;
+    --texto: #1c2733; --suave: #5b6675; --verde: #1e7a46; --verde-claro: #e5f4e4; --laranja: #a85400;
+    --laranja-claro: #fdf0dc; --vermelho: #a12626; --vermelho-claro: #fbebeb; --raio: 10px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--texto); background: var(--fundo); font-size: 15px; }
+  header { background: linear-gradient(90deg, var(--azul), var(--azul-2)); color: #fff; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 1.5rem; letter-spacing: .12em; }
+  header p { margin: 2px 0 0; font-size: .85rem; opacity: .85; }
+  nav { display: flex; gap: 4px; flex-wrap: wrap; }
+  nav button { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.35); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-size: .9rem; }
+  nav button.ativo { background: #fff; color: var(--azul); font-weight: 600; }
+  main { max-width: 1440px; margin: 0 auto; padding: 20px 28px 40px; }
+  .aba { display: none; } .aba.ativa { display: block; }
+  .card { background: #fff; border: 1px solid var(--borda); border-radius: var(--raio); padding: 18px 20px; margin-bottom: 16px; }
+  .card h2 { margin: 0 0 4px; font-size: 1.1rem; color: var(--azul); }
+  .card .dica { margin: 0 0 14px; color: var(--suave); font-size: .85rem; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .grade .largo { grid-column: span 2; }
+  label { display: flex; flex-direction: column; gap: 4px; font-size: .8rem; font-weight: 600; color: var(--suave); }
+  input, select, textarea { font: inherit; font-weight: 400; color: var(--texto); padding: 8px 10px; border: 1px solid var(--borda); border-radius: 7px; background: #fff; }
+  input:focus, select:focus { outline: 2px solid var(--azul-claro); border-color: var(--azul-2); }
+  input[readonly] { background: var(--fundo); }
+  .btn { font: inherit; font-size: .88rem; padding: 8px 14px; border-radius: 7px; border: 1px solid var(--azul-2); background: var(--azul-2); color: #fff; cursor: pointer; white-space: nowrap; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.sec { background: #fff; color: var(--azul-2); }
+  .btn.perigo { background: #fff; color: var(--vermelho); border-color: #e3b4b4; }
+  .btn.peq { padding: 4px 9px; font-size: .8rem; }
+  .linha-acoes { display: flex; gap: 8px; flex-wrap: wrap; align-items: end; }
+  .layout-pedido { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 16px; align-items: start; }
+  .resumo { position: sticky; top: 12px; }
+  .resumo dl { display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; margin: 0; font-size: .9rem; }
+  .resumo dt { color: var(--suave); } .resumo dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+  .resumo .total { border-top: 1px solid var(--borda); padding-top: 10px; margin-top: 6px; font-size: 1.15rem; font-weight: 700; color: var(--azul); }
+  .ata-info { background: var(--azul-claro); border-radius: 8px; padding: 10px 12px; font-size: .88rem; margin-top: 10px; }
+  .estrutura { border: 1px solid var(--borda); border-radius: var(--raio); margin-bottom: 14px; overflow: hidden; }
+  .estrutura-topo { display: flex; gap: 10px; align-items: end; flex-wrap: wrap; padding: 12px 14px; background: #f8fafc; border-bottom: 1px solid var(--borda); }
+  .estrutura-topo .nome { flex: 1 1 260px; }
+  .estrutura-topo .subtotal { margin-left: auto; text-align: right; font-weight: 700; color: var(--azul); }
+  .estrutura-topo .subtotal small { display: block; font-weight: 400; color: var(--suave); }
+  .tabela { width: 100%; border-collapse: collapse; font-size: .83rem; }
+  .tabela th { background: var(--azul-claro); text-align: left; padding: 7px 8px; position: sticky; top: 0; white-space: nowrap; }
+  .tabela td { padding: 5px 8px; border-bottom: 1px solid #eef1f5; vertical-align: middle; }
+  .tabela tr.secao td { background: #fafbfc; font-weight: 700; font-size: .78rem; color: var(--suave); letter-spacing: .03em; }
+  .tabela .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .tabela .cod { font-family: ui-monospace, Consolas, monospace; white-space: nowrap; }
+  .tabela .desc { max-width: 460px; min-width: 200px; }
+  .clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .resumo .total { grid-column: auto; }
+  .tabela input.qtd { width: 90px; text-align: right; padding: 4px 6px; }
+  .rolagem { overflow: auto; max-height: 520px; }
+  .add-item { display: flex; gap: 8px; padding: 10px 14px; background: #fcfdfe; border-top: 1px solid var(--borda); flex-wrap: wrap; }
+  .add-item input[list] { flex: 1 1 380px; }
+  .add-item input.qtd { width: 110px; }
+  .tag { font-size: .72rem; padding: 2px 8px; border-radius: 10px; white-space: nowrap; font-weight: 600; }
+  .tag.I { background: var(--verde-claro); color: var(--verde); }
+  .tag.II { background: var(--laranja-claro); color: var(--laranja); }
+  .tag.PENDENTE { background: var(--vermelho-claro); color: var(--vermelho); }
+  .aviso { background: var(--laranja-claro); border: 1px solid #f1d3a6; color: #6b3a00; border-radius: 8px; padding: 9px 12px; font-size: .85rem; margin: 10px 0; }
+  .erro { background: var(--vermelho-claro); border-color: #e9b9b9; color: var(--vermelho); }
+  .ok { background: var(--verde-claro); border-color: #b9dfbf; color: var(--verde); }
+  .vazio { text-align: center; color: var(--suave); padding: 26px; }
+  .filtros { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .filtros input { flex: 1 1 320px; }
+  #toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--texto); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: .9rem; opacity: 0; transition: opacity .25s; pointer-events: none; }
+  #toast.visivel { opacity: .95; }
+  footer { text-align: center; color: var(--suave); font-size: .78rem; padding: 10px 0 24px; }
+  @media (max-width: 1000px) { .layout-pedido { grid-template-columns: 1fr; } .resumo { position: static; } .grade .largo { grid-column: span 1; } }
+</style>
 </head>
 <body>
-  <header class="topo">
-    <div>
-      <h1>F.O.L.I.A.</h1>
-      <p class="sub">Frente Operacional de Logística, Infraestrutura e Apoio</p>
-    </div>
-    <span class="selo">Etapa 1 · Catálogo</span>
-  </header>
+<header>
+  <div>
+    <h1>F.O.L.I.A.</h1>
+    <p>Frente Operacional de Logística, Infraestrutura e Apoio · SSP/BA</p>
+  </div>
+  <nav id="menu">
+    <button data-aba="pedido" class="ativo">Novo pedido</button>
+    <button data-aba="pedidos">Pedidos e consolidação</button>
+    <button data-aba="atas">Atas de RP</button>
+    <button data-aba="catalogo">Catálogo</button>
+  </nav>
+</header>
 
-  <main>
-    <section class="painel">
-      <p id="fonte" class="fonte">Carregando catálogo…</p>
-      <div class="filtros">
-        <input id="busca" type="search" placeholder="Buscar por código ou descrição (ex.: toldo, SSP-DIV-003)">
-        <select id="filtroGrupo"><option value="">Todos os grupos</option></select>
-        <select id="filtroCalculo">
-          <option value="">Grupo de cálculo: todos</option>
-          <option value="I">Grupo I — unidade física (com desconto)</option>
-          <option value="II">Grupo II — unidade de tempo (sem desconto)</option>
-          <option value="PENDENTE">Pendente de classificação</option>
-        </select>
-      </div>
-      <p id="contador" class="contador"></p>
-    </section>
+<main>
+  <section id="aba-pedido" class="aba ativa"></section>
+  <section id="aba-pedidos" class="aba"></section>
+  <section id="aba-atas" class="aba"></section>
+  <section id="aba-catalogo" class="aba"></section>
+</main>
 
-    <section class="tabela-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Código</th>
-            <th>Descrição</th>
-            <th>Und</th>
-            <th class="num">Sem BDI (R$)</th>
-            <th class="num">Com BDI (R$)</th>
-            <th>Cálculo</th>
-          </tr>
-        </thead>
-        <tbody id="linhas"></tbody>
-      </table>
-    </section>
-  </main>
+<datalist id="lista-catalogo"></datalist>
+<div id="toast"></div>
+<footer>Versão de validação. Os dados ficam salvos somente neste navegador. Use "Exportar" para enviar pedidos à consolidação.</footer>
 
-  <footer>Protótipo em validação. Os valores são preços referenciais, sem desconto de Ata.</footer>
-
-  <script src="assets/app.js"></script>
+<script src="dados.js"></script>
+<script src="calc.js"></script>
+<script src="xlsx.full.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

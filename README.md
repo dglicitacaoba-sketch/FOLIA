@@ -1,25 +1,31 @@
 # F.O.L.I.A. — Frente Operacional de Logística, Infraestrutura e Apoio
 
-Plataforma web para os órgãos do Sistema Estadual de Segurança Pública da Bahia planejarem as estruturas provisórias de eventos e gerarem a planilha de fiscalização, conforme o Termo de Referência de Estruturas Provisórias (proc. 020.16859.2026.0006453-43).
+Plataforma web para os órgãos do Sistema Estadual de Segurança Pública da Bahia elaborarem pedidos de estruturas provisórias contra as Atas de Registro de Preços da SSP/BA, consolidarem o valor a sacar por ata e gerarem a planilha de fiscalização.
 
-## Estado atual
+Base normativa: Termo de Referência de Estruturas Provisórias (proc. 020.16859.2026.0006453-43) e Tabela Consolidada de Composições SSP/BA (CEIRF).
 
-**Etapa 1 — Catálogo de composições** (em validação)
+## Arquivos (todos na raiz, sem pastas)
 
-- `dados/catalogo.json`: 409 composições da Tabela Consolidada Retificada (CEIRF), BDI de 19,85%.
-- Cada composição está classificada como:
-  - Grupo I: unidade física, com desconto;
-  - Grupo II: unidade de tempo, sem desconto;
-  - Pendente: CHP e CHI.
+| Arquivo | Função |
+| --- | --- |
+| `index.html` | Página e visual |
+| `app.js` | Telas: pedido, consolidação, atas, catálogo e geração do .xlsx |
+| `calc.js` | Motor de cálculo (regras do TR) |
+| `dados.js` | Catálogo (409 composições), 36 lotes, 4 estruturas-modelo, órgãos e regras |
+| `xlsx.full.min.js` | Biblioteca SheetJS 0.18.5 (Apache 2.0) para gerar planilhas |
 
-## Estrutura de pastas
+## Regras de cálculo
 
-```
-index.html          página principal
-assets/style.css    aparência
-assets/app.js       lógica da página
-dados/catalogo.json catálogo de preços referenciais
-```
+- **Grupo I (unidade física):**
+  - PU contratado = ARRED(PU c/ BDI × (1 − desconto); 2)
+  - Valor = ARRED(Qtd × PU contratado ÷ 100 × (50 + dias + 35); 2)
+  - Mínimo de 3 dias.
+- **Grupo II (diária ou turno):** Valor = Qtd × PU c/ BDI, sem desconto.
+- **CHP/CHI:** classificação pendente; não somam.
+
+## Onde os dados ficam
+
+Os dados ficam no navegador de quem usa (localStorage). Nenhum dado de órgão é gravado neste repositório.
 
 ## Como executar no computador
 
@@ -30,11 +36,3 @@ python -m http.server 8000
 ```
 
 Depois abra http://localhost:8000.
-
-## Publicação
-
-GitHub Pages, branch `main`, pasta raiz (`/`).
-
-## Privacidade
-
-Nenhum dado de órgão é gravado neste repositório. O repositório contém apenas código e a tabela referencial.
