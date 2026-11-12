@@ -7,7 +7,15 @@
   var D = FOLIA_DADOS;
   var R = D.regras;
   var IDX = {};
-  D.itens.forEach(function (i) { IDX[i.codigo] = i; });
+  // Descrição curta: remove o prefixo repetido "FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM -" (texto completo segue na planilha)
+  function curta(d) {
+    var s = String(d || "");
+    s = s.replace(/^FORNECIMENTO,\s*(?:MONTAGEM|DESMONTAGEM)[^-]{0,60}-\s*/, "");
+    s = s.replace(/^FORNECIMENTO, MONTAGEM, INSTALAÇÃO E DESMONTAGEM DE\s+/, "");
+    return s || String(d || "");
+  }
+  D.itens.forEach(function (i) { i.curta = curta(i.descricao); i.busca = normalizarTexto(i.codigo + " " + i.descricao); IDX[i.codigo] = i; });
+  function normalizarTexto(t) { return String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); }
 
   // ---------- utilidades ----------
   var fmt = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -71,10 +79,6 @@
     window.scrollTo(0, 0);
   }
 
-  // lista para o campo de busca de composições
-  document.getElementById("lista-catalogo").innerHTML = D.itens.map(function (i) {
-    return '<option value="' + esc(i.codigo + " — " + i.descricao.slice(0, 110)) + '">';
-  }).join("");
 
   // =====================================================================
   // ABA: NOVO PEDIDO
@@ -166,7 +170,7 @@
       var c = l.calc; var comp = l.comp;
       linhas += "<tr>" +
         '<td class="cod">' + esc(l.item.codigo) + "</td>" +
-        '<td class="desc"' + (comp ? ' title="' + esc(comp.descricao) + '"' : '') + '><div class="clamp">' + (comp ? esc(comp.descricao) : '<b style="color:var(--vermelho)">Código não encontrado no catálogo</b>') + "</div></td>" +
+        '<td class="desc"' + (comp ? ' title="' + esc(comp.descricao) + '"' : '') + '><div class="clamp">' + (comp ? esc(comp.curta) : '<b style="color:var(--vermelho)">Código não encontrado no catálogo</b>') + "</div></td>" +
         "<td>" + (comp ? esc(comp.unidade) : "") + "</td>" +
         "<td>" + (comp ? '<span class="tag ' + comp.grupo_calculo + '">' + ({ I: "Física", II: "Tempo", PENDENTE: "Pendente" })[comp.grupo_calculo] + "</span>" : "") + "</td>" +
         '<td class="num"><input class="qtd" data-qtd="' + ei + ":" + ii + '" value="' + num(l.item.quantidade).replace(/,00$/, "") + '"></td>' +
@@ -183,20 +187,19 @@
       '<label class="nome">Nome da estrutura<input data-est-nome="' + ei + '" value="' + esc(est.nome) + '"></label>' +
       '<label>Qtd. desta estrutura<input type="number" min="1" step="1" style="width:110px" data-est-unid="' + ei + '" value="' + (est.unidades || 1) + '"></label>' +
       '<div class="subtotal">' + rs(r.subtotal) + "<small>" + r.linhas.length + " composições" + (r.multiplicador > 1 ? " · ×" + r.multiplicador : "") + "</small></div>" +
-      '<button class="btn perigo peq" data-acao="rem-est" data-ei="' + ei + '">Remover estrutura</button>' +
+      '<button class="btn sec peq" data-acao="recolher" data-ei="' + ei + '">' + (est.recolhida ? "▸ Mostrar itens" : "▾ Recolher") + "</button>" +
+      '<button class="btn perigo peq" data-acao="rem-est" data-ei="' + ei + '">Remover</button>' +
       "</div>" +
+      (est.recolhida ? "" : (
       (est.ausentes && est.ausentes.length ? '<div class="aviso" style="margin:10px 14px">Itens do orçamento original fora da tabela consolidada (não incluídos): ' +
         est.ausentes.map(function (a) { return esc(a.codigo); }).join(", ") + ".</div>" : "") +
       '<div class="rolagem"><table class="tabela"><thead><tr><th>Código</th><th>Descrição</th><th>Und</th><th>Tipo</th>' +
       '<th class="num">Quantidade</th><th class="num">PU ref. c/ BDI</th><th class="num">Desconto</th><th class="num">PU contratado</th>' +
       '<th class="num">Unidades</th><th class="num">Valor (R$)</th><th></th></tr></thead><tbody>' +
       (linhas || '<tr><td colspan="11" class="vazio">Sem composições. Adicione abaixo.</td></tr>') + "</tbody></table></div>" +
-      '<div class="add-item">' +
-      '<input list="lista-catalogo" placeholder="Buscar composição por código ou descrição…" data-add-cod="' + ei + '">' +
-      '<input class="qtd" placeholder="Quantidade" data-add-qtd="' + ei + '">' +
-      '<input placeholder="Seção (opcional)" style="width:180px" data-add-sec="' + ei + '">' +
-      '<button class="btn sec" data-acao="add-item" data-ei="' + ei + '">Adicionar composição</button>' +
-      "</div></div>";
+      '<div class="add-item"><button class="btn" data-acao="abrir-busca" data-ei="' + ei + '">＋ Adicionar composições</button>' +
+      '<span class="dica-inline">Busque por palavra (ex.: "tomada", "toldo", "vigilante") ou pelo código.</span></div>')) +
+      "</div>";
   }
 
   function renderResumo(res) {
@@ -208,8 +211,11 @@
     var temII = res.estruturas.some(function (e) { return e.linhas.some(function (l) { return l.calc && l.calc.grupo === "II"; }); });
     if (temII) avisos.push("Itens de tempo (diárias/turnos): confira se a quantidade corresponde às diárias do evento.");
 
+    var nIt = rascunho.estruturas.reduce(function (s, e) { return s + e.itens.length; }, 0);
+    var passos = [["Identificação", !!(rascunho.orgao && rascunho.evento && Number(rascunho.dias) >= 1)], ["Ata de RP", !!ata], ["Estruturas", nIt > 0]];
     document.getElementById("resumo").innerHTML =
-      '<div class="card"><h2>Resumo do pedido</h2><dl>' +
+      '<div class="card"><h2>Resumo do pedido</h2><div class="passos">' +
+      passos.map(function (p, i) { return '<span class="passo' + (p[1] ? " feito" : "") + '">' + (p[1] ? "✓" : i + 1) + " " + p[0] + "</span>"; }).join("") + "</div><dl>" +
       "<dt>Desconto herdado</dt><dd>" + (ata ? pct(ata.desconto) : "—") + "</dd>" +
       "<dt>Dias informados</dt><dd>" + (Number(rascunho.dias) || 0) + "</dd>" +
       "<dt>Dias para medição</dt><dd>" + res.diasMedicao + "</dd>" +
@@ -255,21 +261,15 @@
       salvarRascunho(); renderEstruturas(); toast("Estrutura " + m.nome + " adicionada.");
     } else if (a === "add-vazia") {
       rascunho.estruturas.push({ uid: uid(), nome: "Nova estrutura " + (rascunho.estruturas.length + 1), modeloId: null, unidades: 1, itens: [] });
-      salvarRascunho(); renderEstruturas();
+      salvarRascunho(); renderEstruturas(); abrirBusca(rascunho.estruturas.length - 1);
     } else if (a === "rem-est") {
       if (confirm("Remover esta estrutura do pedido?")) { rascunho.estruturas.splice(Number(b.dataset.ei), 1); salvarRascunho(); renderEstruturas(); }
     } else if (a === "rem-item") {
       rascunho.estruturas[b.dataset.ei].itens.splice(Number(b.dataset.ii), 1); salvarRascunho(); renderEstruturas();
-    } else if (a === "add-item") {
-      var ei = b.dataset.ei;
-      var bruto = (document.querySelector('[data-add-cod="' + ei + '"]').value || "").trim();
-      var cod = bruto.split(" ")[0].toUpperCase();
-      var qtd = lerNumero(document.querySelector('[data-add-qtd="' + ei + '"]').value);
-      var sec = (document.querySelector('[data-add-sec="' + ei + '"]').value || "").trim().toUpperCase();
-      if (!IDX[cod]) { toast("Escolha uma composição da lista (código do catálogo)."); return; }
-      if (!(qtd > 0)) { toast("Informe uma quantidade maior que zero."); return; }
-      rascunho.estruturas[ei].itens.push({ secao: sec || "COMPOSIÇÕES ADICIONADAS", codigo: cod, quantidade: qtd });
-      salvarRascunho(); renderEstruturas(); toast(cod + " adicionada.");
+    } else if (a === "abrir-busca") {
+      abrirBusca(Number(b.dataset.ei));
+    } else if (a === "recolher") {
+      var e2 = rascunho.estruturas[b.dataset.ei]; e2.recolhida = !e2.recolhida; salvarRascunho(); renderEstruturas();
     } else if (a === "salvar-pedido") {
       salvarPedido();
     } else if (a === "novo-pedido") {
@@ -307,6 +307,90 @@
     renderPedido();
     toast("Pedido " + p.numero + " salvo: " + rs(res.total));
   }
+
+
+  // =====================================================================
+  // JANELA DE BUSCA DE COMPOSIÇÕES
+  // =====================================================================
+  var busca = { ei: null, termo: "", grupo: "", tipo: "", secao: "" };
+  var modalEl = document.getElementById("modal");
+
+  function abrirBusca(ei) {
+    var est = rascunho.estruturas[ei];
+    busca = { ei: ei, termo: "", grupo: "", tipo: "", secao: "" };
+    var secoes = [];
+    est.itens.forEach(function (it) { if (it.secao && secoes.indexOf(it.secao) < 0) secoes.push(it.secao); });
+    var opG = '<option value="">Todos os grupos</option>' + Object.keys(D.grupos).map(function (g) { return '<option value="' + g + '">' + esc(D.grupos[g]) + "</option>"; }).join("");
+    modalEl.innerHTML =
+      '<div class="modal-caixa" role="dialog" aria-modal="true">' +
+      '<div class="modal-topo"><div><h2>Adicionar composições</h2><p class="dica" style="margin:0">Estrutura: <b>' + esc(est.nome) + "</b></p></div>" +
+      '<button class="btn sec" data-acao="fechar-busca">Concluir</button></div>' +
+      '<div class="filtros" style="padding:0 20px">' +
+      '<input id="m-busca" type="search" placeholder="Digite palavras ou código: ex. tomada 20a, toldo, SSP-DIV-003" autocomplete="off">' +
+      '<select id="m-grupo">' + opG + "</select>" +
+      '<select id="m-tipo"><option value="">Física e tempo</option><option value="I">Só física</option><option value="II">Só tempo</option></select>' +
+      '<input id="m-secao" list="m-secoes" placeholder="Seção (opcional)" style="flex:0 1 220px">' +
+      '<datalist id="m-secoes">' + secoes.map(function (s) { return '<option value="' + esc(s) + '">'; }).join("") + "</datalist>" +
+      "</div>" +
+      '<p class="dica" id="m-cont" style="padding:0 20px;margin:4px 0 8px"></p>' +
+      '<div id="m-res" class="m-res"></div></div>';
+    modalEl.classList.add("aberto");
+    document.body.style.overflow = "hidden";
+    desenharBusca();
+    setTimeout(function () { document.getElementById("m-busca").focus(); }, 30);
+  }
+  function fecharBusca() { modalEl.classList.remove("aberto"); modalEl.innerHTML = ""; document.body.style.overflow = ""; renderEstruturas(); }
+
+  function desenharBusca() {
+    var est = rascunho.estruturas[busca.ei];
+    var ja = {};
+    est.itens.forEach(function (it) { ja[it.codigo] = (ja[it.codigo] || 0) + (Number(it.quantidade) || 0); });
+    var partes = normalizarTexto(busca.termo.trim()).split(/\s+/).filter(Boolean);
+    var lista = D.itens.filter(function (i) {
+      return (!busca.grupo || i.grupo === busca.grupo) && (!busca.tipo || i.grupo_calculo === busca.tipo) &&
+        partes.every(function (p) { return i.busca.indexOf(p) >= 0; });
+    });
+    var max = 60;
+    document.getElementById("m-cont").textContent = lista.length + " composições encontradas" + (lista.length > max ? " — mostrando as " + max + " primeiras; refine a busca." : "");
+    document.getElementById("m-res").innerHTML = lista.slice(0, max).map(function (i) {
+      return '<div class="m-item' + (ja[i.codigo] ? " ja" : "") + '">' +
+        '<div class="m-info"><div class="m-linha1"><span class="cod">' + esc(i.codigo) + '</span><span class="tag ' + i.grupo_calculo + '">' +
+        ({ I: "Física", II: "Tempo", PENDENTE: "Pendente" })[i.grupo_calculo] + "</span>" + '<span class="m-grupo">' + esc(D.grupos[i.grupo] || "") + "</span>" +
+        (ja[i.codigo] ? '<span class="tag I">já na estrutura: ' + num(ja[i.codigo]).replace(/,00$/, "") + "</span>" : "") + "</div>" +
+        '<div class="m-desc" title="' + esc(i.descricao) + '">' + esc(i.curta) + "</div></div>" +
+        '<div class="m-preco"><b>' + rs(i.valor_com_bdi) + "</b><small>por " + esc(i.unidade) + "</small></div>" +
+        '<input class="qtd" inputmode="decimal" placeholder="Qtd (' + esc(i.unidade) + ')" data-mq="' + esc(i.codigo) + '">' +
+        '<button class="btn peq" data-acao="m-add" data-cod="' + esc(i.codigo) + '">Adicionar</button></div>';
+    }).join("") || '<div class="vazio">Nenhuma composição encontrada. Tente outra palavra.</div>';
+  }
+
+  function adicionarDaBusca(cod) {
+    var campoQ = modalEl.querySelector('[data-mq="' + cod + '"]');
+    var qtd = lerNumero(campoQ.value);
+    if (!(qtd > 0)) { campoQ.focus(); toast("Informe a quantidade antes de adicionar."); return; }
+    var sec = (document.getElementById("m-secao").value || "").trim().toUpperCase() || "COMPOSIÇÕES ADICIONADAS";
+    rascunho.estruturas[busca.ei].itens.push({ secao: sec, codigo: cod, quantidade: qtd });
+    salvarRascunho(); renderEstruturas(); desenharBusca();
+    toast(cod + " adicionada (" + num(qtd).replace(/,00$/, "") + " " + IDX[cod].unidade + ").");
+    var b = document.getElementById("m-busca"); b.focus(); b.select();
+  }
+
+  modalEl.addEventListener("input", function (e) { if (e.target.id === "m-busca") { busca.termo = e.target.value; desenharBusca(); } });
+  modalEl.addEventListener("change", function (e) {
+    if (e.target.id === "m-grupo") { busca.grupo = e.target.value; desenharBusca(); }
+    if (e.target.id === "m-tipo") { busca.tipo = e.target.value; desenharBusca(); }
+  });
+  modalEl.addEventListener("click", function (e) {
+    if (e.target === modalEl) return fecharBusca();
+    var b = e.target.closest("[data-acao]"); if (!b) return;
+    if (b.dataset.acao === "fechar-busca") fecharBusca();
+    if (b.dataset.acao === "m-add") adicionarDaBusca(b.dataset.cod);
+  });
+  modalEl.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") fecharBusca();
+    if (e.key === "Enter" && e.target.dataset.mq) { e.preventDefault(); adicionarDaBusca(e.target.dataset.mq); }
+    if (e.key === "Enter" && e.target.id === "m-busca") { e.preventDefault(); var q = modalEl.querySelector("[data-mq]"); if (q) q.focus(); }
+  });
 
   // =====================================================================
   // ABA: PEDIDOS E CONSOLIDAÇÃO
@@ -477,11 +561,11 @@
     var termo = normalizar(buscaCatalogo.termo.trim());
     var f = D.itens.filter(function (i) {
       return (!buscaCatalogo.grupo || i.grupo === buscaCatalogo.grupo) && (!buscaCatalogo.calculo || i.grupo_calculo === buscaCatalogo.calculo) &&
-        (!termo || normalizar(i.codigo + " " + i.descricao).indexOf(termo) >= 0);
+        (!termo || termo.split(/\s+/).every(function (p) { return i.busca.indexOf(p) >= 0; }));
     });
     document.getElementById("cat-cont").textContent = f.length + " de " + D.itens.length + " composições";
     document.getElementById("cat-linhas").innerHTML = f.map(function (i) {
-      return '<tr><td class="cod">' + esc(i.codigo) + '</td><td class="desc">' + esc(i.descricao) + "</td><td>" + esc(i.unidade) + '</td><td class="num">' + num(i.valor_sem_bdi) +
+      return '<tr><td class="cod">' + esc(i.codigo) + '</td><td class="desc" title="' + esc(i.descricao) + '"><div class="clamp">' + esc(i.curta) + "</div></td><td>" + esc(i.unidade) + '</td><td class="num">' + num(i.valor_sem_bdi) +
         '</td><td class="num">' + num(i.valor_com_bdi) + '</td><td><span class="tag ' + i.grupo_calculo + '">' + ({ I: "Física", II: "Tempo", PENDENTE: "Pendente" })[i.grupo_calculo] + "</span></td></tr>";
     }).join("");
   }
