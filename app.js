@@ -48,7 +48,11 @@
     clearTimeout(toast._t); toast._t = setTimeout(function () { t.classList.remove("visivel"); }, 3200);
   }
   function selStatus(s) { return '<span class="status st-' + s + '">' + esc(STATUS[s] || s) + "</span>"; }
-  function nomeLote(n) { var l = D.lotes.filter(function (x) { return x.lote === Number(n); })[0]; return l ? l.nome : ""; }
+  function nomeLote(n) {
+    var l = lotes.filter(function (x) { return x.numero === Number(n); })[0] || D.lotesIniciais.filter(function (x) { return x.numero === Number(n); })[0];
+    return l ? l.nome : "";
+  }
+  function nn(n) { return String(n).padStart(2, "0"); }
   function opOrgaos(sel) {
     return '<option value="">Selecione…</option>' + D.orgaos.map(function (o) {
       return '<option value="' + o.sigla + '"' + (sel === o.sigla ? " selected" : "") + ">" + o.sigla + " — " + esc(o.nome) + "</option>";
@@ -60,6 +64,7 @@
   var N = null;              // FoliaNuvem
   var eu = null;             // cadastro do usuário logado
   var atas = [];
+  var lotes = [];
   var pedidos = [];
   var usuarios = [];
   var rascunho = null;
@@ -70,11 +75,22 @@
   function salvarRascunho() { gravar(chaveRascunho(), rascunho); }
   function novoRascunho() {
     return { id: null, numero: null, status: "rascunho", orgao: eu.perfil === "unidade" ? eu.orgao : "", unidade: eu.perfil === "unidade" ? eu.unidade : "",
-      evento: "", municipio: "", local: "", inicio: "", fim: "", dias: 3, responsavel: "", contato: "", ataId: "", estruturas: [], fiscais: [] };
+      evento: "", municipio: "", local: "", inicio: "", fim: "", dias: 3, responsavel: "", contato: "", loteId: "", estruturas: [], fiscais: [] };
   }
   function atasAtivas() { return atas.filter(function (a) { return a.ativa !== false; }); }
   function acharAta(id) { return atas.filter(function (a) { return a.id === id; })[0] || null; }
-  function rotuloAta(a) { return "ARP " + a.numero + " · Lote " + String(a.lote).padStart(2, "0") + " · " + a.fornecedor + " · desconto " + pct(a.desconto); }
+  function acharLote(id) { return lotes.filter(function (l) { return l.id === id; })[0] || null; }
+  function lotesOrdenados() { return lotes.slice().sort(function (a, b) { return a.numero - b.numero; }); }
+  // Ata ativa que contém o lote (cada lote pertence a no máximo uma ata ativa)
+  function ataDoLote(loteId) { return atasAtivas().filter(function (a) { return (a.lotes || []).indexOf(loteId) >= 0; })[0] || null; }
+  function rotuloLote(l) { return "Lote " + nn(l.numero) + " — " + l.nome + " · " + (l.fornecedor || "sem fornecedor") + " · desconto " + pct(l.desconto) + " · " + (l.status || ""); }
+  // Fonte do desconto de um pedido salvo (pedidos antigos, anteriores aos lotes, usavam a ata)
+  function fonteDesconto(p) { return p.lote || p.ata || null; }
+  function rotuloLoteAta(p) {
+    if (p.lote) return "Lote " + nn(p.lote.numero) + (p.ata && p.ata.numero ? " · ARP " + p.ata.numero : " · sem ata");
+    if (p.ata) return "ARP " + p.ata.numero + " · L" + p.ata.lote;
+    return "—";
+  }
   function nomeUsuario(id) { var u = usuarios.filter(function (x) { return x.uid === id; })[0]; return u ? u.nome : ""; }
 
   function podeEditar(p) {
@@ -89,7 +105,7 @@
     if (p === "unidade" || p === "gestor") a.push(["pedido", "Novo pedido"]);
     a.push(["pedidos", p === "unidade" ? "Pedidos da unidade" : p === "fiscal" ? "Pedidos designados" : "Pedidos"]);
     if (p === "gestor" || p === "consulta") a.push(["consolidacao", "Consolidação"]);
-    if (p === "gestor") { a.push(["atas", "Atas de RP"]); a.push(["usuarios", "Usuários"]); a.push(["historico", "Histórico"]); }
+    if (p === "gestor") { a.push(["lotes", "Lotes"]); a.push(["atas", "Atas de RP"]); a.push(["usuarios", "Usuários"]); a.push(["historico", "Histórico"]); }
     a.push(["catalogo", "Catálogo"]);
     return a;
   }
@@ -125,7 +141,7 @@
   }
 
   function carregarDados() {
-    var tarefas = [N.listarAtas().then(function (l) { atas = l; }), N.listarPedidos().then(function (l) { pedidos = l; })];
+    var tarefas = [N.listarAtas().then(function (l) { atas = l; }), N.listarLotes().then(function (l) { lotes = l; }), N.listarPedidos().then(function (l) { pedidos = l; })];
     if (eu.perfil === "gestor") tarefas.push(N.listarUsuarios().then(function (l) { usuarios = l; }));
     return Promise.all(tarefas).catch(function (e) { toast("Erro ao carregar dados: " + e.message); });
   }
@@ -208,7 +224,7 @@
     abaAtual = nome;
     document.querySelectorAll("#menu button").forEach(function (b) { b.classList.toggle("ativo", b.dataset.aba === nome); });
     document.querySelectorAll(".aba").forEach(function (s) { s.classList.toggle("ativa", s.id === "aba-" + nome); });
-    ({ pedido: renderPedido, pedidos: renderPedidos, consolidacao: renderConsolidacao, atas: renderAtas, usuarios: renderUsuarios,
+    ({ pedido: renderPedido, pedidos: renderPedidos, consolidacao: renderConsolidacao, lotes: renderLotes, atas: renderAtas, usuarios: renderUsuarios,
       historico: renderHistorico, catalogo: renderCatalogo })[nome]();
     window.scrollTo(0, 0);
   }
@@ -220,11 +236,10 @@
     var el = document.getElementById("aba-pedido");
     var leitura = !podeEditar(rascunho);
     var dis = leitura ? " disabled" : "";
-    var ata = acharAta(rascunho.ataId);
-    var listaAtas = atasAtivas();
-    if (ata && listaAtas.indexOf(ata) < 0) listaAtas = listaAtas.concat([ata]);
-    var opAtas = '<option value="">' + (listaAtas.length ? "Selecione a Ata de RP…" : "Nenhuma ata cadastrada pela CLIC") + "</option>" +
-      listaAtas.map(function (a) { return '<option value="' + a.id + '"' + (a.id === rascunho.ataId ? " selected" : "") + ">" + esc(rotuloAta(a)) + "</option>"; }).join("");
+    var lote = acharLote(rascunho.loteId);
+    var ataLote = lote ? ataDoLote(lote.id) : null;
+    var opLotes = '<option value="">' + (lotes.length ? "Selecione o lote…" : "Nenhum lote cadastrado pela CLIC") + "</option>" +
+      lotesOrdenados().map(function (l) { return '<option value="' + l.id + '"' + (l.id === rascunho.loteId ? " selected" : "") + ">" + esc(rotuloLote(l)) + "</option>"; }).join("");
     var opModelos = D.modelos.map(function (m) { return '<option value="' + m.id + '">' + esc(m.nome) + " — " + m.itens.length + " composições</option>"; }).join("");
     var orgaoFixo = eu.perfil !== "gestor";
 
@@ -248,11 +263,12 @@
       campo("Telefone / e-mail", "contato", "", "", "", dis) +
       '</div><p class="dica" style="margin-top:10px">Dias de realização: só os dias do evento. Montagem e desmontagem já estão nas 85 unidades fixas (TR 7.1.1.1.2.3). Abaixo de 3 dias, a medição considera 3 (TR 7.1.1.1.2.7).</p></div>' +
 
-      '<div class="card"><h2>2. Ata de Registro de Preços</h2><p class="dica">O desconto vem da ata oficial cadastrada pela CLIC e incide só sobre composições de unidade física. Diárias e turnos não recebem desconto.</p>' +
-      '<label>Ata de RP<select data-campo="ataId"' + dis + ">" + opAtas + "</select></label>" +
-      (ata ? '<div class="ata-info"><b>ARP ' + esc(ata.numero) + "</b> · Lote " + ata.lote + " — " + esc(nomeLote(ata.lote)) +
-        "<br>Fornecedor: " + esc(ata.fornecedor) + (ata.cnpj ? " · CNPJ " + esc(ata.cnpj) : "") + "<br>Desconto herdado: <b>" + pct(ata.desconto) + "</b>" +
-        (ata.ativa === false ? ' · <b style="color:var(--vermelho)">ata desativada</b>' : "") + "</div>" : "") + "</div>" +
+      '<div class="card"><h2>2. Lote</h2><p class="dica">O desconto vem do lote cadastrado pela CLIC e incide só sobre composições de unidade física. Diárias e turnos não recebem desconto. A ata é identificada automaticamente a partir do lote.</p>' +
+      '<label>Lote<select data-campo="loteId"' + dis + ">" + opLotes + "</select></label>" +
+      (lote ? '<div class="ata-info"><b>Lote ' + nn(lote.numero) + " — " + esc(lote.nome) + "</b>" +
+        "<br>Fornecedor: " + esc(lote.fornecedor || "—") + (lote.cnpj ? " · CNPJ " + esc(lote.cnpj) : "") +
+        "<br>Desconto: <b>" + pct(lote.desconto) + "</b> · Situação: " + esc(lote.status || "—") +
+        "<br>Ata: " + (ataLote ? "<b>ARP " + esc(ataLote.numero) + "</b>" : '<b style="color:var(--laranja)">lote ainda sem ata cadastrada</b>') + "</div>" : "") + "</div>" +
 
       (leitura ? "" : '<div class="card"><h2>3. Estruturas e composições</h2><p class="dica">Adicione uma estrutura-modelo e ajuste as quantidades, ou crie uma estrutura nova com composições do catálogo.</p>' +
         '<div class="linha-acoes"><label style="flex:1 1 320px">Estrutura-modelo<select id="sel-modelo">' + opModelos + "</select></label>" +
@@ -264,7 +280,7 @@
     return '<label class="' + (classe || "") + '">' + rotulo + '<input type="' + (tipo || "text") + '" data-campo="' + nome + '" value="' + esc(rascunho[nome]) +
       '" placeholder="' + esc(ph || "") + '"' + (tipo === "number" ? ' min="1" step="1"' : "") + (dis || "") + "></label>";
   }
-  function calcularRascunho() { return FoliaCalc.calcularPedido(rascunho, acharAta(rascunho.ataId) || rascunho.ata || null, IDX, R); }
+  function calcularRascunho() { return FoliaCalc.calcularPedido(rascunho, acharLote(rascunho.loteId) || rascunho.lote || null, IDX, R); }
 
   function renderEstruturas() {
     var res = calcularRascunho();
@@ -298,8 +314,10 @@
       '<div class="subtotal">' + rs(r.subtotal) + "<small>" + r.linhas.length + " composições" + (r.multiplicador > 1 ? " · ×" + r.multiplicador : "") + "</small></div>" +
       '<button class="btn sec peq" data-acao="recolher" data-ei="' + ei + '">' + (est.recolhida ? "▸ Mostrar itens" : "▾ Recolher") + "</button>" +
       (leitura ? "" : '<button class="btn perigo peq" data-acao="rem-est" data-ei="' + ei + '">Remover</button>') + "</div>" +
-      (est.recolhida ? "" : ((est.ausentes && est.ausentes.length ? '<div class="aviso" style="margin:10px 14px">Itens do orçamento original fora da tabela consolidada (não incluídos): ' +
-        est.ausentes.map(function (a) { return esc(a.codigo); }).join(", ") + ".</div>" : "") +
+      (est.recolhida ? "" : ((est.ausentes && est.ausentes.length ? '<div class="aviso" style="margin:10px 14px"><b>Itens do orçamento original fora da tabela consolidada (não incluídos, aguardando validação da CEIRF):</b> ' +
+        est.ausentes.map(function (a) { return esc(a.codigo) + (a.descricao ? " (" + esc(curta(a.descricao).slice(0, 50)) + ")" : "") + (a.sugestao ? " → possível equivalente " + esc(a.sugestao) : ""); }).join("; ") +
+        ". Se necessário, adicione o item equivalente pela busca.</div>" : "") +
+        (est.repetidos && est.repetidos.length ? '<div class="aviso" style="margin:10px 14px">O orçamento original repete o(s) código(s) ' + est.repetidos.map(esc).join(", ") + ". As linhas foram mantidas como estão no documento; confira se a repetição é intencional.</div>" : "") +
         '<div class="rolagem"><table class="tabela"><thead><tr><th>Código</th><th>Descrição</th><th>Und</th><th>Tipo</th><th class="num">Quantidade</th><th class="num">PU ref. c/ BDI</th>' +
         '<th class="num">Desconto</th><th class="num">PU contratado</th><th class="num">Unidades</th><th class="num">Valor (R$)</th><th></th></tr></thead><tbody>' +
         (linhas || '<tr><td colspan="11" class="vazio">Sem composições.</td></tr>') + "</tbody></table></div>" +
@@ -308,15 +326,17 @@
   }
 
   function renderResumo(res, leitura) {
-    var ata = acharAta(rascunho.ataId);
+    var lote = acharLote(rascunho.loteId) || rascunho.lote || null;
     var avisos = [];
-    if (!ata && !leitura) avisos.push("Selecione a Ata de RP para herdar o desconto.");
+    if (!lote && !leitura) avisos.push("Selecione o lote para herdar o desconto.");
+    if (lote && !leitura && lote.id && !ataDoLote(lote.id)) avisos.push("O lote escolhido ainda não está em nenhuma ata cadastrada.");
+    if (lote && !leitura && lote.status && lote.status !== "HOMOLOGADO") avisos.push("Situação do lote na licitação: " + lote.status + ".");
     if (!(Number(rascunho.dias) >= 1)) avisos.push("Informe os dias de realização do evento.");
     if (res.pendentes) avisos.push(res.pendentes + " composição(ões) CHP/CHI com classificação pendente: não somadas.");
     if (res.estruturas.some(function (e) { return e.linhas.some(function (l) { return l.calc && l.calc.grupo === "II"; }); }))
       avisos.push("Itens de tempo (diárias/turnos): confira se a quantidade corresponde às diárias do evento.");
     var nIt = rascunho.estruturas.reduce(function (s, e) { return s + e.itens.length; }, 0);
-    var passos = [["Identificação", !!(rascunho.orgao && rascunho.unidade && rascunho.evento && Number(rascunho.dias) >= 1)], ["Ata de RP", !!ata], ["Estruturas", nIt > 0]];
+    var passos = [["Identificação", !!(rascunho.orgao && rascunho.unidade && rascunho.evento && Number(rascunho.dias) >= 1)], ["Lote", !!lote], ["Estruturas", nIt > 0]];
     var botoes = "";
     if (!leitura) {
       if (eu.perfil === "unidade") {
@@ -329,7 +349,7 @@
 
     document.getElementById("resumo").innerHTML = '<div class="card"><h2>Resumo do pedido</h2><div class="passos">' +
       passos.map(function (p, i) { return '<span class="passo' + (p[1] ? " feito" : "") + '">' + (p[1] ? "✓" : i + 1) + " " + p[0] + "</span>"; }).join("") + "</div><dl>" +
-      "<dt>Desconto herdado</dt><dd>" + (ata ? pct(ata.desconto) : "—") + "</dd>" +
+      "<dt>Desconto do lote</dt><dd>" + (lote ? pct(lote.desconto) : "—") + "</dd>" +
       "<dt>Dias informados</dt><dd>" + (Number(rascunho.dias) || 0) + "</dd>" +
       "<dt>Dias para medição</dt><dd>" + res.diasMedicao + "</dd>" +
       "<dt>Unidades (50 + dias + 35)</dt><dd>" + res.unidadesGrupoI + "</dd>" +
@@ -345,7 +365,7 @@
     var t = e.target; if (!podeEditar(rascunho)) return;
     if (t.dataset.campo) {
       rascunho[t.dataset.campo] = t.dataset.campo === "dias" ? Math.max(0, parseInt(t.value, 10) || 0) : (t.dataset.campo === "unidade" ? t.value.trim().toUpperCase() : t.value);
-      salvarRascunho(); if (t.dataset.campo === "ataId") renderPedido(); else renderEstruturas(); return;
+      salvarRascunho(); if (t.dataset.campo === "loteId") renderPedido(); else renderEstruturas(); return;
     }
     if (t.dataset.qtd) { var p = t.dataset.qtd.split(":"); rascunho.estruturas[p[0]].itens[p[1]].quantidade = lerNumero(t.value); salvarRascunho(); renderEstruturas(); return; }
     if (t.dataset.estNome !== undefined) { rascunho.estruturas[t.dataset.estNome].nome = t.value; salvarRascunho(); return; }
@@ -378,16 +398,16 @@
   });
 
   function salvarPedido(enviar, botao) {
-    var ata = acharAta(rascunho.ataId);
+    var lote = acharLote(rascunho.loteId);
     var erros = [];
     if (!rascunho.orgao) erros.push("órgão");
     if (!rascunho.unidade) erros.push("unidade");
     if (!rascunho.evento) erros.push("evento");
     if (!(Number(rascunho.dias) >= 1)) erros.push("dias de realização");
-    if (!ata) erros.push("Ata de RP");
+    if (!lote) erros.push("lote");
     if (!rascunho.estruturas.reduce(function (s, e) { return s + e.itens.length; }, 0)) erros.push("ao menos uma composição");
     if (erros.length) return toast("Falta preencher: " + erros.join(", ") + ".");
-    if (ata.ativa === false) return toast("A ata selecionada foi desativada pela CLIC. Escolha outra.");
+    if (!lote.fornecedor) return toast("O lote escolhido ainda não tem fornecedor cadastrado pela CLIC.");
     if (enviar && rascunho.status !== "enviado" && !confirm("Enviar o pedido à CLIC? Você ainda poderá editá-lo até a aprovação.")) return;
 
     var res = calcularRascunho();
@@ -401,7 +421,10 @@
     }
     if (eu.perfil === "unidade") { p.orgao = eu.orgao; p.unidade = eu.unidade; p.status = enviar ? "enviado" : (p.status || "rascunho"); }
     else if (!p.status) p.status = "enviado";
-    p.ata = { id: ata.id, numero: ata.numero, lote: ata.lote, fornecedor: ata.fornecedor, cnpj: ata.cnpj || "", desconto: ata.desconto };
+    var ataL = ataDoLote(lote.id);
+    p.lote = { id: lote.id, numero: lote.numero, nome: lote.nome, fornecedor: lote.fornecedor || "", cnpj: lote.cnpj || "", desconto: lote.desconto };
+    p.ata = ataL ? { id: ataL.id, numero: ataL.numero } : null;
+    delete p.ataId;
     p.totais = { grupoI: res.totalI, grupoII: res.totalII, total: res.total };
     ocupado(botao, true);
     N.salvarPedido(p).then(function (id) {
@@ -492,14 +515,14 @@
   // ABA: PEDIDOS
   // =====================================================================
   var filtroPedidos = { status: "", texto: "" };
-  function calcularSalvo(p) { return FoliaCalc.calcularPedido(p, p.ata, IDX, R); }
+  function calcularSalvo(p) { return FoliaCalc.calcularPedido(p, fonteDesconto(p), IDX, R); }
 
   function renderPedidos() {
     var el = document.getElementById("aba-pedidos");
     var termo = normalizarTexto(filtroPedidos.texto.trim());
     var lista = pedidos.filter(function (p) {
       return (!filtroPedidos.status || p.status === filtroPedidos.status) &&
-        (!termo || normalizarTexto([p.numero, p.orgao, p.unidade, p.evento, p.municipio, p.ata && p.ata.numero].join(" ")).indexOf(termo) >= 0);
+        (!termo || normalizarTexto([p.numero, p.orgao, p.unidade, p.evento, p.municipio, rotuloLoteAta(p), p.lote && p.lote.fornecedor].join(" ")).indexOf(termo) >= 0);
     }).sort(function (a, b) { return String(b.numero).localeCompare(String(a.numero)); });
     var linhas = lista.map(function (p) {
       var r = calcularSalvo(p);
@@ -510,7 +533,7 @@
         acoes += '<button class="btn perigo peq" data-acao="excluir" data-id="' + p.id + '">Excluir</button>';
       return '<tr><td class="cod">' + esc(p.numero) + "</td><td>" + selStatus(p.status) + "</td><td>" + esc(p.orgao) + " / " + esc(p.unidade) +
         '<br><small style="color:var(--suave)">' + esc(p.autorNome || "") + "</small></td><td>" + esc(p.evento) + (p.municipio ? '<br><small style="color:var(--suave)">' + esc(p.municipio) + "</small>" : "") +
-        "</td><td>ARP " + esc(p.ata.numero) + " · L" + p.ata.lote + '</td><td class="num">' + p.dias + '</td><td class="num"><b>' + num(r.total) + "</b></td>" +
+        "</td><td>" + esc(rotuloLoteAta(p)) + '</td><td class="num">' + p.dias + '</td><td class="num"><b>' + num(r.total) + "</b></td>" +
         "<td>" + (p.os && p.os.numero ? esc(p.os.numero) : "—") + '</td><td><div class="linha-acoes">' + acoes + "</div></td></tr>";
     }).join("");
     var opSt = '<option value="">Todas as situações</option>' + Object.keys(STATUS).map(function (s) { return '<option value="' + s + '"' + (filtroPedidos.status === s ? " selected" : "") + ">" + STATUS[s] + "</option>"; }).join("");
@@ -520,9 +543,9 @@
         gestor: "Todos os pedidos. Use \"Gerir\" para aprovar, emitir a OS, designar fiscais e mudar a situação.",
         fiscal: "Pedidos para os quais você foi designado como fiscal.", consulta: "Todos os pedidos, somente leitura."
       })[eu.perfil] + "</p>" +
-      '<div class="filtros"><input id="fp-texto" type="search" placeholder="Buscar por número, órgão, evento, município ou ata" value="' + esc(filtroPedidos.texto) + '">' +
+      '<div class="filtros"><input id="fp-texto" type="search" placeholder="Buscar por número, órgão, evento, município, lote, ata ou fornecedor" value="' + esc(filtroPedidos.texto) + '">' +
       '<select id="fp-status">' + opSt + '</select><button class="btn sec" data-acao="recarregar">Atualizar lista</button></div>' +
-      (lista.length ? '<div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Nº</th><th>Situação</th><th>Órgão / unidade</th><th>Evento</th><th>Ata</th><th class="num">Dias</th><th class="num">Total (R$)</th><th>OS</th><th>Ações</th></tr></thead><tbody>' +
+      (lista.length ? '<div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Nº</th><th>Situação</th><th>Órgão / unidade</th><th>Evento</th><th>Lote / ata</th><th class="num">Dias</th><th class="num">Total (R$)</th><th>OS</th><th>Ações</th></tr></thead><tbody>' +
         linhas + "</tbody></table></div>" : '<div class="vazio">Nenhum pedido encontrado.</div>') + "</div>";
   }
   var abaPedidos = document.getElementById("aba-pedidos");
@@ -549,7 +572,7 @@
     var r = calcularSalvo(p);
     modalEl.dataset.tipo = "ver";
     modalEl.innerHTML = '<div class="modal-caixa"><div class="modal-topo"><div><h2>Pedido ' + esc(p.numero) + "</h2><p class=\"dica\" style=\"margin:0\">" + selStatus(p.status) + " · " +
-      esc(p.orgao) + " / " + esc(p.unidade) + " · " + esc(p.evento) + " · " + p.dias + " dia(s) · ARP " + esc(p.ata.numero) + " · total " + rs(r.total) + "</p></div>" +
+      esc(p.orgao) + " / " + esc(p.unidade) + " · " + esc(p.evento) + " · " + p.dias + " dia(s) · " + esc(rotuloLoteAta(p)) + " · total " + rs(r.total) + "</p></div>" +
       '<button class="btn sec" data-acao="fechar-modal">Fechar</button></div><div class="m-res">' +
       r.estruturas.map(function (e) {
         return "<h3>" + esc(e.estrutura.nome) + (e.multiplicador > 1 ? " ×" + e.multiplicador : "") + " — " + rs(e.subtotal) + '</h3><table class="tabela"><thead><tr><th>Código</th><th>Descrição</th><th>Und</th><th class="num">Qtd</th><th class="num">Valor</th></tr></thead><tbody>' +
@@ -597,71 +620,186 @@
   }
 
   // =====================================================================
-  // ABA: CONSOLIDAÇÃO
+  // ABA: CONSOLIDAÇÃO (por lote)
   // =====================================================================
   function consolidar() {
     var grupos = {};
     pedidos.filter(function (p) { return CONTA_NO_SAQUE.indexOf(p.status) >= 0; }).forEach(function (p) {
-      var r = calcularSalvo(p); var k = p.ata.id;
-      if (!grupos[k]) grupos[k] = { ata: p.ata, n: 0, I: 0, II: 0, total: 0, porStatus: {} };
+      var r = calcularSalvo(p);
+      var k = p.lote ? p.lote.id : "antigo-" + (p.ata ? p.ata.id : "?");
+      if (!grupos[k]) grupos[k] = { chave: k, lote: p.lote || null, legado: p.lote ? null : p.ata, atas: {}, n: 0, I: 0, II: 0, total: 0, porStatus: {} };
       var g = grupos[k]; g.n++;
+      if (p.ata && p.ata.numero) g.atas[p.ata.numero] = true;
       g.I = FoliaCalc.arred(g.I + r.totalI); g.II = FoliaCalc.arred(g.II + r.totalII); g.total = FoliaCalc.arred(g.total + r.total);
       g.porStatus[p.status] = FoliaCalc.arred((g.porStatus[p.status] || 0) + r.total);
     });
-    return grupos;
+    return Object.keys(grupos).map(function (k) { return grupos[k]; }).sort(function (x, y) { return (x.lote ? x.lote.numero : 99) - (y.lote ? y.lote.numero : 99); });
   }
+  // Valor registrado do lote = valor referencial × (1 − desconto), como na Tabela Resumo da CLIC
+  function valorFinalLote(l) { return l && l.valorReferencial ? FoliaCalc.arred(l.valorReferencial * (1 - (l.desconto || 0))) : null; }
   function renderConsolidacao() {
-    var el = document.getElementById("aba-consolidacao"); var grupos = consolidar(); var total = 0;
-    var linhas = Object.keys(grupos).map(function (k) {
-      var g = grupos[k]; var ataCad = acharAta(k); var reg = ataCad && ataCad.valorRegistrado ? ataCad.valorRegistrado : null; total = FoliaCalc.arred(total + g.total);
-      return "<tr><td>ARP " + esc(g.ata.numero) + "</td><td>" + g.ata.lote + " — " + esc(nomeLote(g.ata.lote)) + "</td><td>" + esc(g.ata.fornecedor) + '</td><td class="num">' + pct(g.ata.desconto) +
+    var el = document.getElementById("aba-consolidacao"); var total = 0;
+    var linhas = consolidar().map(function (g) {
+      total = FoliaCalc.arred(total + g.total);
+      var lc = g.lote ? acharLote(g.lote.id) : null; var vf = valorFinalLote(lc);
+      var atual = lc ? ataDoLote(lc.id) : null;
+      return "<tr><td>" + (g.lote ? "Lote " + nn(g.lote.numero) + " — " + esc(g.lote.nome) : "Pedidos anteriores aos lotes (ARP " + esc(g.legado && g.legado.numero) + ")") + "</td>" +
+        "<td>" + esc(atual ? "ARP " + atual.numero : Object.keys(g.atas).map(function (n) { return "ARP " + n; }).join(", ") || "—") + "</td>" +
+        "<td>" + esc(lc ? lc.fornecedor : (g.lote ? g.lote.fornecedor : g.legado && g.legado.fornecedor)) + '</td><td class="num">' + pct(lc ? lc.desconto : (g.lote || g.legado || {}).desconto) +
         '</td><td class="num">' + g.n + '</td><td class="num">' + num(g.porStatus.enviado || 0) + '</td><td class="num">' + num((g.porStatus.aprovado || 0) + (g.porStatus.em_fiscalizacao || 0) + (g.porStatus.encerrado || 0)) +
-        '</td><td class="num"><b>' + num(g.total) + '</b></td><td class="num">' + (reg ? num(reg) : "—") + '</td><td class="num">' + (reg ? num(reg - g.total) : "—") + "</td></tr>";
+        '</td><td class="num"><b>' + num(g.total) + '</b></td><td class="num">' + (vf !== null ? num(vf) : "—") + '</td><td class="num">' + (vf !== null ? num(vf - g.total) : "—") + "</td></tr>";
     }).join("");
-    el.innerHTML = '<div class="card"><h2>Consolidação por Ata de RP</h2><p class="dica">Valor a ser sacado de cada ata. Somam os pedidos enviados, aprovados, em fiscalização e encerrados; rascunhos e cancelados ficam de fora.</p>' +
+    el.innerHTML = '<div class="card"><h2>Consolidação por lote</h2><p class="dica">Valor a ser sacado de cada lote. Somam os pedidos enviados, aprovados, em fiscalização e encerrados; rascunhos e cancelados ficam de fora. ' +
+      "O valor registrado é o valor referencial do lote com o desconto aplicado, como na Tabela Resumo da CLIC.</p>" +
       '<div class="linha-acoes" style="margin-bottom:12px"><button class="btn" data-acao="xlsx-consolidado">Baixar consolidado (.xlsx)</button></div>' +
-      (linhas ? '<div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Ata</th><th>Lote</th><th>Fornecedor</th><th class="num">Desconto</th><th class="num">Pedidos</th><th class="num">Aguardando aprovação</th><th class="num">Aprovado (OS)</th><th class="num">Total a sacar</th><th class="num">Valor registrado</th><th class="num">Saldo</th></tr></thead><tbody>' +
+      (linhas ? '<div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Lote</th><th>Ata</th><th>Fornecedor</th><th class="num">Desconto atual do lote</th><th class="num">Pedidos</th><th class="num">Aguardando aprovação</th><th class="num">Aprovado (OS)</th><th class="num">Total a sacar</th><th class="num">Valor registrado</th><th class="num">Saldo</th></tr></thead><tbody>' +
         linhas + '<tr><td colspan="7"><b>Total geral</b></td><td class="num"><b>' + num(total) + "</b></td><td></td><td></td></tr></tbody></table></div>" : '<div class="vazio">Nenhum pedido enviado ainda.</div>') + "</div>";
   }
   document.getElementById("aba-consolidacao").addEventListener("click", function (e) { if (e.target.closest('[data-acao="xlsx-consolidado"]')) gerarConsolidado(); });
 
   // =====================================================================
-  // ABA: ATAS (gestor)
+  // ABA: LOTES (gestor) — o desconto pertence ao lote
   // =====================================================================
+  function renderLotes() {
+    var el = document.getElementById("aba-lotes");
+    var faltam = D.lotesIniciais.filter(function (s) { return !acharLote(s.id); }).length;
+    var opSt = function (sel) { return D.statusLote.map(function (s) { return '<option' + (s === sel ? " selected" : "") + ">" + s + "</option>"; }).join(""); };
+    el.innerHTML = '<div class="card"><h2>Lotes do Pregão Eletrônico 44/2026</h2><p class="dica">O desconto de cada pedido vem do lote. Cada lote tem um identificador fixo (lote-01 a lote-36), então não há como cadastrá-lo duas vezes. ' +
+      "Ao mudar o desconto de um lote, os pedidos já salvos mantêm o desconto da época; para atualizá-los, a unidade (ou o gestor) precisa abrir e salvar o pedido de novo.</p>" +
+      (faltam ? '<div class="aviso">' + faltam + " lote(s) ainda não estão no banco. " +
+        '<button class="btn peq" data-acao="importar-lotes">Importar da ' + esc(D.lotesFonte) + "</button> (cria só os que faltam; não altera os existentes)</div>" : "") +
+      '<div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Lote</th><th>Descrição</th><th>Fornecedor</th><th>CNPJ</th><th class="num">Valor referencial</th><th class="num">Desconto (%)</th><th class="num">Valor registrado</th><th>Situação</th><th>Processo SEI</th><th>Ata</th><th></th></tr></thead><tbody>' +
+      lotesOrdenados().map(function (l) {
+        var at = ataDoLote(l.id);
+        return '<tr><td class="cod">' + nn(l.numero) + '</td><td><input data-l="' + l.id + '" data-f="nome" value="' + esc(l.nome) + '" style="width:230px"></td>' +
+          '<td><input data-l="' + l.id + '" data-f="fornecedor" value="' + esc(l.fornecedor || "") + '" style="width:230px"></td>' +
+          '<td><input data-l="' + l.id + '" data-f="cnpj" value="' + esc(l.cnpj || "") + '" style="width:150px"></td>' +
+          '<td class="num"><input data-l="' + l.id + '" data-f="valorReferencial" value="' + num(l.valorReferencial) + '" style="width:120px;text-align:right"></td>' +
+          '<td class="num"><input data-l="' + l.id + '" data-f="desconto" value="' + fmt.format((l.desconto || 0) * 100) + '" style="width:70px;text-align:right"></td>' +
+          '<td class="num">' + num(valorFinalLote(l)) + "</td>" +
+          '<td><select data-l="' + l.id + '" data-f="status">' + opSt(l.status) + "</select></td>" +
+          '<td><input data-l="' + l.id + '" data-f="processoSei" value="' + esc(l.processoSei || "") + '" style="width:190px"></td>' +
+          "<td>" + (at ? "ARP " + esc(at.numero) : "—") + '</td><td><button class="btn peq" data-acao="salvar-lote" data-l="' + l.id + '">Salvar</button></td></tr>';
+      }).join("") + "</tbody></table></div></div>";
+  }
+  document.getElementById("aba-lotes").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-acao]"); if (!b) return;
+    if (b.dataset.acao === "importar-lotes") {
+      if (!confirm("Importar os lotes que ainda não existem no banco? Lotes já cadastrados não serão alterados.")) return;
+      ocupado(b, true);
+      N.criarLotesIniciais(D.lotesIniciais).then(function (n) {
+        N.registrar("lotes_importados", "Lotes", n + " lote(s) criados — " + D.lotesFonte);
+        return N.listarLotes().then(function (l) { lotes = l; renderLotes(); toast(n + " lote(s) importado(s)."); });
+      }, function (er) { toast(er.message); ocupado(b, false); });
+      return;
+    }
+    if (b.dataset.acao === "salvar-lote") {
+      var id = b.dataset.l; var l = acharLote(id);
+      var v = function (f) { return document.querySelector('[data-l="' + id + '"][data-f="' + f + '"]').value.trim(); };
+      var descPct = lerNumero(v("desconto"));
+      if (!(descPct >= 0 && descPct < 100)) return toast("Desconto inválido.");
+      descPct = Math.trunc(descPct * 100 + 1e-9) / 100; // 2 casas (TR 5.6.1.4 e 5.6.1.5)
+      var novo = Object.assign({}, l, { nome: v("nome"), fornecedor: v("fornecedor").toUpperCase(), cnpj: v("cnpj"), valorReferencial: lerNumero(v("valorReferencial")),
+        desconto: Math.round(descPct * 100) / 10000, status: v("status"), processoSei: v("processoSei") });
+      var at = ataDoLote(id);
+      if (at && at.cnpj && novo.cnpj !== at.cnpj) return toast("Este lote está na ARP " + at.numero + " (CNPJ " + at.cnpj + "). Um lote de ata não pode ter fornecedor diferente do da ata.");
+      var mudouDesc = novo.desconto !== l.desconto;
+      var afetados = pedidos.filter(function (p) { return p.lote && p.lote.id === id && ["rascunho", "enviado"].indexOf(p.status) >= 0; }).length;
+      if (mudouDesc && !confirm("Alterar o desconto do lote " + nn(l.numero) + " de " + pct(l.desconto) + " para " + pct(novo.desconto) + "?" +
+        (afetados ? "\n\n" + afetados + " pedido(s) em rascunho/enviados deste lote ficarão com o desconto antigo até serem abertos e salvos de novo." : ""))) return;
+      ocupado(b, true);
+      N.salvarLote(novo).then(function () {
+        Object.assign(l, novo);
+        N.registrar("lote_alterado", "Lote " + nn(l.numero), (mudouDesc ? "desconto " + pct(novo.desconto) + " · " : "") + novo.fornecedor + " · " + novo.status);
+        renderLotes(); toast("Lote " + nn(l.numero) + " salvo.");
+      }, function (er) { toast(er.message); ocupado(b, false); });
+    }
+  });
+
+  // =====================================================================
+  // ABA: ATAS (gestor) — uma ata reúne um ou mais lotes de um mesmo fornecedor
+  // =====================================================================
+  var ataEmEdicao = null;
   function renderAtas() {
     var el = document.getElementById("aba-atas");
-    var opLotes = D.lotes.map(function (l) { return '<option value="' + l.lote + '">Lote ' + String(l.lote).padStart(2, "0") + " — " + esc(l.nome) + "</option>"; }).join("");
-    var lista = atas.slice().sort(function (a, b) { return a.lote - b.lote; }).map(function (a) {
-      return "<tr" + (a.ativa === false ? ' style="opacity:.55"' : "") + "><td>ARP " + esc(a.numero) + "</td><td>" + a.lote + " — " + esc(nomeLote(a.lote)) + "</td><td>" + esc(a.fornecedor) + "</td><td>" + esc(a.cnpj || "") +
-        '</td><td class="num">' + pct(a.desconto) + '</td><td class="num">' + (a.valorRegistrado ? num(a.valorRegistrado) : "—") + "</td><td>" + (a.ativa === false ? "Desativada" : "Ativa") +
-        '</td><td><button class="btn sec peq" data-acao="alternar-ata" data-id="' + a.id + '">' + (a.ativa === false ? "Reativar" : "Desativar") + "</button></td></tr>";
+    var f = ataEmEdicao || { numero: "", lotes: [], vigenciaInicio: "", vigenciaFim: "" };
+    // lotes já presos a outra ata ativa não podem entrar nesta
+    var ocupados = {};
+    atasAtivas().forEach(function (at) { if (!ataEmEdicao || at.id !== ataEmEdicao.id) (at.lotes || []).forEach(function (id) { ocupados[id] = at.numero; }); });
+    var marcados = f.lotes || [];
+    var cnpjSel = marcados.length ? (acharLote(marcados[0]) || {}).cnpj : null;
+    var caixas = lotesOrdenados().map(function (l) {
+      var bloqueio = ocupados[l.id] ? "já na ARP " + ocupados[l.id] : (!l.cnpj ? "sem fornecedor" : (cnpjSel && l.cnpj !== cnpjSel && marcados.indexOf(l.id) < 0 ? "outro fornecedor" : ""));
+      return '<label title="' + esc(l.nome) + '"' + (bloqueio ? ' style="opacity:.45"' : "") + '><input type="checkbox" class="a-lote" value="' + l.id + '"' + (marcados.indexOf(l.id) >= 0 ? " checked" : "") +
+        (bloqueio && marcados.indexOf(l.id) < 0 ? " disabled" : "") + "> Lote " + nn(l.numero) + " · " + esc(l.fornecedor || "—") + " · " + pct(l.desconto) + (bloqueio ? " <small>(" + bloqueio + ")</small>" : "") + "</label>";
     }).join("");
-    el.innerHTML = '<div class="card"><h2>Cadastrar Ata de RP oficial</h2><p class="dica">As unidades só escolhem a ata; o desconto vem daqui. Lance o desconto exatamente como homologado, com 2 casas decimais (TR 5.6.1.4). O banco recusa pedidos cujo desconto não confira com a ata.</p>' +
-      '<div class="grade"><label>Nº da ARP<input id="ata-numero" placeholder="Ex.: 012/2027"></label><label class="largo">Lote<select id="ata-lote">' + opLotes + "</select></label>" +
-      '<label class="largo">Fornecedor<input id="ata-fornecedor" placeholder="Razão social"></label><label>CNPJ<input id="ata-cnpj" placeholder="00.000.000/0000-00"></label>' +
-      '<label>Desconto (%)<input id="ata-desconto" placeholder="Ex.: 12,35"></label><label>Valor registrado (R$, opcional)<input id="ata-valor" placeholder="Para cálculo de saldo"></label></div>' +
-      '<div class="linha-acoes" style="margin-top:12px"><button class="btn" data-acao="add-ata">Cadastrar ata</button></div></div>' +
-      '<div class="card"><h2>Atas cadastradas</h2>' + (lista ? '<div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Ata</th><th>Lote</th><th>Fornecedor</th><th>CNPJ</th><th class="num">Desconto</th><th class="num">Valor registrado</th><th>Situação</th><th></th></tr></thead><tbody>' + lista + "</tbody></table></div>"
-        : '<div class="vazio">Nenhuma ata cadastrada.</div>') + "<p class=\"dica\" style=\"margin-top:10px\">Atas não são apagadas, apenas desativadas, para preservar o histórico dos pedidos. Para corrigir um desconto lançado errado, desative a ata e cadastre outra.</p></div>";
+    var sel = marcados.map(acharLote).filter(Boolean);
+    var lista = atas.slice().sort(function (x, y) { return String(x.numero).localeCompare(String(y.numero)); }).map(function (at) {
+      var ls = (at.lotes || []).map(acharLote).filter(Boolean);
+      var soma = ls.reduce(function (s, l) { return FoliaCalc.arred(s + (valorFinalLote(l) || 0)); }, 0);
+      return "<tr" + (at.ativa === false ? ' style="opacity:.55"' : "") + "><td>ARP " + esc(at.numero) + "</td><td>" + ls.map(function (l) { return nn(l.numero); }).join(", ") + "</td><td>" + esc(at.fornecedor) + "</td><td>" + esc(at.cnpj) +
+        "</td><td>" + (at.vigenciaInicio ? dataBR(at.vigenciaInicio) + " a " + dataBR(at.vigenciaFim) : "—") + '</td><td class="num">' + num(soma) + "</td><td>" + (at.ativa === false ? "Desativada" : "Ativa") +
+        '</td><td><div class="linha-acoes"><button class="btn sec peq" data-acao="editar-ata" data-id="' + at.id + '">Editar</button><button class="btn sec peq" data-acao="alternar-ata" data-id="' + at.id + '">' + (at.ativa === false ? "Reativar" : "Desativar") + "</button></div></td></tr>";
+    }).join("");
+    var editando = !!(ataEmEdicao && ataEmEdicao.id);
+    el.innerHTML = '<div class="card"><h2>' + (editando ? "Editar ARP " + esc(ataEmEdicao.numero) : "Cadastrar Ata de RP") + "</h2>" +
+      '<p class="dica">A ata reúne um ou mais lotes do mesmo fornecedor. Fornecedor e CNPJ vêm dos lotes; o desconto continua sendo de cada lote. Um lote só pode estar em uma ata ativa.</p>' +
+      '<div class="grade"><label>Nº da ARP<input id="ata-numero" value="' + esc(f.numero) + '" placeholder="Ex.: 012/2027"></label>' +
+      '<label>Vigência — início<input id="ata-ini" type="date" value="' + esc(f.vigenciaInicio || "") + '"></label><label>Vigência — fim<input id="ata-fim" type="date" value="' + esc(f.vigenciaFim || "") + '"></label></div>' +
+      '<h3 style="margin:14px 0 6px;font-size:.95rem">Lotes da ata</h3><div class="checks">' + caixas + "</div>" +
+      '<div class="ata-info" id="ata-heranca">' + (sel.length ? "Fornecedor herdado: <b>" + esc(sel[0].fornecedor) + "</b> · CNPJ " + esc(sel[0].cnpj) + " · " + sel.length + " lote(s) · valor registrado somado: " +
+        rs(sel.reduce(function (s, l) { return FoliaCalc.arred(s + (valorFinalLote(l) || 0)); }, 0)) : "Marque os lotes para herdar o fornecedor e o CNPJ.") + "</div>" +
+      '<div class="linha-acoes" style="margin-top:12px"><button class="btn" data-acao="salvar-ata">' + (editando ? "Salvar alterações" : "Cadastrar ata") + "</button>" +
+      (ataEmEdicao ? '<button class="btn sec" data-acao="cancelar-ata">' + (editando ? "Cancelar edição" : "Limpar") + "</button>" : "") + "</div></div>" +
+      '<div class="card"><h2>Atas cadastradas</h2>' + (lista ? '<div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Ata</th><th>Lotes</th><th>Fornecedor</th><th>CNPJ</th><th>Vigência</th><th class="num">Valor registrado</th><th>Situação</th><th></th></tr></thead><tbody>' + lista + "</tbody></table></div>"
+        : '<div class="vazio">Nenhuma ata cadastrada.</div>') + '<p class="dica" style="margin-top:10px">Atas não são apagadas, apenas desativadas, para preservar o histórico dos pedidos.</p></div>';
   }
-  document.getElementById("aba-atas").addEventListener("click", function (e) {
+  function lerFormAta() {
+    return { numero: document.getElementById("ata-numero").value.trim(), vigenciaInicio: document.getElementById("ata-ini").value, vigenciaFim: document.getElementById("ata-fim").value,
+      lotes: Array.prototype.map.call(document.querySelectorAll(".a-lote:checked"), function (c) { return c.value; }) };
+  }
+  var abaAtas = document.getElementById("aba-atas");
+  abaAtas.addEventListener("change", function (e) {
+    if (!e.target.classList.contains("a-lote")) return;
+    ataEmEdicao = Object.assign({}, ataEmEdicao || {}, lerFormAta(), ataEmEdicao ? { id: ataEmEdicao.id, ativa: ataEmEdicao.ativa } : {});
+    if (!ataEmEdicao.id) ataEmEdicao._novo = true;
+    renderAtas();
+  });
+  abaAtas.addEventListener("click", function (e) {
     var b = e.target.closest("[data-acao]"); if (!b) return;
-    if (b.dataset.acao === "add-ata") {
-      var v = function (id) { return document.getElementById(id).value.trim(); };
-      if (!v("ata-numero") || !v("ata-fornecedor")) return toast("Informe o número da ARP e o fornecedor.");
-      if (v("ata-desconto") === "") return toast("Informe o desconto.");
-      var descPct = lerNumero(v("ata-desconto"));
-      if (!(descPct >= 0 && descPct < 100)) return toast("Desconto inválido. Use valores como 12,35.");
-      descPct = Math.trunc(descPct * 100 + 1e-9) / 100; // casas além da 2ª são desconsideradas (TR 5.6.1.5)
-      var ata = { numero: v("ata-numero"), lote: Number(v("ata-lote")), fornecedor: v("ata-fornecedor"), cnpj: v("ata-cnpj"),
-        desconto: Math.round(descPct * 100) / 10000, valorRegistrado: lerNumero(v("ata-valor")) || null, ativa: true };
-      if (!confirm("Confirma a ata " + ata.numero + ", lote " + ata.lote + ", com desconto de " + pct(ata.desconto) + "?")) return;
+    var acao = b.dataset.acao;
+    if (acao === "editar-ata") { ataEmEdicao = clonar(acharAta(b.dataset.id)); renderAtas(); window.scrollTo(0, 0); return; }
+    if (acao === "cancelar-ata") { ataEmEdicao = null; renderAtas(); return; }
+    if (acao === "alternar-ata") {
+      var at = acharAta(b.dataset.id); var ativar = at.ativa === false;
+      if (ativar) {
+        var conflito = (at.lotes || []).filter(function (id) { var o = ataDoLote(id); return o && o.id !== at.id; });
+        if (conflito.length) return toast("Não é possível reativar: lote(s) " + conflito.map(function (id) { return nn(acharLote(id).numero); }).join(", ") + " já estão em outra ata ativa.");
+      }
+      var nova = Object.assign({}, at, { ativa: ativar });
+      N.salvarAta(nova).then(function () { at.ativa = ativar; N.registrar(ativar ? "ata_reativada" : "ata_desativada", "ARP " + at.numero, ""); renderAtas(); }, function (er) { toast(er.message); });
+      return;
+    }
+    if (acao === "salvar-ata") {
+      var f = lerFormAta();
+      if (!f.numero) return toast("Informe o número da ARP.");
+      if (!f.lotes.length) return toast("Marque ao menos um lote.");
+      var ls = f.lotes.map(acharLote);
+      var cnpjs = ls.map(function (l) { return l.cnpj; }).filter(function (c, i, arr) { return arr.indexOf(c) === i; });
+      if (cnpjs.length > 1 || !cnpjs[0]) return toast("Todos os lotes da ata devem ser do mesmo fornecedor (mesmo CNPJ).");
+      var dup = atas.filter(function (x) { return x.numero.replace(/\s/g, "") === f.numero.replace(/\s/g, "") && (!ataEmEdicao || x.id !== ataEmEdicao.id); });
+      if (dup.length) return toast("Já existe uma ata com o número " + f.numero + ".");
+      var conflito = f.lotes.filter(function (id) { var o = ataDoLote(id); return o && (!ataEmEdicao || o.id !== ataEmEdicao.id); });
+      if (conflito.length) return toast("Lote(s) " + conflito.map(function (id) { return nn(acharLote(id).numero); }).join(", ") + " já estão em outra ata ativa.");
+      var ata = { numero: f.numero, lotes: f.lotes, fornecedor: ls[0].fornecedor, cnpj: ls[0].cnpj, vigenciaInicio: f.vigenciaInicio, vigenciaFim: f.vigenciaFim,
+        ativa: ataEmEdicao && ataEmEdicao.ativa === false ? false : true };
+      if (ataEmEdicao && ataEmEdicao.id) ata.id = ataEmEdicao.id;
       ocupado(b, true);
-      N.salvarAta(ata).then(function (id) { ata.id = id; atas.push(ata); N.registrar("ata_cadastrada", "ARP " + ata.numero, "Lote " + ata.lote + " · " + pct(ata.desconto)); renderAtas(); toast("Ata cadastrada."); },
-        function (er) { toast(er.message); ocupado(b, false); });
-    } else if (b.dataset.acao === "alternar-ata") {
-      var a = acharAta(b.dataset.id); var nova = Object.assign({}, a, { ativa: a.ativa === false });
-      N.salvarAta(nova).then(function () { a.ativa = nova.ativa; N.registrar(nova.ativa ? "ata_reativada" : "ata_desativada", "ARP " + a.numero, ""); renderAtas(); }, function (er) { toast(er.message); });
+      N.salvarAta(ata).then(function (id) {
+        ata.id = id; var i = atas.findIndex(function (x) { return x.id === id; }); if (i >= 0) atas[i] = ata; else atas.push(ata);
+        N.registrar(i >= 0 ? "ata_alterada" : "ata_cadastrada", "ARP " + ata.numero, "Lotes " + ls.map(function (l) { return nn(l.numero); }).join(", ") + " · " + ata.fornecedor);
+        ataEmEdicao = null; renderAtas(); toast("ARP " + ata.numero + " salva.");
+      }, function (er) { toast(er.message); ocupado(b, false); });
     }
   });
 
@@ -702,7 +840,8 @@
   // ABA: HISTÓRICO (gestor)
   // =====================================================================
   var ACOES = { pedido_criado: "Pedido criado", pedido_enviado: "Pedido enviado", pedido_alterado: "Pedido alterado", pedido_gestao: "Gestão do pedido", pedido_excluido: "Pedido excluído",
-    ata_cadastrada: "Ata cadastrada", ata_desativada: "Ata desativada", ata_reativada: "Ata reativada", usuario_alterado: "Usuário alterado" };
+    ata_cadastrada: "Ata cadastrada", ata_alterada: "Ata alterada", ata_desativada: "Ata desativada", ata_reativada: "Ata reativada", usuario_alterado: "Usuário alterado",
+    lote_alterado: "Lote alterado", lotes_importados: "Lotes importados" };
   function renderHistorico() {
     var el = document.getElementById("aba-historico");
     el.innerHTML = '<div class="card"><h2>Histórico de alterações</h2><p class="dica">Últimos 200 registros. O histórico não pode ser editado nem apagado.</p><div id="hist-corpo" class="vazio">Carregando…</div></div>';
@@ -773,8 +912,13 @@
     var periodo = (p.inicio ? dataBR(p.inicio) : "___/___/____") + " a " + (p.fim ? dataBR(p.fim) : "___/___/____");
     var osNum = p.os && p.os.numero ? p.os.numero : "____/" + new Date().getFullYear();
     var nomesFiscais = (p.fiscais || []).map(nomeUsuario).filter(Boolean).join(", ");
+    var fonte = fonteDesconto(p) || {};
+    var loteNum = p.lote ? p.lote.numero : (p.ata && p.ata.lote);
+    var arpNum = p.ata && p.ata.numero ? p.ata.numero : "(sem ata)";
+    var fornecedor = p.lote ? p.lote.fornecedor : (p.ata && p.ata.fornecedor) || "";
+    var cnpj = p.lote ? p.lote.cnpj : (p.ata && p.ata.cnpj) || "";
 
-    var L2 = [["PLANILHA ORÇAMENTÁRIA — OS nº " + osNum + " — Pedido " + p.numero], ["ARP " + p.ata.numero + " · Lote " + p.ata.lote + " · " + p.ata.fornecedor + " · Desconto " + pct(p.ata.desconto)],
+    var L2 = [["PLANILHA ORÇAMENTÁRIA — OS nº " + osNum + " — Pedido " + p.numero], ["Lote " + nn(loteNum) + " — " + nomeLote(loteNum) + " · ARP " + arpNum + " · " + fornecedor + " · Desconto do lote " + pct(fonte.desconto)],
       ["Dias de realização informados: " + p.dias + " · Dias para medição: " + r.diasMedicao + " (mínimo 3, TR 7.1.1.1.2.7)"], [],
       ["GRUPO I — Unidade de fornecimento por diárias equivalentes (m, m², m³, kit, un etc.)"],
       ["Estrutura", "Seção", "Código", "Descrição", "Und", "Quantidade", "PU referencial c/ BDI", "Desconto", "PU contratado (PC)", "Valor total do item (Q×PC)", "DC (Valor ÷ 100)", "Dias (DE)", "Mob./Desm. (MD)", "Unidades (DE+MD)", "Subtotal (DC × Unidades)"]];
@@ -813,10 +957,10 @@
       [], ["Elaborado por:", p.autorNome || "", "", "Conferido por:"], ["Data:"]);
 
     var L1 = [["ORDEM DE SERVIÇO Nº " + osNum + (p.os && p.os.data ? " — " + dataBR(p.os.data) : "") + " — Pedido " + p.numero], [],
-      ["Ata de Registro de Preços nº", p.ata.numero], ["Contrato nº", p.contrato || ""], ["Lote", p.ata.lote + " — " + nomeLote(p.ata.lote)], [],
+      ["Ata de Registro de Preços nº", arpNum], ["Contrato nº", p.contrato || ""], ["Lote", nn(loteNum) + " — " + nomeLote(loteNum)], ["Desconto do lote", { v: fonte.desconto || 0, z: P }], [],
       ["1. IDENTIFICAÇÃO DA DEMANDA"], ["Evento/Operação", p.evento], ["Órgão / Unidade requisitante", p.orgao + " / " + p.unidade], ["Município", p.municipio], ["Endereço / Localidade", p.local],
       ["Período do evento", periodo], ["Dias de realização", p.dias], ["Responsável local", p.responsavel], ["Telefone/e-mail", p.contato], [],
-      ["2. CONTRATADA"], ["Fornecedor", p.ata.fornecedor], ["CNPJ", p.ata.cnpj], ["Preposto", ""], ["Telefone", ""], ["E-mail", ""], [],
+      ["2. CONTRATADA"], ["Fornecedor", fornecedor], ["CNPJ", cnpj], ["Preposto", ""], ["Telefone", ""], ["E-mail", ""], [],
       ["3. VALOR"], ["Item", "Tipo de estrutura", "Quantidade", "Valor total (R$)"]];
     r.estruturas.forEach(function (e, i) { L1.push([i + 1, e.estrutura.nome, e.multiplicador, { v: e.subtotal, z: M }]); });
     L1.push(["TOTAL", "", "", { v: r.total, f: "'2-Planilha Orçamentária'!J" + linTotal, z: M }], [],
@@ -867,31 +1011,33 @@
   }
 
   function gerarConsolidado() {
-    var wb = XLSX.utils.book_new(); var grupos = consolidar();
-    var cons = [["CONSOLIDAÇÃO POR ATA DE RP — gerado em " + dataBR(hoje()) + " (pedidos enviados, aprovados, em fiscalização e encerrados)"], [],
-      ["ARP", "Lote", "Nome do lote", "Fornecedor", "CNPJ", "Desconto", "Nº de pedidos", "Grupo I (R$)", "Grupo II (R$)", "Total a sacar (R$)", "Valor registrado (R$)", "Saldo (R$)"]];
-    Object.keys(grupos).forEach(function (k) {
-      var g = grupos[k]; var ataCad = acharAta(k); var reg = ataCad && ataCad.valorRegistrado ? ataCad.valorRegistrado : ""; var n = cons.length + 1;
-      cons.push([g.ata.numero, g.ata.lote, nomeLote(g.ata.lote), g.ata.fornecedor, g.ata.cnpj, { v: g.ata.desconto, z: P }, g.n, { v: g.I, z: M }, { v: g.II, z: M }, { v: g.total, z: M },
-        reg === "" ? "" : { v: reg, z: M }, reg === "" ? "" : { v: reg - g.total, f: "K" + n + "-J" + n, z: M }]);
+    var wb = XLSX.utils.book_new();
+    var cons = [["CONSOLIDAÇÃO POR LOTE — gerado em " + dataBR(hoje()) + " (pedidos enviados, aprovados, em fiscalização e encerrados)"], [],
+      ["Lote", "Descrição do lote", "Ata", "Fornecedor", "CNPJ", "Desconto", "Nº de pedidos", "Grupo I (R$)", "Grupo II (R$)", "Total a sacar (R$)", "Valor registrado do lote (R$)", "Saldo (R$)"]];
+    consolidar().forEach(function (g) {
+      var lc = g.lote ? acharLote(g.lote.id) : null; var vf = valorFinalLote(lc); var at = lc ? ataDoLote(lc.id) : null; var n = cons.length + 1;
+      var base = lc || g.lote || g.legado || {};
+      cons.push([g.lote ? g.lote.numero : "—", g.lote ? g.lote.nome : "Pedidos anteriores aos lotes", at ? at.numero : Object.keys(g.atas).join(", "), base.fornecedor || "", base.cnpj || "",
+        { v: base.desconto || 0, z: P }, g.n, { v: g.I, z: M }, { v: g.II, z: M }, { v: g.total, z: M }, vf === null ? "" : { v: vf, z: M }, vf === null ? "" : { v: vf - g.total, f: "K" + n + "-J" + n, z: M }]);
     });
-    var peds = [["Pedido", "Situação", "OS", "Órgão", "Unidade", "Autor", "Evento", "Município", "Início", "Fim", "Dias", "ARP", "Lote", "Fornecedor", "Desconto", "Grupo I", "Grupo II", "Total"]];
-    var itens = [["Pedido", "Situação", "Órgão", "Evento", "ARP", "Lote", "Estrutura", "Código", "Descrição", "Und", "Tipo", "Quantidade", "PU ref.", "Desconto", "PU contratado", "Unidades", "Valor (R$)"]];
+    var peds = [["Pedido", "Situação", "OS", "Órgão", "Unidade", "Autor", "Evento", "Município", "Início", "Fim", "Dias", "Lote", "Ata", "Fornecedor", "Desconto", "Grupo I", "Grupo II", "Total"]];
+    var itens = [["Pedido", "Situação", "Órgão", "Evento", "Lote", "Ata", "Estrutura", "Código", "Descrição", "Und", "Tipo", "Quantidade", "PU ref.", "Desconto", "PU contratado", "Unidades", "Valor (R$)"]];
     pedidos.forEach(function (p) {
-      var r = calcularSalvo(p);
-      peds.push([p.numero, STATUS[p.status], p.os && p.os.numero || "", p.orgao, p.unidade, p.autorNome || "", p.evento, p.municipio, dataBR(p.inicio), dataBR(p.fim), p.dias, p.ata.numero, p.ata.lote, p.ata.fornecedor,
-        { v: p.ata.desconto, z: P }, { v: r.totalI, z: M }, { v: r.totalII, z: M }, { v: r.total, z: M }]);
+      var r = calcularSalvo(p); var f = fonteDesconto(p) || {};
+      var lt = p.lote ? p.lote.numero : (p.ata && p.ata.lote); var arp = p.ata && p.ata.numero || "";
+      peds.push([p.numero, STATUS[p.status], p.os && p.os.numero || "", p.orgao, p.unidade, p.autorNome || "", p.evento, p.municipio, dataBR(p.inicio), dataBR(p.fim), p.dias, lt, arp, f.fornecedor || "",
+        { v: f.desconto || 0, z: P }, { v: r.totalI, z: M }, { v: r.totalII, z: M }, { v: r.total, z: M }]);
       r.estruturas.forEach(function (e) {
         e.linhas.forEach(function (l) {
           if (!l.calc) return;
-          itens.push([p.numero, STATUS[p.status], p.orgao, p.evento, p.ata.numero, p.ata.lote, e.estrutura.nome, l.item.codigo, l.comp.descricao, l.comp.unidade, l.calc.grupo,
+          itens.push([p.numero, STATUS[p.status], p.orgao, p.evento, lt, arp, e.estrutura.nome, l.item.codigo, l.comp.descricao, l.comp.unidade, l.calc.grupo,
             { v: l.calc.quantidade, z: "#,##0.00" }, { v: l.calc.puReferencial, z: M }, { v: l.calc.desconto || 0, z: P }, { v: l.calc.puContratado || 0, z: M }, l.calc.unidades || "", { v: l.calc.valor, z: M }]);
         });
       });
     });
-    XLSX.utils.book_append_sheet(wb, montarAba(cons, [12, 6, 40, 30, 20, 10, 10, 15, 15, 17, 17, 15]), "Consolidado por Ata");
-    XLSX.utils.book_append_sheet(wb, montarAba(peds, [18, 18, 12, 8, 16, 22, 26, 14, 11, 11, 6, 12, 6, 28, 10, 14, 14, 14]), "Pedidos");
-    XLSX.utils.book_append_sheet(wb, montarAba(itens, [18, 16, 8, 22, 12, 6, 22, 15, 60, 6, 6, 11, 12, 9, 12, 9, 14]), "Itens");
+    XLSX.utils.book_append_sheet(wb, montarAba(cons, [6, 40, 12, 30, 20, 10, 10, 15, 15, 17, 20, 15]), "Consolidado por Lote");
+    XLSX.utils.book_append_sheet(wb, montarAba(peds, [18, 18, 12, 8, 16, 22, 26, 14, 11, 11, 6, 6, 12, 28, 10, 14, 14, 14]), "Pedidos");
+    XLSX.utils.book_append_sheet(wb, montarAba(itens, [18, 16, 8, 22, 6, 12, 22, 15, 60, 6, 6, 11, 12, 9, 12, 9, 14]), "Itens");
     XLSX.writeFile(wb, "FOLIA_consolidado_" + hoje() + ".xlsx");
     toast("Consolidado gerado.");
   }

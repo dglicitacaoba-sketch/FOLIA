@@ -26,9 +26,20 @@ Base normativa: Termo de Referência de Estruturas Provisórias (proc. 020.16859
 | Perfil | Pode |
 | --- | --- |
 | Unidade | Criar pedidos da própria unidade e editá-los até a aprovação (só o autor). Ver os pedidos da unidade. |
-| Gestor (CLIC) | Tudo: aprovar usuários, cadastrar atas, aprovar pedidos e emitir a OS, designar fiscais, consolidar e ver o histórico. |
+| Gestor (CLIC) | Tudo: aprovar usuários, cadastrar lotes e atas, aprovar pedidos e emitir a OS, designar fiscais, consolidar e ver o histórico. |
 | Fiscal | Ver os pedidos para os quais foi designado e gerar a planilha de fiscalização. |
 | Consulta | Ver todos os pedidos e a consolidação. |
+
+## Lote, ata e desconto
+
+- **O desconto pertence ao lote.**
+  - Há 36 lotes do PE 44/2026, com identificador fixo `lote-01` a `lote-36`, o que impede duplicidade.
+  - O pedido escolhe o lote e herda dele o desconto, o fornecedor e o CNPJ.
+- **A ata reúne um ou mais lotes de um mesmo fornecedor.** Ela herda o fornecedor e o CNPJ dos lotes.
+  - Um lote só pode estar em uma ata ativa.
+  - O banco recusa pedidos cujo desconto não seja igual ao desconto atual do lote.
+- **Estruturas-modelo:** são 16, lidas das planilhas ORÇA SIN assinadas.
+  - Os itens cujo código não está na tabela consolidada ficam fora do modelo e aparecem como pendência para validação da CEIRF.
 
 ## Situação do pedido
 
