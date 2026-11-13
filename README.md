@@ -20,6 +20,7 @@ Base normativa: Termo de Referência de Estruturas Provisórias (proc. 020.16859
 | `dados.js` | Catálogo (409 composições), 36 lotes, 4 estruturas-modelo, órgãos e regras |
 | `nuvem.js` | Firebase SDK 13.3.0 empacotado, mais a configuração do projeto folia-ssp-eeb47 |
 | `xlsx.full.min.js` | SheetJS 0.18.5 (Apache 2.0) |
+| `leaflet.js`, `leaflet.css` | Leaflet 1.9.4 (BSD-2), mapas |
 
 ## Perfis
 
@@ -28,7 +29,15 @@ Base normativa: Termo de Referência de Estruturas Provisórias (proc. 020.16859
 | Unidade | Criar pedidos da própria unidade e editá-los até a aprovação (só o autor). Ver os pedidos da unidade. |
 | Gestor (CLIC) | Tudo: aprovar usuários, cadastrar lotes e atas, aprovar pedidos e emitir a OS, designar fiscais, consolidar e ver o histórico. |
 | Fiscal | Ver os pedidos para os quais foi designado e gerar a planilha de fiscalização. |
-| Consulta | Ver todos os pedidos e a consolidação. |
+| Consulta | Ver todos os pedidos, a consolidação e o dashboard. |
+| Governança | Somente leitura de tudo: dashboard, pedidos, consolidação, lotes, atas, usuários e histórico. Não altera nenhum dado. |
+
+O **dashboard** está disponível para todos os perfis, e cada perfil vê apenas os pedidos que pode ler.
+- **Indicadores e filtros:** indicadores principais e filtros por órgão, lote, situação, município e período.
+- **Alertas de governança.**
+- **Mapa das estruturas:** cada estrutura do pedido pode ser marcada no mapa. O mapa usa Leaflet (BSD-2) com OpenStreetMap.
+- **Gráficos:** valor por órgão e por município, estruturas mais demandadas e comprometimento do valor registrado de cada lote.
+- **Planilha:** o mapeamento das estruturas pode ser baixado em .xlsx.
 
 ## Lote, ata e desconto
 
@@ -40,6 +49,16 @@ Base normativa: Termo de Referência de Estruturas Provisórias (proc. 020.16859
   - O banco recusa pedidos cujo desconto não seja igual ao desconto atual do lote.
 - **Estruturas-modelo:** são 16, lidas das planilhas ORÇA SIN assinadas.
   - Os itens cujo código não está na tabela consolidada ficam fora do modelo e aparecem como pendência para validação da CEIRF.
+
+## Local das estruturas
+
+O local de cada estrutura fica no campo `locais` do pedido, com latitude, longitude, forma de marcação (toque no mapa, GPS ou coordenadas digitadas), precisão do GPS, quem marcou, o perfil de quem marcou e a data e hora.
+
+| Quem marca | Quando |
+| --- | --- |
+| Autor do pedido (unidade) | Rascunho ou enviado |
+| Fiscal designado | Enviado, aprovado ou em fiscalização. Só pode alterar os locais; o banco recusa qualquer outra alteração. |
+| Gestor (CLIC) | Até o pedido ser encerrado ou cancelado |
 
 ## Situação do pedido
 

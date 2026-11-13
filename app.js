@@ -21,7 +21,8 @@
     em_fiscalizacao: "Em fiscalização", encerrado: "Encerrado", cancelado: "Cancelado"
   };
   var CONTA_NO_SAQUE = ["enviado", "aprovado", "em_fiscalizacao", "encerrado"];
-  var PERFIS = { unidade: "Unidade demandante", gestor: "Gestor (CLIC)", fiscal: "Fiscal", consulta: "Consulta" };
+  var PERFIS = { unidade: "Unidade demandante", gestor: "Gestor (CLIC)", fiscal: "Fiscal", consulta: "Consulta", governanca: "Governança (somente leitura)" };
+  function somenteLeitura() { return !!eu && eu.perfil === "governanca"; }
 
   // ---------- utilidades ----------
   var fmt = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -60,6 +61,41 @@
   }
   function ocupado(botao, sim) { if (!botao) return; botao.disabled = sim; botao.style.opacity = sim ? 0.6 : 1; }
 
+  // ---------- campo de busca com lista (combobox) ----------
+  // itens: [{ valor, titulo, detalhe, busca }]; aoEscolher(valor)
+  function montarBusca(alvo, cfg) {
+    alvo.innerHTML = '<div class="combo"><input type="search" autocomplete="off" placeholder="' + esc(cfg.placeholder || "Digite para buscar…") + '"' +
+      (cfg.valorInicial ? ' value="' + esc(cfg.valorInicial) + '"' : "") + '><div class="combo-lista" hidden></div></div>';
+    var campo = alvo.querySelector("input"), lista = alvo.querySelector(".combo-lista"), ativo = -1, filtrados = [];
+    cfg.itens.forEach(function (i) { i._b = normalizarTexto(i.busca || (i.titulo + " " + (i.detalhe || ""))); });
+    function desenhar() {
+      var partes = normalizarTexto(campo.value === cfg.valorInicial ? "" : campo.value.trim()).split(/\s+/).filter(Boolean);
+      filtrados = cfg.itens.filter(function (i) { return partes.every(function (pt) { return i._b.indexOf(pt) >= 0; }); });
+      ativo = filtrados.length ? 0 : -1;
+      lista.innerHTML = filtrados.length ? filtrados.map(function (i, k) {
+        return '<div class="combo-op' + (k === ativo ? " ativo" : "") + '" data-k="' + k + '"><b>' + esc(i.titulo) + "</b>" + (i.detalhe ? "<small>" + esc(i.detalhe) + "</small>" : "") + "</div>";
+      }).join("") : '<div class="combo-vazio">' + esc(cfg.vazio || "Nada encontrado.") + "</div>";
+      lista.hidden = false;
+    }
+    function marcar(k) {
+      var ops = lista.querySelectorAll(".combo-op"); if (!ops.length) return;
+      ativo = (k + ops.length) % ops.length;
+      ops.forEach(function (o, j) { o.classList.toggle("ativo", j === ativo); });
+      ops[ativo].scrollIntoView({ block: "nearest" });
+    }
+    function escolher(k) { var i = filtrados[k]; if (!i) return; lista.hidden = true; campo.blur(); cfg.aoEscolher(i.valor); }
+    campo.addEventListener("focus", function () { if (campo.value === cfg.valorInicial) campo.select(); desenhar(); });
+    campo.addEventListener("input", desenhar);
+    campo.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown") { e.preventDefault(); marcar(ativo + 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); marcar(ativo - 1); }
+      else if (e.key === "Enter") { e.preventDefault(); escolher(ativo); }
+      else if (e.key === "Escape") { lista.hidden = true; campo.blur(); }
+    });
+    lista.addEventListener("mousedown", function (e) { var o = e.target.closest(".combo-op"); if (o) { e.preventDefault(); escolher(Number(o.dataset.k)); } });
+    campo.addEventListener("blur", function () { setTimeout(function () { lista.hidden = true; if (cfg.valorInicial !== undefined && campo.value !== cfg.valorInicial) campo.value = cfg.valorInicial || ""; }, 150); });
+  }
+
   // ---------- estado ----------
   var N = null;              // FoliaNuvem
   var eu = null;             // cadastro do usuário logado
@@ -81,6 +117,9 @@
   function acharAta(id) { return atas.filter(function (a) { return a.id === id; })[0] || null; }
   function acharLote(id) { return lotes.filter(function (l) { return l.id === id; })[0] || null; }
   function lotesOrdenados() { return lotes.slice().sort(function (a, b) { return a.numero - b.numero; }); }
+  // Regra: só lote HOMOLOGADO pode ser incluído em pedido
+  var STATUS_PEDIDO = "HOMOLOGADO";
+  function loteHomologado(l) { return !!l && l.status === STATUS_PEDIDO; }
   // Ata ativa que contém o lote (cada lote pertence a no máximo uma ata ativa)
   function ataDoLote(loteId) { return atasAtivas().filter(function (a) { return (a.lotes || []).indexOf(loteId) >= 0; })[0] || null; }
   function rotuloLote(l) { return "Lote " + nn(l.numero) + " — " + l.nome + " · " + (l.fornecedor || "sem fornecedor") + " · desconto " + pct(l.desconto) + " · " + (l.status || ""); }
@@ -102,10 +141,12 @@
   function abasDoPerfil() {
     var p = eu.perfil;
     var a = [];
+    if (p === "gestor" || p === "governanca" || p === "consulta") a.push(["dashboard", "Dashboard"]);
     if (p === "unidade" || p === "gestor") a.push(["pedido", "Novo pedido"]);
     a.push(["pedidos", p === "unidade" ? "Pedidos da unidade" : p === "fiscal" ? "Pedidos designados" : "Pedidos"]);
-    if (p === "gestor" || p === "consulta") a.push(["consolidacao", "Consolidação"]);
-    if (p === "gestor") { a.push(["lotes", "Lotes"]); a.push(["atas", "Atas de RP"]); a.push(["usuarios", "Usuários"]); a.push(["historico", "Histórico"]); }
+    if (p === "unidade" || p === "fiscal") a.push(["dashboard", "Dashboard"]);
+    if (p === "gestor" || p === "consulta" || p === "governanca") a.push(["consolidacao", "Consolidação"]);
+    if (p === "gestor" || p === "governanca") { a.push(["lotes", "Lotes"]); a.push(["atas", "Atas de RP"]); a.push(["usuarios", "Usuários"]); a.push(["historico", "Histórico"]); }
     a.push(["catalogo", "Catálogo"]);
     return a;
   }
@@ -132,6 +173,7 @@
     }
     eu = s.usuario;
     acesso.style.display = "none"; app.style.display = "block";
+    var bt0 = document.getElementById("barra-total"); if (bt0) bt0.innerHTML = "";
     document.getElementById("caixa-usuario").innerHTML = "<b>" + esc(eu.nome) + "</b><br>" + esc(PERFIS[eu.perfil]) +
       (eu.orgao ? " · " + esc(eu.orgao) + (eu.unidade ? " / " + esc(eu.unidade) : "") : "") + '<br><button id="btn-sair">Sair</button>';
     document.getElementById("btn-sair").onclick = function () { N.sair(); };
@@ -142,7 +184,7 @@
 
   function carregarDados() {
     var tarefas = [N.listarAtas().then(function (l) { atas = l; }), N.listarLotes().then(function (l) { lotes = l; }), N.listarPedidos().then(function (l) { pedidos = l; })];
-    if (eu.perfil === "gestor") tarefas.push(N.listarUsuarios().then(function (l) { usuarios = l; }));
+    if (eu.perfil === "gestor" || eu.perfil === "governanca") tarefas.push(N.listarUsuarios().then(function (l) { usuarios = l; }));
     return Promise.all(tarefas).catch(function (e) { toast("Erro ao carregar dados: " + e.message); });
   }
 
@@ -222,9 +264,10 @@
   });
   function abrirAba(nome) {
     abaAtual = nome;
-    document.querySelectorAll("#menu button").forEach(function (b) { b.classList.toggle("ativo", b.dataset.aba === nome); });
+    document.body.classList.toggle("com-barra", nome === "pedido");
+    document.querySelectorAll("#menu button").forEach(function (b) { b.classList.toggle("ativo", b.dataset.aba === nome); if (b.dataset.aba === nome && b.scrollIntoView) b.scrollIntoView({ block: "nearest", inline: "center" }); });
     document.querySelectorAll(".aba").forEach(function (s) { s.classList.toggle("ativa", s.id === "aba-" + nome); });
-    ({ pedido: renderPedido, pedidos: renderPedidos, consolidacao: renderConsolidacao, lotes: renderLotes, atas: renderAtas, usuarios: renderUsuarios,
+    ({ dashboard: renderDashboard, pedido: renderPedido, pedidos: renderPedidos, consolidacao: renderConsolidacao, lotes: renderLotes, atas: renderAtas, usuarios: renderUsuarios,
       historico: renderHistorico, catalogo: renderCatalogo })[nome]();
     window.scrollTo(0, 0);
   }
@@ -238,9 +281,12 @@
     var dis = leitura ? " disabled" : "";
     var lote = acharLote(rascunho.loteId);
     var ataLote = lote ? ataDoLote(lote.id) : null;
-    var opLotes = '<option value="">' + (lotes.length ? "Selecione o lote…" : "Nenhum lote cadastrado pela CLIC") + "</option>" +
-      lotesOrdenados().map(function (l) { return '<option value="' + l.id + '"' + (l.id === rascunho.loteId ? " selected" : "") + ">" + esc(rotuloLote(l)) + "</option>"; }).join("");
-    var opModelos = D.modelos.map(function (m) { return '<option value="' + m.id + '">' + esc(m.nome) + " — " + m.itens.length + " composições</option>"; }).join("");
+    var homologados = lotesOrdenados().filter(loteHomologado);
+    // um pedido já salvo com lote que deixou de estar homologado continua visível, marcado
+    if (lote && !loteHomologado(lote)) homologados = homologados.concat([lote]);
+    var opLotes = '<option value="">' + (homologados.length ? "Selecione o lote homologado…" : "Nenhum lote homologado até o momento") + "</option>" +
+      homologados.map(function (l) { return '<option value="' + l.id + '"' + (l.id === rascunho.loteId ? " selected" : "") + ">" + esc(rotuloLote(l)) + (loteHomologado(l) ? "" : " — NÃO HOMOLOGADO") + "</option>"; }).join("");
+
     var orgaoFixo = eu.perfil !== "gestor";
 
     el.innerHTML =
@@ -263,17 +309,39 @@
       campo("Telefone / e-mail", "contato", "", "", "", dis) +
       '</div><p class="dica" style="margin-top:10px">Dias de realização: só os dias do evento. Montagem e desmontagem já estão nas 85 unidades fixas (TR 7.1.1.1.2.3). Abaixo de 3 dias, a medição considera 3 (TR 7.1.1.1.2.7).</p></div>' +
 
-      '<div class="card"><h2>2. Lote</h2><p class="dica">O desconto vem do lote cadastrado pela CLIC e incide só sobre composições de unidade física. Diárias e turnos não recebem desconto. A ata é identificada automaticamente a partir do lote.</p>' +
-      '<label>Lote<select data-campo="loteId"' + dis + ">" + opLotes + "</select></label>" +
+      '<div class="card"><h2>2. Lote</h2><p class="dica">Só aparecem os lotes <b>homologados</b>. O desconto vem do lote e incide só sobre composições de unidade física; diárias e turnos não recebem desconto. A ata é identificada automaticamente a partir do lote.</p>' +
+      (leitura ? '<label>Lote<input readonly value="' + esc(lote ? rotuloLote(lote) : (rascunho.lote ? "Lote " + nn(rascunho.lote.numero) + " — " + rascunho.lote.nome : "")) + '"></label>'
+        : '<label>Lote (digite número, região, fornecedor ou CNPJ)<div id="busca-lote"></div></label>') +
       (lote ? '<div class="ata-info"><b>Lote ' + nn(lote.numero) + " — " + esc(lote.nome) + "</b>" +
         "<br>Fornecedor: " + esc(lote.fornecedor || "—") + (lote.cnpj ? " · CNPJ " + esc(lote.cnpj) : "") +
         "<br>Desconto: <b>" + pct(lote.desconto) + "</b> · Situação: " + esc(lote.status || "—") +
         "<br>Ata: " + (ataLote ? "<b>ARP " + esc(ataLote.numero) + "</b>" : '<b style="color:var(--laranja)">lote ainda sem ata cadastrada</b>') + "</div>" : "") + "</div>" +
 
       (leitura ? "" : '<div class="card"><h2>3. Estruturas e composições</h2><p class="dica">Adicione uma estrutura-modelo e ajuste as quantidades, ou crie uma estrutura nova com composições do catálogo.</p>' +
-        '<div class="linha-acoes"><label style="flex:1 1 320px">Estrutura-modelo<select id="sel-modelo">' + opModelos + "</select></label>" +
-        '<button class="btn" data-acao="add-modelo">Adicionar estrutura-modelo</button><button class="btn sec" data-acao="add-vazia">Criar nova estrutura</button></div></div>') +
+        '<div class="linha-acoes"><label style="flex:1 1 420px">Estrutura-modelo (digite o nome: ex. PCBOM, PEO, vestiário, toldo)<div id="busca-modelo"></div></label>' +
+        '<button class="btn sec" data-acao="add-vazia">Criar nova estrutura</button></div></div>') +
       '<div id="lista-estruturas"></div></div><aside class="resumo" id="resumo"></aside></div>';
+    if (!leitura) {
+      montarBusca(document.getElementById("busca-lote"), {
+        placeholder: homologados.length ? "Buscar lote homologado…" : "Nenhum lote homologado até o momento",
+        valorInicial: lote ? rotuloLote(lote) : "",
+        vazio: homologados.length ? "Nenhum lote homologado corresponde à busca." : "Nenhum lote homologado até o momento.",
+        itens: lotesOrdenados().filter(loteHomologado).map(function (l) {
+          var at = ataDoLote(l.id);
+          return { valor: l.id, titulo: "Lote " + nn(l.numero) + " — " + l.nome, detalhe: (l.fornecedor || "") + " · CNPJ " + (l.cnpj || "—") + " · desconto " + pct(l.desconto) + " · " + (at ? "ARP " + at.numero : "sem ata"),
+            busca: "lote " + l.numero + " " + nn(l.numero) + " " + l.nome + " " + (l.fornecedor || "") + " " + (l.cnpj || "") + " " + (at ? at.numero : "") };
+        }),
+        aoEscolher: function (id) { rascunho.loteId = id; salvarRascunho(); renderPedido(); }
+      });
+      montarBusca(document.getElementById("busca-modelo"), {
+        placeholder: "Buscar estrutura-modelo pelo nome…",
+        itens: D.modelos.map(function (m) {
+          return { valor: m.id, titulo: m.nome, detalhe: m.itens.length + " composições · orçamento original " + rs(m.total_orcamento) + (m.ausentes.length ? " · " + m.ausentes.length + " item(ns) pendente(s) de validação" : ""),
+            busca: m.nome + " " + m.fonte };
+        }),
+        aoEscolher: function (id) { adicionarModelo(id); }
+      });
+    }
     renderEstruturas();
   }
   function campo(rotulo, nome, ph, classe, tipo, dis) {
@@ -296,29 +364,31 @@
     r.linhas.forEach(function (l, ii) {
       if ((l.item.secao || "") !== secaoAtual) { secaoAtual = l.item.secao || ""; if (secaoAtual) linhas += '<tr class="secao"><td colspan="11">' + esc(secaoAtual) + "</td></tr>"; }
       var c = l.calc, comp = l.comp;
-      linhas += '<tr><td class="cod">' + esc(l.item.codigo) + "</td>" +
-        '<td class="desc"' + (comp ? ' title="' + esc(comp.descricao) + '"' : "") + '><div class="clamp">' + (comp ? esc(comp.curta) : '<b style="color:var(--vermelho)">Código não encontrado no catálogo</b>') + "</div></td>" +
-        "<td>" + (comp ? esc(comp.unidade) : "") + "</td>" +
-        "<td>" + (comp ? '<span class="tag ' + comp.grupo_calculo + '">' + ({ I: "Física", II: "Tempo", PENDENTE: "Pendente" })[comp.grupo_calculo] + "</span>" : "") + "</td>" +
-        '<td class="num"><input class="qtd" data-qtd="' + ei + ":" + ii + '" value="' + numCurto(l.item.quantidade) + '"' + dis + "></td>" +
-        '<td class="num">' + (comp ? num(comp.valor_com_bdi) : "") + "</td>" +
-        '<td class="num">' + (c && c.calculado ? pct(c.desconto) : "—") + "</td>" +
-        '<td class="num">' + (c && c.calculado ? num(c.puContratado) : "—") + "</td>" +
-        '<td class="num">' + (c && c.grupo === "I" ? c.unidades : c && c.grupo === "II" ? "diária" : "—") + "</td>" +
-        '<td class="num"><b>' + (c && c.calculado ? num(c.valor) : "—") + "</b></td>" +
-        "<td>" + (leitura ? "" : '<button class="btn perigo peq" title="Remover composição" data-acao="rem-item" data-ei="' + ei + '" data-ii="' + ii + '">✕</button>') + "</td></tr>";
+      linhas += '<tr class="linha-item"><td class="cod c-cod">' + esc(l.item.codigo) + "</td>" +
+        '<td class="desc c-desc"' + (comp ? ' title="' + esc(comp.descricao) + '"' : "") + '><div class="clamp">' + (comp ? esc(comp.curta) : '<b style="color:var(--vermelho)">Código não encontrado no catálogo</b>') + "</div></td>" +
+        '<td class="c-und">' + (comp ? esc(comp.unidade) : "") + "</td>" +
+        '<td class="c-tipo">' + (comp ? '<span class="tag ' + comp.grupo_calculo + '">' + ({ I: "Física", II: "Tempo", PENDENTE: "Pendente" })[comp.grupo_calculo] + "</span>" : "") + "</td>" +
+        '<td class="num c-qtd"><input class="qtd" inputmode="decimal" aria-label="Quantidade" data-qtd="' + ei + ":" + ii + '" value="' + numCurto(l.item.quantidade) + '"' + dis + '><span class="so-cel"> ' + (comp ? esc(comp.unidade) : "") + "</span></td>" +
+        '<td class="num c-pu">' + (comp ? num(comp.valor_com_bdi) : "") + "</td>" +
+        '<td class="num c-dsc">' + (c && c.calculado ? pct(c.desconto) : "—") + "</td>" +
+        '<td class="num c-puc">' + (c && c.calculado ? num(c.puContratado) : "—") + "</td>" +
+        '<td class="num c-uni">' + (c && c.grupo === "I" ? c.unidades : c && c.grupo === "II" ? "diária" : "—") + "</td>" +
+        '<td class="num c-val"><b>' + (c && c.calculado ? (window.innerWidth <= 700 ? "R$ " : "") + num(c.valor) : "—") + "</b></td>" +
+        '<td class="c-acao">' + (leitura ? "" : '<button class="btn perigo peq" title="Remover composição" aria-label="Remover composição" data-acao="rem-item" data-ei="' + ei + '" data-ii="' + ii + '">✕</button>') + "</td></tr>";
     });
     return '<div class="estrutura card" style="padding:0"><div class="estrutura-topo">' +
       '<label class="nome">Nome da estrutura<input data-est-nome="' + ei + '" value="' + esc(est.nome) + '"' + dis + "></label>" +
       '<label>Qtd. desta estrutura<input type="number" min="1" step="1" style="width:110px" data-est-unid="' + ei + '" value="' + (est.unidades || 1) + '"' + dis + "></label>" +
       '<div class="subtotal">' + rs(r.subtotal) + "<small>" + r.linhas.length + " composições" + (r.multiplicador > 1 ? " · ×" + r.multiplicador : "") + "</small></div>" +
+      (function () { var lc = localDe(rascunho, est, ei); var pm = podeMarcarLocal(rascunho);
+        return '<button class="btn sec peq' + (lc ? " local-ok" : "") + '" data-acao="local-est" data-ei="' + ei + '" title="' + esc(descreverLocal(lc)) + '">' + (lc ? "📍 Local marcado" : (pm ? "📍 Marcar no mapa" : "📍 Sem local")) + "</button>"; })() +
       '<button class="btn sec peq" data-acao="recolher" data-ei="' + ei + '">' + (est.recolhida ? "▸ Mostrar itens" : "▾ Recolher") + "</button>" +
       (leitura ? "" : '<button class="btn perigo peq" data-acao="rem-est" data-ei="' + ei + '">Remover</button>') + "</div>" +
       (est.recolhida ? "" : ((est.ausentes && est.ausentes.length ? '<div class="aviso" style="margin:10px 14px"><b>Itens do orçamento original fora da tabela consolidada (não incluídos, aguardando validação da CEIRF):</b> ' +
         est.ausentes.map(function (a) { return esc(a.codigo) + (a.descricao ? " (" + esc(curta(a.descricao).slice(0, 50)) + ")" : "") + (a.sugestao ? " → possível equivalente " + esc(a.sugestao) : ""); }).join("; ") +
         ". Se necessário, adicione o item equivalente pela busca.</div>" : "") +
         (est.repetidos && est.repetidos.length ? '<div class="aviso" style="margin:10px 14px">O orçamento original repete o(s) código(s) ' + est.repetidos.map(esc).join(", ") + ". As linhas foram mantidas como estão no documento; confira se a repetição é intencional.</div>" : "") +
-        '<div class="rolagem"><table class="tabela"><thead><tr><th>Código</th><th>Descrição</th><th>Und</th><th>Tipo</th><th class="num">Quantidade</th><th class="num">PU ref. c/ BDI</th>' +
+        '<div class="rolagem"><table class="tabela tabela-itens"><thead><tr><th>Código</th><th>Descrição</th><th>Und</th><th>Tipo</th><th class="num">Quantidade</th><th class="num">PU ref. c/ BDI</th>' +
         '<th class="num">Desconto</th><th class="num">PU contratado</th><th class="num">Unidades</th><th class="num">Valor (R$)</th><th></th></tr></thead><tbody>' +
         (linhas || '<tr><td colspan="11" class="vazio">Sem composições.</td></tr>') + "</tbody></table></div>" +
         (leitura ? "" : '<div class="add-item"><button class="btn" data-acao="abrir-busca" data-ei="' + ei + '">＋ Adicionar composições</button>' +
@@ -330,13 +400,13 @@
     var avisos = [];
     if (!lote && !leitura) avisos.push("Selecione o lote para herdar o desconto.");
     if (lote && !leitura && lote.id && !ataDoLote(lote.id)) avisos.push("O lote escolhido ainda não está em nenhuma ata cadastrada.");
-    if (lote && !leitura && lote.status && lote.status !== "HOMOLOGADO") avisos.push("Situação do lote na licitação: " + lote.status + ".");
+    if (lote && !leitura && lote.id && !loteHomologado(acharLote(lote.id))) avisos.push("O lote " + nn(lote.numero) + " não está homologado (" + (acharLote(lote.id) || lote).status + "). O pedido não poderá ser salvo com este lote.");
     if (!(Number(rascunho.dias) >= 1)) avisos.push("Informe os dias de realização do evento.");
     if (res.pendentes) avisos.push(res.pendentes + " composição(ões) CHP/CHI com classificação pendente: não somadas.");
     if (res.estruturas.some(function (e) { return e.linhas.some(function (l) { return l.calc && l.calc.grupo === "II"; }); }))
       avisos.push("Itens de tempo (diárias/turnos): confira se a quantidade corresponde às diárias do evento.");
     var nIt = rascunho.estruturas.reduce(function (s, e) { return s + e.itens.length; }, 0);
-    var passos = [["Identificação", !!(rascunho.orgao && rascunho.unidade && rascunho.evento && Number(rascunho.dias) >= 1)], ["Lote", !!lote], ["Estruturas", nIt > 0]];
+    var passos = [["Identificação", !!(rascunho.orgao && rascunho.unidade && rascunho.evento && Number(rascunho.dias) >= 1)], ["Lote", !!lote && loteHomologado(acharLote(lote.id))], ["Estruturas", nIt > 0]];
     var botoes = "";
     if (!leitura) {
       if (eu.perfil === "unidade") {
@@ -347,6 +417,10 @@
     botoes += '<button class="btn sec" data-acao="novo-pedido">' + (rascunho.id ? "Fechar / novo pedido" : "Limpar") + "</button>";
     if (rascunho.id) botoes += '<button class="btn sec" data-acao="xlsx-atual">Planilha de fiscalização</button>';
 
+    var barra = document.getElementById("barra-total");
+    if (!barra) { barra = document.createElement("div"); barra.id = "barra-total"; document.body.appendChild(barra);
+      barra.addEventListener("click", function (e) { if (e.target.closest("[data-ir-resumo]")) document.getElementById("resumo").scrollIntoView({ behavior: "smooth" }); }); }
+    barra.innerHTML = "<div><small>Total do pedido</small><b>" + rs(res.total) + '</b></div><button class="btn" data-ir-resumo>Resumo e envio ▾</button>';
     document.getElementById("resumo").innerHTML = '<div class="card"><h2>Resumo do pedido</h2><div class="passos">' +
       passos.map(function (p, i) { return '<span class="passo' + (p[1] ? " feito" : "") + '">' + (p[1] ? "✓" : i + 1) + " " + p[0] + "</span>"; }).join("") + "</div><dl>" +
       "<dt>Desconto do lote</dt><dd>" + (lote ? pct(lote.desconto) : "—") + "</dd>" +
@@ -380,12 +454,9 @@
       rascunho = novoRascunho(); salvarRascunho(); renderPedido(); return;
     }
     if (a === "xlsx-atual") { gerarPlanilhaFiscalizacao(rascunho); return; }
+    if (a === "local-est") { abrirMapaLocal(rascunho, Number(b.dataset.ei), function () { renderEstruturas(); }); return; }
     if (!podeEditar(rascunho)) return;
-    if (a === "add-modelo") {
-      var m = D.modelos.filter(function (x) { return x.id === document.getElementById("sel-modelo").value; })[0];
-      rascunho.estruturas.push({ uid: uid(), nome: m.nome, modeloId: m.id, unidades: 1, itens: clonar(m.itens), ausentes: clonar(m.ausentes) });
-      salvarRascunho(); renderEstruturas(); toast("Estrutura " + m.nome + " adicionada.");
-    } else if (a === "add-vazia") {
+    if (a === "add-vazia") {
       rascunho.estruturas.push({ uid: uid(), nome: "Nova estrutura " + (rascunho.estruturas.length + 1), modeloId: null, unidades: 1, itens: [] });
       salvarRascunho(); renderEstruturas(); abrirBusca(rascunho.estruturas.length - 1);
     } else if (a === "rem-est") {
@@ -397,6 +468,14 @@
     else if (a === "enviar") salvarPedido(true, b);
   });
 
+  function adicionarModelo(id) {
+    if (!podeEditar(rascunho)) return;
+    var m = D.modelos.filter(function (x) { return x.id === id; })[0]; if (!m) return;
+    rascunho.estruturas.push({ uid: uid(), nome: m.nome, modeloId: m.id, unidades: 1, itens: clonar(m.itens), ausentes: clonar(m.ausentes), repetidos: clonar(m.repetidos || []) });
+    salvarRascunho(); renderEstruturas(); toast("Estrutura " + m.nome + " adicionada.");
+    var ult = document.querySelectorAll("#lista-estruturas .estrutura"); if (ult.length) ult[ult.length - 1].scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function salvarPedido(enviar, botao) {
     var lote = acharLote(rascunho.loteId);
     var erros = [];
@@ -405,6 +484,7 @@
     if (!rascunho.evento) erros.push("evento");
     if (!(Number(rascunho.dias) >= 1)) erros.push("dias de realização");
     if (!lote) erros.push("lote");
+    if (lote && !loteHomologado(lote)) return toast("Só é possível incluir no pedido um lote homologado. O lote " + nn(lote.numero) + " está como " + lote.status + ".");
     if (!rascunho.estruturas.reduce(function (s, e) { return s + e.itens.length; }, 0)) erros.push("ao menos uma composição");
     if (erros.length) return toast("Falta preencher: " + erros.join(", ") + ".");
     if (!lote.fornecedor) return toast("O lote escolhido ainda não tem fornecedor cadastrado pela CLIC.");
@@ -419,16 +499,18 @@
       p.autorUid = eu.uid; p.autorNome = eu.nome; p.fiscais = [];
       p.numero = p.orgao + "-" + new Date().getFullYear() + "-" + uid().slice(-6).toUpperCase();
     }
-    if (eu.perfil === "unidade") { p.orgao = eu.orgao; p.unidade = eu.unidade; p.status = enviar ? "enviado" : (p.status || "rascunho"); }
+    if (eu.perfil === "unidade") { p.orgao = eu.orgao; p.unidade = eu.unidade; if (enviar && p.status !== "enviado") p.enviadoEm = new Date().toISOString(); p.status = enviar ? "enviado" : (p.status || "rascunho"); }
     else if (!p.status) p.status = "enviado";
     var ataL = ataDoLote(lote.id);
     p.lote = { id: lote.id, numero: lote.numero, nome: lote.nome, fornecedor: lote.fornecedor || "", cnpj: lote.cnpj || "", desconto: lote.desconto };
     p.ata = ataL ? { id: ataL.id, numero: ataL.numero } : null;
     delete p.ataId;
     p.totais = { grupoI: res.totalI, grupoII: res.totalII, total: res.total };
+    // pedido já existente: os locais são gravados um a um (marcarLocal) e não podem ser sobrescritos por uma cópia antiga
+    var locaisAntes = p.locais; if (!novo) delete p.locais;
     ocupado(botao, true);
     N.salvarPedido(p).then(function (id) {
-      p.id = id;
+      p.id = id; if (locaisAntes) p.locais = locaisAntes;
       var i = pedidos.findIndex(function (x) { return x.id === id; });
       if (i >= 0) pedidos[i] = Object.assign(pedidos[i], p); else pedidos.push(p);
       rascunho = p; salvarRascunho();
@@ -504,11 +586,274 @@
     if (b.dataset.acao === "fechar-modal") fecharModal();
     else if (b.dataset.acao === "m-add") adicionarDaBusca(b.dataset.cod);
     else if (b.dataset.acao === "gerir-salvar") salvarGestao(b);
+    else if (b.dataset.acao === "ver-local") { var pv = pedidoVisto; abrirMapaLocal(pv, Number(b.dataset.idx), function () { abrirVisualizacao(pv); }); }
   });
   modalEl.addEventListener("keydown", function (e) {
     if (e.key === "Escape") fecharModal();
     if (e.key === "Enter" && e.target.dataset.mq) { e.preventDefault(); adicionarDaBusca(e.target.dataset.mq); }
     if (e.key === "Enter" && e.target.id === "m-busca") { e.preventDefault(); var q = modalEl.querySelector("[data-mq]"); if (q) q.focus(); }
+  });
+
+
+  // =====================================================================
+  // MAPA (Leaflet + OpenStreetMap)
+  // =====================================================================
+  var CENTRO_BA = [-12.6, -41.7];
+  function camadaBase(mapa) {
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; colaboradores do OpenStreetMap" }).addTo(mapa);
+  }
+  // ---------- local de cada estrutura ----------
+  // Os locais ficam no campo "locais" do pedido: { chave da estrutura: { lat, lng, origem, precisao, porUid, porNome, perfil, em } }
+  function chaveEst(est, idx) { return est.uid || ("idx" + idx); }
+  function localDe(p, est, idx) {
+    var l = p.locais && p.locais[chaveEst(est, idx)];
+    if (l) return l;
+    if (est.geo) return { lat: est.geo.lat, lng: est.geo.lng, origem: "mapa" }; // marcações antigas
+    return null;
+  }
+  function podeMarcarLocal(p) {
+    if (!eu) return false;
+    if (eu.perfil === "gestor") return p.status !== "encerrado" && p.status !== "cancelado";
+    if (eu.perfil === "unidade") return (!p.id || p.autorUid === eu.uid) && (!p.status || p.status === "rascunho" || p.status === "enviado");
+    if (eu.perfil === "fiscal") return !!p.id && (p.fiscais || []).indexOf(eu.uid) >= 0 && ["enviado", "aprovado", "em_fiscalizacao"].indexOf(p.status) >= 0;
+    return false;
+  }
+  var ORIGEM = { mapa: "toque no mapa", gps: "GPS do aparelho", manual: "coordenadas digitadas" };
+  function descreverLocal(l) {
+    if (!l) return "Sem local marcado";
+    return "Lat " + Number(l.lat).toFixed(6) + " · Long " + Number(l.lng).toFixed(6) + (l.origem ? " · " + ORIGEM[l.origem] : "") +
+      (l.precisao ? " (±" + Math.round(l.precisao) + " m)" : "") + (l.porNome ? " · por " + l.porNome + (l.perfil ? " (" + (PERFIS[l.perfil] || l.perfil) + ")" : "") : "") + (l.em ? " em " + dataHora(l.em) : "");
+  }
+  // Aceita "-12.9849, -38.5245", "-12,9849; -38,5245" ou "-12.9849 -38.5245"
+  function lerCoordenadas(txt) {
+    var t = String(txt || "").trim(); if (!t) return null;
+    var partes = /[;\t]/.test(t) || (t.match(/,/g) || []).length !== 1 ? t.split(/\s*[;\t]\s*|\s+/) : t.split(/\s*,\s*/);
+    partes = partes.filter(Boolean);
+    if (partes.length !== 2) return null;
+    var lat = Number(partes[0].replace(",", ".")), lng = Number(partes[1].replace(",", "."));
+    if (!isFinite(lat) || !isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) return null;
+    return { lat: lat, lng: lng };
+  }
+  function foraDaBahia(lat, lng) { return lat > -8.3 || lat < -18.5 || lng < -46.8 || lng > -37.2; }
+
+  // p: pedido (rascunho ou salvo); idx: índice da estrutura; aoFechar: função chamada ao sair
+  function abrirMapaLocal(p, idx, aoFechar) {
+    if (typeof L === "undefined") return toast("O módulo de mapa não carregou. Verifique a conexão.");
+    var est = p.estruturas[idx]; var chave = chaveEst(est, idx);
+    var pode = podeMarcarLocal(p);
+    var atual = localDe(p, est, idx);
+    var novo = atual ? Object.assign({}, atual) : null; var alterado = false;
+    modalEl.dataset.tipo = "mapa";
+    modalEl.innerHTML = '<div class="modal-caixa"><div class="modal-topo"><div><h2>Local da estrutura</h2><p class="dica" style="margin:0"><b>' + esc(est.nome) + "</b> · pedido " + esc(p.numero || "(novo)") +
+      (pode ? " · toque no mapa, use o GPS ou digite as coordenadas" : " · somente visualização") + "</p></div>" +
+      '<div class="linha-acoes">' + (pode ? '<button class="btn" id="mapa-salvar">Salvar local</button>' : "") + '<button class="btn sec" id="mapa-fechar">' + (pode ? "Cancelar" : "Fechar") + "</button></div></div>" +
+      (pode ? '<div class="linha-acoes mapa-ferr"><button class="btn sec peq" id="mapa-gps">📡 Usar minha localização</button>' +
+        '<input id="mapa-coord-in" placeholder="Digite ou cole: -12.984900, -38.524500" inputmode="decimal" autocomplete="off"><button class="btn sec peq" id="mapa-ir">Aplicar coordenadas</button>' +
+        '<button class="btn perigo peq" id="mapa-limpar">Remover local</button></div>' : "") +
+      '<p class="dica mapa-info" id="mapa-coord">' + esc(descreverLocal(atual)) + "</p>" +
+      '<div id="mapa-est" class="mapa"></div></div>';
+    modalEl.classList.add("aberto"); document.body.style.overflow = "hidden";
+    var ponto = atual ? [atual.lat, atual.lng] : null;
+    var mapa = L.map("mapa-est").setView(ponto || CENTRO_BA, ponto ? 16 : 6); camadaBase(mapa);
+    var marca = null;
+    function desenharMarca(lat, lng) {
+      if (marca) marca.setLatLng([lat, lng]);
+      else marca = L.circleMarker([lat, lng], { radius: 9, color: "#fff", weight: 2, fillColor: "#145da0", fillOpacity: 1 }).addTo(mapa);
+    }
+    if (ponto) desenharMarca(ponto[0], ponto[1]);
+    function definir(lat, lng, origem, precisao) {
+      novo = { lat: Math.round(lat * 1e6) / 1e6, lng: Math.round(lng * 1e6) / 1e6, origem: origem, porUid: eu.uid, porNome: eu.nome, perfil: eu.perfil, em: new Date().toISOString() };
+      if (precisao) novo.precisao = Math.round(precisao);
+      alterado = true; desenharMarca(novo.lat, novo.lng);
+      document.getElementById("mapa-coord").textContent = descreverLocal(novo) + " · ainda não salvo";
+      if (foraDaBahia(novo.lat, novo.lng)) toast("Atenção: o ponto está fora da Bahia. Confira as coordenadas.");
+    }
+    function fechar() { modalEl.classList.remove("aberto"); modalEl.innerHTML = ""; document.body.style.overflow = ""; mapa.remove(); if (aoFechar) aoFechar(); }
+    document.getElementById("mapa-fechar").onclick = function () { if (alterado && !confirm("Descartar a marcação feita?")) return; fechar(); };
+    if (pode) {
+      mapa.on("click", function (e) { definir(e.latlng.lat, e.latlng.lng, "mapa"); });
+      document.getElementById("mapa-gps").onclick = function () {
+        if (!navigator.geolocation) return toast("Este aparelho não informa a localização.");
+        toast("Obtendo a localização…");
+        navigator.geolocation.getCurrentPosition(function (pos) {
+          definir(pos.coords.latitude, pos.coords.longitude, "gps", pos.coords.accuracy); mapa.setView([pos.coords.latitude, pos.coords.longitude], 18);
+          if (pos.coords.accuracy > 50) toast("Precisão baixa (±" + Math.round(pos.coords.accuracy) + " m). Se puder, ajuste tocando no mapa.");
+        }, function (e) {
+          toast(e && e.code === 1 ? "Permissão de localização negada. Libere nas configurações do navegador." : "Não foi possível obter a localização. Tente ao ar livre ou digite as coordenadas.");
+        }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 });
+      };
+      var aplicar = function () {
+        var c = lerCoordenadas(document.getElementById("mapa-coord-in").value);
+        if (!c) return toast("Coordenadas inválidas. Use o formato: -12.984900, -38.524500");
+        definir(c.lat, c.lng, "manual"); mapa.setView([c.lat, c.lng], 17);
+      };
+      document.getElementById("mapa-ir").onclick = aplicar;
+      document.getElementById("mapa-coord-in").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); aplicar(); } });
+      document.getElementById("mapa-limpar").onclick = function () {
+        novo = null; alterado = true; if (marca) { mapa.removeLayer(marca); marca = null; }
+        document.getElementById("mapa-coord").textContent = "Local será removido ao salvar";
+      };
+      document.getElementById("mapa-salvar").onclick = function () {
+        var b = this;
+        if (!alterado) return fechar();
+        var nomeAlvo = (p.numero || "pedido novo") + " · " + est.nome;
+        if (!p.id) { // pedido ainda não salvo: fica no rascunho e vai junto no primeiro salvamento
+          p.locais = p.locais || {}; if (novo) p.locais[chave] = novo; else delete p.locais[chave];
+          delete est.geo; salvarRascunho(); toast("Local registrado. Ele será gravado quando o pedido for salvo."); return fechar();
+        }
+        ocupado(b, true);
+        N.marcarLocal(p.id, chave, novo).then(function () {
+          p.locais = p.locais || {}; if (novo) p.locais[chave] = novo; else delete p.locais[chave];
+          [rascunho].concat(pedidos).forEach(function (x) { if (x && x.id === p.id && x !== p) { x.locais = x.locais || {}; if (novo) x.locais[chave] = novo; else delete x.locais[chave]; } });
+          if (rascunho && rascunho.id === p.id) salvarRascunho();
+          N.registrar(novo ? "local_marcado" : "local_removido", p.numero, est.nome + (novo ? " · " + novo.lat + ", " + novo.lng + " · " + ORIGEM[novo.origem] : ""));
+          toast("Local de " + est.nome + " salvo."); fechar();
+        }, function (er) { toast("Não foi possível salvar o local: " + er.message); ocupado(b, false); });
+      };
+    }
+    setTimeout(function () { mapa.invalidateSize(); }, 60);
+  }
+
+  // =====================================================================
+  // DASHBOARD (todos os perfis; cada um vê os pedidos que pode ler)
+  // =====================================================================
+  var filtroDash = { orgao: "", lote: "", situacao: "andamento", municipio: "", de: "", ate: "" };
+  var mapaDash = null;
+  var DIAS_ALERTA = 5;
+  function diasDesde(ts) { if (!ts) return null; var d = ts.toDate ? ts.toDate() : (ts.seconds ? new Date(ts.seconds * 1000) : new Date(ts)); return isNaN(d) ? null : Math.floor((Date.now() - d.getTime()) / 864e5); }
+  function pedidosDash() {
+    return pedidos.filter(function (p) {
+      var sit = filtroDash.situacao;
+      var okSit = !sit || (sit === "andamento" ? CONTA_NO_SAQUE.indexOf(p.status) >= 0 : p.status === sit);
+      var ini = p.inicio || "";
+      return okSit && (!filtroDash.orgao || p.orgao === filtroDash.orgao) && (!filtroDash.lote || (p.lote && p.lote.id === filtroDash.lote)) &&
+        (!filtroDash.municipio || normalizarTexto(p.municipio || "") === filtroDash.municipio) && (!filtroDash.de || (ini && ini >= filtroDash.de)) && (!filtroDash.ate || (ini && ini <= filtroDash.ate));
+    });
+  }
+  // Barras horizontais de uma série: rótulo à esquerda, valor escrito à direita (identidade nunca só pela cor)
+  function barras(titulo, dados, fmtValor, nota) {
+    var max = dados.reduce(function (m, d) { return Math.max(m, d.valor); }, 0) || 1;
+    return '<div class="card dash-card"><h3>' + esc(titulo) + "</h3>" + (nota ? '<p class="dica">' + esc(nota) + "</p>" : "") +
+      (dados.length ? '<div class="barras" role="table">' + dados.map(function (d) {
+        var w = Math.max(1.5, d.valor / max * 100);
+        return '<div class="barra-linha" role="row" title="' + esc(d.rotulo + ": " + fmtValor(d.valor) + (d.extra ? " · " + d.extra : "")) + '"><span class="barra-rot" role="cell">' + esc(d.rotulo) + "</span>" +
+          '<span class="barra-trilho"><span class="barra' + (d.alerta ? " alerta" : "") + '" style="width:' + w.toFixed(1) + '%"></span></span><span class="barra-val" role="cell">' + (d.alerta ? "⚠ " : "") + esc(fmtValor(d.valor)) + "</span></div>";
+      }).join("") + "</div>" : '<div class="vazio">Sem dados para os filtros escolhidos.</div>') + "</div>";
+  }
+  function somar(lista, chave, valorFn) {
+    var m = {}; lista.forEach(function (x) { var k = chave(x); if (k === null || k === undefined || k === "") return; m[k] = (m[k] || 0) + valorFn(x); });
+    return Object.keys(m).map(function (k) { return { rotulo: k, valor: m[k] }; }).sort(function (x, y) { return y.valor - x.valor; });
+  }
+  function linhasEstruturas(lista) {
+    var out = [];
+    lista.forEach(function (p) {
+      var r = calcularSalvo(p);
+      r.estruturas.forEach(function (e, idx) { out.push({ p: p, est: e.estrutura, qtd: e.multiplicador, valor: e.subtotal, local: localDe(p, e.estrutura, idx) }); });
+    });
+    return out;
+  }
+  function renderDashboard() {
+    var el = document.getElementById("aba-dashboard");
+    var lista = pedidosDash();
+    var calc = lista.map(function (p) { return { p: p, r: calcularSalvo(p) }; });
+    var ests = linhasEstruturas(lista);
+    var total = calc.reduce(function (s, x) { return FoliaCalc.arred(s + x.r.total); }, 0);
+    var aprovado = calc.filter(function (x) { return ["aprovado", "em_fiscalizacao", "encerrado"].indexOf(x.p.status) >= 0; }).reduce(function (s, x) { return FoliaCalc.arred(s + x.r.total); }, 0);
+    var nEst = ests.reduce(function (s, e) { return s + e.qtd; }, 0);
+    var municipios = {}; lista.forEach(function (p) { if (p.municipio) municipios[normalizarTexto(p.municipio)] = p.municipio; });
+    var semLocal = ests.filter(function (e) { return !e.local; }).length;
+
+    // consumo por lote (todos os pedidos em andamento visíveis, sem filtro de data)
+    var consumo = {};
+    pedidos.filter(function (p) { return p.lote && CONTA_NO_SAQUE.indexOf(p.status) >= 0; }).forEach(function (p) { consumo[p.lote.id] = FoliaCalc.arred((consumo[p.lote.id] || 0) + calcularSalvo(p).total); });
+    var dadosLote = Object.keys(consumo).map(function (id) {
+      var l = acharLote(id); var vf = valorFinalLote(l) || 0; var pc = vf ? consumo[id] / vf * 100 : 0;
+      return { rotulo: l ? "Lote " + nn(l.numero) + " — " + l.nome : id, valor: pc, alerta: pc >= 80, extra: rs(consumo[id]) + " de " + rs(vf) };
+    }).sort(function (x, y) { return y.valor - x.valor; });
+
+    // alertas de governança
+    var alertas = [];
+    var parados = lista.filter(function (p) { var d = diasDesde(p.enviadoEm || p.atualizadoEm); return p.status === "enviado" && d !== null && d > DIAS_ALERTA; });
+    if (parados.length) alertas.push(["serious", parados.length + " pedido(s) enviado(s) há mais de " + DIAS_ALERTA + " dias sem aprovação", parados.map(function (p) { return p.numero; })]);
+    var semFiscal = lista.filter(function (p) { return ["aprovado", "em_fiscalizacao"].indexOf(p.status) >= 0 && !(p.fiscais || []).length; });
+    if (semFiscal.length) alertas.push(["serious", semFiscal.length + " pedido(s) aprovado(s) sem fiscal designado", semFiscal.map(function (p) { return p.numero; })]);
+    var lotes80 = dadosLote.filter(function (d) { return d.alerta; });
+    if (lotes80.length) alertas.push(["critical", lotes80.length + " lote(s) com 80% ou mais do valor registrado comprometido", lotes80.map(function (d) { return d.rotulo.split(" — ")[0]; })]);
+    var homSemAta = lotes.filter(function (l) { return loteHomologado(l) && !ataDoLote(l.id); });
+    if (homSemAta.length && (eu.perfil === "gestor" || eu.perfil === "governanca")) alertas.push(["warning", homSemAta.length + " lote(s) homologado(s) ainda sem ata cadastrada", homSemAta.map(function (l) { return "Lote " + nn(l.numero); })]);
+    if (semLocal) alertas.push(["warning", semLocal + " estrutura(s) sem local marcado no mapa", []]);
+    var ROT = { critical: "Crítico", serious: "Atenção", warning: "Aviso" };
+
+    var opO = '<option value="">Todos os órgãos</option>' + D.orgaos.map(function (o) { return '<option value="' + o.sigla + '"' + (filtroDash.orgao === o.sigla ? " selected" : "") + ">" + o.sigla + "</option>"; }).join("");
+    var opL = '<option value="">Todos os lotes</option>' + lotesOrdenados().map(function (l) { return '<option value="' + l.id + '"' + (filtroDash.lote === l.id ? " selected" : "") + ">Lote " + nn(l.numero) + " — " + esc(l.nome) + "</option>"; }).join("");
+    var opS = '<option value="andamento"' + (filtroDash.situacao === "andamento" ? " selected" : "") + ">Em andamento (enviados a encerrados)</option><option value=\"\"" + (filtroDash.situacao === "" ? " selected" : "") + ">Todas as situações</option>" +
+      Object.keys(STATUS).map(function (s) { return '<option value="' + s + '"' + (filtroDash.situacao === s ? " selected" : "") + ">" + STATUS[s] + "</option>"; }).join("");
+    var todosMun = {}; pedidos.forEach(function (p) { if (p.municipio) todosMun[normalizarTexto(p.municipio)] = p.municipio; });
+    var opM = '<option value="">Todos os municípios</option>' + Object.keys(todosMun).sort().map(function (k) { return '<option value="' + esc(k) + '"' + (filtroDash.municipio === k ? " selected" : "") + ">" + esc(todosMun[k]) + "</option>"; }).join("");
+
+    el.innerHTML =
+      '<div class="card"><h2>Dashboard</h2><p class="dica">' + (({ unidade: "Dados dos pedidos da sua unidade.", fiscal: "Dados dos pedidos para os quais você foi designado." })[eu.perfil] || "Dados de todos os pedidos.") +
+      " O período considera a data de início do evento.</p>" +
+      '<div class="filtros dash-filtros"><select id="d-orgao">' + opO + '</select><select id="d-lote">' + opL + '</select><select id="d-sit">' + opS + '</select><select id="d-mun">' + opM + "</select>" +
+      '<label class="inline">De <input type="date" id="d-de" value="' + esc(filtroDash.de) + '"></label><label class="inline">Até <input type="date" id="d-ate" value="' + esc(filtroDash.ate) + '"></label>' +
+      '<button class="btn sec" data-acao="d-limpar">Limpar filtros</button></div></div>' +
+      '<div class="kpis">' +
+      kpi("Pedidos", lista.length) + kpi("Estruturas", nEst) + kpi("Valor dos pedidos", rs(total)) + kpi("Aprovado (OS emitida)", rs(aprovado)) + kpi("Municípios", Object.keys(municipios).length) +
+      kpi("Lotes ≥ 80% comprometidos", lotes80.length, lotes80.length ? "critical" : "") + "</div>" +
+      (alertas.length ? '<div class="card"><h3>Alertas de governança</h3><ul class="alertas">' + alertas.map(function (al) {
+        return '<li class="al-' + al[0] + '"><span class="al-tag">' + ROT[al[0]] + "</span> " + esc(al[1]) + (al[2].length ? '<small>' + esc(al[2].slice(0, 12).join(", ")) + (al[2].length > 12 ? "…" : "") + "</small>" : "") + "</li>";
+      }).join("") + "</ul></div>" : '<div class="card"><h3>Alertas de governança</h3><p class="dica" style="margin:0">✓ Nenhum alerta para os filtros escolhidos.</p></div>') +
+      '<div class="card"><h3>Mapa das estruturas</h3><p class="dica">' + (ests.length - semLocal) + " de " + ests.length + " estrutura(s) com local marcado. Toque num ponto para ver os detalhes.</p>" +
+      '<div id="mapa-dash" class="mapa mapa-dash"></div></div>' +
+      '<div class="dash-grade">' +
+      barras("Valor dos pedidos por órgão", somar(calc, function (x) { return x.p.orgao; }, function (x) { return x.r.total; }), rs) +
+      barras("Estruturas mais demandadas (quantidade)", somar(ests, function (e) { return e.est.nome; }, function (e) { return e.qtd; }).slice(0, 10), function (v) { return String(v); }) +
+      barras("Valor dos pedidos por município (10 maiores)", somar(calc, function (x) { return x.p.municipio || "(não informado)"; }, function (x) { return x.r.total; }).slice(0, 10), rs) +
+      barras("Comprometimento do valor registrado por lote", dadosLote, function (v) { return fmt.format(v) + "%"; }, "Pedidos em andamento ÷ valor registrado do lote. ⚠ = 80% ou mais.") +
+      "</div>" +
+      '<div class="card"><h3>Mapeamento das estruturas</h3><div class="linha-acoes" style="margin-bottom:10px"><button class="btn sec" data-acao="d-xlsx">Baixar mapeamento (.xlsx)</button></div>' +
+      (ests.length ? '<div class="rolagem"><table class="tabela"><thead><tr><th>Estrutura</th><th class="num">Qtd</th><th>Pedido</th><th>Situação</th><th>Órgão / unidade</th><th>Evento</th><th>Município</th><th>Período</th><th>Lote</th><th class="num">Valor</th><th>Local</th></tr></thead><tbody>' +
+        ests.map(function (e) {
+          return "<tr><td>" + esc(e.est.nome) + '</td><td class="num">' + e.qtd + '</td><td class="cod">' + esc(e.p.numero) + "</td><td>" + selStatus(e.p.status) + "</td><td>" + esc(e.p.orgao + " / " + e.p.unidade) + "</td><td>" + esc(e.p.evento) +
+            "</td><td>" + esc(e.p.municipio || "") + "</td><td>" + dataBR(e.p.inicio) + (e.p.fim ? " a " + dataBR(e.p.fim) : "") + "</td><td>" + (e.p.lote ? nn(e.p.lote.numero) : "") + '</td><td class="num">' + num(e.valor) + '</td><td title="' + esc(descreverLocal(e.local)) + '">' +
+            (e.local ? "📍 " + esc(e.local.perfil ? (e.local.perfil === "fiscal" ? "fiscal" : e.local.perfil === "gestor" ? "CLIC" : "unidade") : "") : "—") + "</td></tr>";
+        }).join("") + "</tbody></table></div>" : '<div class="vazio">Nenhuma estrutura para os filtros escolhidos.</div>') + "</div>";
+
+    // mapa
+    if (mapaDash) { mapaDash.remove(); mapaDash = null; }
+    if (typeof L !== "undefined") {
+      mapaDash = L.map("mapa-dash").setView(CENTRO_BA, 6); camadaBase(mapaDash);
+      var pts = [];
+      ests.filter(function (e) { return e.local; }).forEach(function (e) {
+        var ll = [e.local.lat, e.local.lng]; pts.push(ll);
+        L.circleMarker(ll, { radius: 8, color: "#fff", weight: 2, fillColor: "#145da0", fillOpacity: 1 }).addTo(mapaDash)
+          .bindPopup("<b>" + esc(e.est.nome) + (e.qtd > 1 ? " ×" + e.qtd : "") + "</b><br>" + esc(e.p.numero) + " · " + esc(STATUS[e.p.status]) + "<br>" + esc(e.p.orgao + " / " + e.p.unidade) + "<br>" + esc(e.p.evento) +
+            (e.p.inicio ? "<br>" + dataBR(e.p.inicio) + (e.p.fim ? " a " + dataBR(e.p.fim) : "") : "") + "<br>" + rs(e.valor) +
+            '<br><small style="color:#5b6675">Local: ' + esc(ORIGEM[e.local.origem] || "") + (e.local.porNome ? " · " + esc(e.local.porNome) + " (" + esc(PERFIS[e.local.perfil] || "") + ")" : "") + (e.local.em ? " · " + dataHora(e.local.em) : "") + "</small>");
+      });
+      if (pts.length) mapaDash.fitBounds(pts, { padding: [30, 30], maxZoom: 15 });
+      setTimeout(function () { if (mapaDash) mapaDash.invalidateSize(); }, 60);
+    } else document.getElementById("mapa-dash").innerHTML = '<div class="vazio">O módulo de mapa não carregou.</div>';
+  }
+  function kpi(rot, val, st) { return '<div class="kpi' + (st ? " kpi-" + st : "") + '"><small>' + esc(rot) + "</small><b>" + esc(String(val)) + "</b></div>"; }
+  var abaDash = document.getElementById("aba-dashboard");
+  abaDash.addEventListener("change", function (e) {
+    var m = { "d-orgao": "orgao", "d-lote": "lote", "d-sit": "situacao", "d-mun": "municipio", "d-de": "de", "d-ate": "ate" }[e.target.id];
+    if (m) { filtroDash[m] = e.target.value; renderDashboard(); }
+  });
+  abaDash.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-acao]"); if (!b) return;
+    if (b.dataset.acao === "d-limpar") { filtroDash = { orgao: "", lote: "", situacao: "andamento", municipio: "", de: "", ate: "" }; renderDashboard(); }
+    if (b.dataset.acao === "d-xlsx") {
+      var ests = linhasEstruturas(pedidosDash());
+      var L1 = [["MAPEAMENTO DAS ESTRUTURAS — gerado em " + dataBR(hoje())], [], ["Estrutura", "Qtd", "Pedido", "Situação", "OS", "Órgão", "Unidade", "Evento", "Município", "Local/endereço", "Início", "Fim", "Lote", "Ata", "Fornecedor", "Valor (R$)", "Latitude", "Longitude", "Como foi marcado", "Precisão (m)", "Marcado por", "Perfil", "Quando"]];
+      ests.forEach(function (e) { var p = e.p;
+        L1.push([e.est.nome, e.qtd, p.numero, STATUS[p.status], p.os && p.os.numero || "", p.orgao, p.unidade, p.evento, p.municipio || "", p.local || "", dataBR(p.inicio), dataBR(p.fim), p.lote ? p.lote.numero : "",
+          p.ata && p.ata.numero || "", p.lote ? p.lote.fornecedor : "", { v: e.valor, z: M }, e.local ? e.local.lat : "", e.local ? e.local.lng : "",
+          e.local ? ORIGEM[e.local.origem] || "" : "", e.local && e.local.precisao ? e.local.precisao : "", e.local ? e.local.porNome || "" : "", e.local ? PERFIS[e.local.perfil] || "" : "", e.local ? dataHora(e.local.em) : ""]); });
+      var wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, montarAba(L1, [30, 6, 18, 18, 10, 8, 14, 26, 16, 26, 11, 11, 6, 12, 30, 14, 11, 11, 20, 10, 22, 22, 16]), "Mapeamento");
+      XLSX.writeFile(wb, "FOLIA_mapeamento_estruturas_" + hoje() + ".xlsx"); toast("Mapeamento gerado.");
+    }
   });
 
   // =====================================================================
@@ -526,7 +871,7 @@
     }).sort(function (a, b) { return String(b.numero).localeCompare(String(a.numero)); });
     var linhas = lista.map(function (p) {
       var r = calcularSalvo(p);
-      var acoes = '<button class="btn sec peq" data-acao="abrir" data-id="' + p.id + '">' + (podeEditar(p) ? "Abrir / editar" : "Ver") + "</button>" +
+      var acoes = '<button class="btn sec peq" data-acao="abrir" data-id="' + p.id + '">' + (podeEditar(p) ? "Abrir / editar" : (eu.perfil === "fiscal" && podeMarcarLocal(p) ? "Ver / marcar locais" : "Ver")) + "</button>" +
         '<button class="btn peq" data-acao="xlsx" data-id="' + p.id + '">Planilha</button>';
       if (eu.perfil === "gestor") acoes += '<button class="btn sec peq" data-acao="gerir" data-id="' + p.id + '">Gerir</button>';
       if ((eu.perfil === "gestor") || (eu.perfil === "unidade" && p.autorUid === eu.uid && p.status === "rascunho"))
@@ -541,7 +886,7 @@
       '<p class="dica">' + ({
         unidade: "Pedidos da sua unidade. Só o autor edita, e apenas até a aprovação da CLIC. Os colegas da unidade veem os pedidos em modo leitura.",
         gestor: "Todos os pedidos. Use \"Gerir\" para aprovar, emitir a OS, designar fiscais e mudar a situação.",
-        fiscal: "Pedidos para os quais você foi designado como fiscal.", consulta: "Todos os pedidos, somente leitura."
+        fiscal: "Pedidos para os quais você foi designado como fiscal.", consulta: "Todos os pedidos, somente leitura.", governanca: "Todos os pedidos, somente leitura (perfil Governança)."
       })[eu.perfil] + "</p>" +
       '<div class="filtros"><input id="fp-texto" type="search" placeholder="Buscar por número, órgão, evento, município, lote, ata ou fornecedor" value="' + esc(filtroPedidos.texto) + '">' +
       '<select id="fp-status">' + opSt + '</select><button class="btn sec" data-acao="recarregar">Atualizar lista</button></div>' +
@@ -568,14 +913,19 @@
     }
   });
   // Fiscal e consulta não têm a aba de edição: mostram o pedido numa janela
+  var pedidoVisto = null;
   function abrirVisualizacao(p) {
+    pedidoVisto = p;
     var r = calcularSalvo(p);
     modalEl.dataset.tipo = "ver";
     modalEl.innerHTML = '<div class="modal-caixa"><div class="modal-topo"><div><h2>Pedido ' + esc(p.numero) + "</h2><p class=\"dica\" style=\"margin:0\">" + selStatus(p.status) + " · " +
       esc(p.orgao) + " / " + esc(p.unidade) + " · " + esc(p.evento) + " · " + p.dias + " dia(s) · " + esc(rotuloLoteAta(p)) + " · total " + rs(r.total) + "</p></div>" +
       '<button class="btn sec" data-acao="fechar-modal">Fechar</button></div><div class="m-res">' +
       r.estruturas.map(function (e) {
-        return "<h3>" + esc(e.estrutura.nome) + (e.multiplicador > 1 ? " ×" + e.multiplicador : "") + " — " + rs(e.subtotal) + '</h3><table class="tabela"><thead><tr><th>Código</th><th>Descrição</th><th>Und</th><th class="num">Qtd</th><th class="num">Valor</th></tr></thead><tbody>' +
+        var idx = r.estruturas.indexOf(e); var lc = localDe(p, e.estrutura, idx); var pm = podeMarcarLocal(p);
+        return '<div class="ver-est-topo"><h3>' + esc(e.estrutura.nome) + (e.multiplicador > 1 ? " ×" + e.multiplicador : "") + " — " + rs(e.subtotal) + "</h3>" +
+          '<button class="btn sec peq' + (lc ? " local-ok" : "") + '" data-acao="ver-local" data-idx="' + idx + '" title="' + esc(descreverLocal(lc)) + '">' + (lc ? (pm ? "📍 Ver / ajustar local" : "📍 Ver local") : (pm ? "📍 Marcar no mapa" : "📍 Sem local")) + "</button></div>" +
+          (lc ? '<p class="dica" style="margin:0 0 6px">' + esc(descreverLocal(lc)) + "</p>" : "") + '<table class="tabela"><thead><tr><th>Código</th><th>Descrição</th><th>Und</th><th class="num">Qtd</th><th class="num">Valor</th></tr></thead><tbody>' +
           e.linhas.map(function (l) { return l.comp ? '<tr><td class="cod">' + esc(l.item.codigo) + '</td><td class="desc"><div class="clamp">' + esc(l.comp.curta) + "</div></td><td>" + esc(l.comp.unidade) + '</td><td class="num">' + numCurto(l.calc.quantidade) + '</td><td class="num">' + num(l.calc.valor) + "</td></tr>" : ""; }).join("") + "</tbody></table>";
       }).join("") + "</div></div>";
     modalEl.classList.add("aberto"); document.body.style.overflow = "hidden";
@@ -662,6 +1012,14 @@
   // =====================================================================
   function renderLotes() {
     var el = document.getElementById("aba-lotes");
+    if (somenteLeitura()) {
+      el.innerHTML = '<div class="card"><h2>Lotes do Pregão Eletrônico 44/2026</h2><p class="dica">Somente leitura.</p><div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Lote</th><th>Descrição</th><th>Fornecedor</th><th>CNPJ</th><th class="num">Valor referencial</th><th class="num">Desconto</th><th class="num">Valor registrado</th><th>Situação</th><th>Processo SEI</th><th>Ata</th></tr></thead><tbody>' +
+        lotesOrdenados().map(function (l) { var at = ataDoLote(l.id);
+          return '<tr><td class="cod">' + nn(l.numero) + "</td><td>" + esc(l.nome) + "</td><td>" + esc(l.fornecedor || "") + "</td><td>" + esc(l.cnpj || "") + '</td><td class="num">' + num(l.valorReferencial) +
+            '</td><td class="num">' + pct(l.desconto) + '</td><td class="num">' + num(valorFinalLote(l)) + "</td><td>" + esc(l.status || "") + "</td><td>" + esc(l.processoSei || "") + "</td><td>" + (at ? "ARP " + esc(at.numero) : "—") + "</td></tr>";
+        }).join("") + "</tbody></table></div></div>";
+      return;
+    }
     var faltam = D.lotesIniciais.filter(function (s) { return !acharLote(s.id); }).length;
     var opSt = function (sel) { return D.statusLote.map(function (s) { return '<option' + (s === sel ? " selected" : "") + ">" + s + "</option>"; }).join(""); };
     el.innerHTML = '<div class="card"><h2>Lotes do Pregão Eletrônico 44/2026</h2><p class="dica">O desconto de cada pedido vem do lote. Cada lote tem um identificador fixo (lote-01 a lote-36), então não há como cadastrá-lo duas vezes. ' +
@@ -722,6 +1080,14 @@
   var ataEmEdicao = null;
   function renderAtas() {
     var el = document.getElementById("aba-atas");
+    if (somenteLeitura()) {
+      el.innerHTML = '<div class="card"><h2>Atas de Registro de Preços</h2><p class="dica">Somente leitura.</p>' + (atas.length ? '<div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Ata</th><th>Lotes</th><th>Fornecedor</th><th>CNPJ</th><th>Vigência</th><th class="num">Valor registrado</th><th>Situação</th></tr></thead><tbody>' +
+        atas.map(function (at) { var ls = (at.lotes || []).map(acharLote).filter(Boolean); var soma = ls.reduce(function (s, l) { return FoliaCalc.arred(s + (valorFinalLote(l) || 0)); }, 0);
+          return "<tr><td>ARP " + esc(at.numero) + "</td><td>" + ls.map(function (l) { return nn(l.numero); }).join(", ") + "</td><td>" + esc(at.fornecedor) + "</td><td>" + esc(at.cnpj) + "</td><td>" +
+            (at.vigenciaInicio ? dataBR(at.vigenciaInicio) + " a " + dataBR(at.vigenciaFim) : "—") + '</td><td class="num">' + num(soma) + "</td><td>" + (at.ativa === false ? "Desativada" : "Ativa") + "</td></tr>";
+        }).join("") + "</tbody></table></div>" : '<div class="vazio">Nenhuma ata cadastrada.</div>') + "</div>";
+      return;
+    }
     var f = ataEmEdicao || { numero: "", lotes: [], vigenciaInicio: "", vigenciaFim: "" };
     // lotes já presos a outra ata ativa não podem entrar nesta
     var ocupados = {};
@@ -808,6 +1174,13 @@
   // =====================================================================
   function renderUsuarios() {
     var el = document.getElementById("aba-usuarios");
+    if (somenteLeitura()) {
+      el.innerHTML = '<div class="card"><h2>Usuários</h2><p class="dica">Somente leitura.</p><div class="rolagem" style="max-height:none"><table class="tabela"><thead><tr><th>Nome</th><th>E-mail</th><th>Órgão</th><th>Unidade</th><th>Perfil</th><th>Situação</th></tr></thead><tbody>' +
+        usuarios.slice().sort(function (x, y) { return String(x.nome).localeCompare(y.nome); }).map(function (u) {
+          return "<tr><td>" + esc(u.nome) + "</td><td>" + esc(u.email) + "</td><td>" + esc(u.orgao || "") + "</td><td>" + esc(u.unidade || "") + "</td><td>" + esc(PERFIS[u.perfil] || u.perfil) + "</td><td>" + (u.ativo ? "Ativo" : "Pendente/inativo") + "</td></tr>";
+        }).join("") + "</tbody></table></div></div>";
+      return;
+    }
     var lista = usuarios.slice().sort(function (a, b) { return (a.ativo === b.ativo ? 0 : a.ativo ? 1 : -1) || String(a.nome).localeCompare(b.nome); });
     var pend = lista.filter(function (u) { return !u.ativo; }).length;
     el.innerHTML = '<div class="card"><h2>Usuários</h2><p class="dica">Aprove cadastros, defina o perfil e corrija órgão e unidade. Usuários da mesma unidade (mesmo texto) veem os pedidos uns dos outros. ' +
@@ -841,7 +1214,7 @@
   // =====================================================================
   var ACOES = { pedido_criado: "Pedido criado", pedido_enviado: "Pedido enviado", pedido_alterado: "Pedido alterado", pedido_gestao: "Gestão do pedido", pedido_excluido: "Pedido excluído",
     ata_cadastrada: "Ata cadastrada", ata_alterada: "Ata alterada", ata_desativada: "Ata desativada", ata_reativada: "Ata reativada", usuario_alterado: "Usuário alterado",
-    lote_alterado: "Lote alterado", lotes_importados: "Lotes importados" };
+    lote_alterado: "Lote alterado", lotes_importados: "Lotes importados", local_marcado: "Local marcado", local_removido: "Local removido" };
   function renderHistorico() {
     var el = document.getElementById("aba-historico");
     el.innerHTML = '<div class="card"><h2>Histórico de alterações</h2><p class="dica">Últimos 200 registros. O histórico não pode ser editado nem apagado.</p><div id="hist-corpo" class="vazio">Carregando…</div></div>';
